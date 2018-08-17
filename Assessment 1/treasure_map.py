@@ -278,7 +278,8 @@ fixed_path_99 = [['Start', 'Top left', randint(0, 4)]] + \
                 [['East', 1, randint(0, 4)] for step in range(6)]
 
 # If you want to create your own test data sets put them here
-
+# NOTE: Custom testing
+fixed_path_c = [['Start', 'Bottom left', 0], ['West', 1 , 1]]
 #
 #--------------------------------------------------------------------#
 
@@ -503,6 +504,311 @@ def follow_path(path):
                 token3()
             elif path[0][2] == 4:
                 token4()
+# 2nd item in the list
+    if path[1][0] == 'North':
+        setheading(90) # Set the heading of the turtle to face North
+        if path[1][1] == 0:
+            fd(0 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 1:
+            fd(1 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 2:
+            fd(2 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 3:
+            fd(3 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 4:
+            fd(4 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 5:
+            fd(5 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+# End of go north
+# Start of Go south
+    if path[1][0] == 'South':
+        setheading(270) # Set the heading of the turtle to face South
+        if path[1][1] == 0:
+            fd(0 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 1:
+            fd(1 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 2:
+            fd(2 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 3:
+            fd(3 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 4:
+            fd(4 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 5:
+            fd(5 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+# End of going south
+# Go East
+    elif path[1][0] == 'East':
+        setheading(0) # Set the heading of the turtle to face East
+        if path[1][1] == 0:
+            fd(0 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 1:
+            fd(1 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 2:
+            fd(2 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 3:
+            fd(3 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 4:
+            fd(4 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 5:
+            fd(5 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+# End of south
+# Start of West
+    elif path[1][0] == 'West':
+        setheading(180) # Set the heading of the turtle to face West
+        if path[1][1] == 0:
+            fd(0 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 1:
+            fd(1 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 2:
+            fd(2 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 3:
+            fd(3 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 4:
+            fd(4 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+        elif path[1][1] == 5:
+            fd(5 * grid_size)
+            if path[1][2] == 0:
+                token0()
+            elif path[1][2] == 1:
+                token1()
+            elif path[1][2] == 2:
+                token2()
+            elif path[1][2] == 3:
+                token3()
+            elif path[1][2] == 4:
+                token4()
+# End of West
+# End of the 2nd step of the list
 #--------------------------------------------------------------------#
 #
 #  Complete the assignment by replacing the dummy function below with
@@ -548,7 +854,7 @@ title("Things you find at an Ice Rink and Goals, ")
 ### ***** argument to the follow_path function.  Your program must
 ### ***** work for any data set that can be returned by the
 ### ***** random_path function.
-follow_path(fixed_path_0) # <-- used for code development only, not marking
+follow_path(fixed_path_c) # <-- used for code development only, not marking
 # follow_path(random_path()) # <-- used for assessment
 
 # Exit gracefully

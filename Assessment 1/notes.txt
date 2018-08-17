@@ -41,3 +41,320 @@ elif case == object:
           fd(5)
           left(90)
       fd(65)
+
+
+
+_______________________________________________________________________________
+Add 17/08/18 @ 10:15pm
+Using if statements on top of each other to do change the direction of the turtle of the drawing, then move in the direction. NO function yet.
+
+NOTE:: Try and make the path that choose which token is placed in a spot into a function with 3 arguments. i.e. 1st argument: outside_list, 2nd Argument: inside_list. See Example...
+def choose_token(outside_list, inside_list):
+  path[outside_list][inside_list] == inside_list:
+  
+
+
+      # 2nd item in the list
+          if path[1][0] == 'North':
+              setheading(90) # Set the heading of the turtle to face North
+              if path[1][1] == 0:
+                  fd(0 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 1:
+                  fd(1 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 2:
+                  fd(2 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 3:
+                  fd(3 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 4:
+                  fd(4 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 5:
+                  fd(5 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+      # End of go north
+      # Start of Go south
+          if path[1][0] == 'South':
+              setheading(270) # Set the heading of the turtle to face South
+              if path[1][1] == 0:
+                  fd(0 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 1:
+                  fd(1 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 2:
+                  fd(2 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 3:
+                  fd(3 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 4:
+                  fd(4 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 5:
+                  fd(5 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+      # End of going south
+      # Go East
+          elif path[1][0] == 'East':
+              setheading(0) # Set the heading of the turtle to face East
+              if path[1][1] == 0:
+                  fd(0 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 1:
+                  fd(1 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 2:
+                  fd(2 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 3:
+                  fd(3 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 4:
+                  fd(4 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 5:
+                  fd(5 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+      # End of south
+      # Start of West
+          elif path[1][0] == 'West':
+              setheading(180) # Set the heading of the turtle to face West
+              if path[1][1] == 0:
+                  fd(0 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 1:
+                  fd(1 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 2:
+                  fd(2 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 3:
+                  fd(3 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 4:
+                  fd(4 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+              elif path[1][1] == 5:
+                  fd(5 * grid_size)
+                  if path[1][2] == 0:
+                      token0()
+                  elif path[1][2] == 1:
+                      token1()
+                  elif path[1][2] == 2:
+                      token2()
+                  elif path[1][2] == 3:
+                      token3()
+                  elif path[1][2] == 4:
+                      token4()
+___________________________________________________________
