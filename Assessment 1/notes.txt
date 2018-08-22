@@ -51,7 +51,7 @@ Using if statements on top of each other to do change the direction of the turtl
 NOTE:: Try and make the path that choose which token is placed in a spot into a function with 3 arguments. i.e. 1st argument: outside_list, 2nd Argument: inside_list. See Example...
 def choose_token(outside_list, inside_list):
   path[outside_list][inside_list] == inside_list:
-  
+
 
 
       # 2nd item in the list
@@ -358,3 +358,22 @@ def choose_token(outside_list, inside_list):
                   elif path[1][2] == 4:
                       token4()
 ___________________________________________________________
+
+
+# using fuctions to make a simple if statment to reduce code waste
+
+def function(direction, Stepcount, fuctions_token):
+  if direction == start
+    if Stepcount == 'Top left'
+      goto(start_coords['Top left'][0] * 100, start_coords['Top left'][1] * 100)
+    elif Stepcount == 'Bottom left':
+      goto(start_coords['Bottom left'][0] * 100, start_coords['Bottom left'][1] * 100)
+    elif Stepcount == 'Top right':
+      goto(start_coords['Top right'][0] * 100, start_coords['Top right'][1] * 100)
+    elif Stepcount == 'Centre':
+      goto(start_coords['Centre'][0] * 100, start_coords['Centre'][1] * 100)
+    elif Stepcount == 'Bottom right':
+      goto(start_coords['Bottom right'][0] * 100, start_coords['Bottom right'][1] * 100)
+  elif direction == 'North':
+    setheading('north')
+  
