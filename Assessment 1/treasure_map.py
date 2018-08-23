@@ -279,7 +279,7 @@ fixed_path_99 = [['Start', 'Top left', randint(0, 4)]] + \
 
 # If you want to create your own test data sets put them here
 # NOTE: Custom testing
-fixed_path_c = [['Start', 'Bottom left', 0], ['North', 1, 1]]
+fixed_path_c = [['Start', 'Bottom left', 0], ['North', 5, 3]]
 #
 #--------------------------------------------------------------------#
 
@@ -382,34 +382,35 @@ def horizontal_lines_of_the_net(gap_between_lines, langth_of_lines):
 #-----Drawing of tokens----------------------------------------------#
 # NOTE:These are just a fill in
 def token0():
-    up()
     setheading(0)
-    fd(90)
     pencolor('red')
-    down()
     begin_fill()
     circle(50)
     end_fill()
 
 def token1():
+    setheading(0)
     pencolor('green')
     begin_fill()
     circle(50)
     end_fill()
 
 def token2():
+    setheading(0)
     pencolor('yellow')
     begin_fill()
     circle(50)
     end_fill()
 
 def token3():
+    setheading(0)
     pencolor('blue')
     begin_fill()
     circle(50)
     end_fill()
 
 def token4():
+    setheading(0)
     pencolor('black')
     begin_fill()
     circle(10)
@@ -432,19 +433,14 @@ def follow_path(path):
             goto(start_coords['Top left'][0] * 100, start_coords['Top left'][1] * 100)
             if path[0][2] == 0:
                 token0()
-                print('Top left Start token 0') # debug text remove this before handing it in
             elif path[0][2] == 1:
                 token1()
-                print('Top left Start token 1') # debug text remove this before handing it in
             elif path[0][2] == 2:
                 token2()
-                print('Top left Start token 2') # debug text remove this before handing it in
             elif path[0][2] == 3:
                 token3()
-                print('Top left Start token 3') # debug text remove this before handing it in
             elif path[0][2] == 4:
                 token4()
-                print('Top left Start token 4') # debug text remove this before handing it in
     # Go to bottom left of the grid
         elif path[0][1] == 'Bottom left':
             print('Bottom Left')
@@ -453,19 +449,14 @@ def follow_path(path):
             goto(start_coords['Bottom left'][0] * 100, start_coords['Bottom left'][1] * 100)
             if path[0][2] == 0:
                 token0()
-                print('Bottom left Start token 0') # debug text remove this before handing it in
             elif path[0][2] == 1:
                 token1()
-                print('Bottom left Start token 1') # debug text remove this before handing it in
             elif path[0][2] == 2:
                 token2()
-                print('Bottom left Start token 2') # debug text remove this before handing it in
             elif path[0][2] == 3:
                 token3()
-                print('Bottom left Start token 3') # debug text remove this before handing it in
             elif path[0][2] == 4:
                 token4()
-                print('Bottom left Start token 4') # debug text remove this before handing it in
     # Go to top right of the screen
         elif path[0][1] == 'Top right':
             print('Top right')
@@ -474,19 +465,14 @@ def follow_path(path):
             goto(start_coords['Top right'][0] * 100, start_coords['Top right'][1] * 100)
             if path[0][2] == 0:
                 token0()
-                print('Top right Start token 0') # debug text remove this before handing it in
             elif path[0][2] == 1:
                 token1()
-                print('Top right Start token 1') # debug text remove this before handing it in
             elif path[0][2] == 2:
                 token2()
-                print('Top right Start token 2') # debug text remove this before handing it in
             elif path[0][2] == 3:
                 token3()
-                print('Top right Start token 3') # debug text remove this before handing it in
             elif path[0][2] == 4:
                 token4()
-                print('Top right Start token 4') # debug text remove this before handing it in
     # Go to the center of the grid
         elif path[0][1] == 'Centre':
             print('Centre')
@@ -495,19 +481,14 @@ def follow_path(path):
             goto(start_coords['Centre'][0] * 100, start_coords['Centre'][1] * 100)
             if path[0][2] == 0:
                 token0()
-                print('Center Start token 0') # debug text remove this before handing it in
             elif path[0][2] == 1:
                 token1()
-                print('Center Start token 1') # debug text remove this before handing it in
             elif path[0][2] == 2:
                 token2()
-                print('Center Start token 2') # debug text remove this before handing it in
             elif path[0][2] == 3:
                 token3()
-                print('Center Start token 3') # debug text remove this before handing it in
             elif path[0][2] == 4:
                 token4()
-                print('Center Start token 4') # debug text remove this before handing it in
     # Go to the Bottom right of the grid
         elif path[0][1] == 'Bottom right':
             print('Bottom right')
@@ -516,26 +497,21 @@ def follow_path(path):
             goto(start_coords['Bottom right'][0] * 100, start_coords['Bottom right'][1] * 100)
             if path[0][2] == 0:
                 token0()
-                print('Top Right Start token 0') # debug text remove this before handing it in
             elif path[0][2] == 1:
                 token1()
-                print('Top Right Start token 1') # debug text remove this before handing it in
             elif path[0][2] == 2:
                 token2()
-                print('Top Right Start token 2') # debug text remove this before handing it in
             elif path[0][2] == 3:
                 token3()
-                print('Top Right Start token 3') # debug text remove this before handing it in
             elif path[0][2] == 4:
                 token4()
-                print('Top Right Start token 4') # debug text remove this before handing it in
 # 2nd item in the list
     for direction in path:
         print(direction)
         if direction[0] == 'North':
             print(heading())
             setheading(90)
-            for steps in range(5):
+            for steps in range(6):
                 if direction[1] == steps:
                     fd(steps * grid_size)
                     if direction[2] == 0:
@@ -550,8 +526,8 @@ def follow_path(path):
                         token4()
         elif direction[0] == 'East':
             setheading(0)
-            heading()
-            for steps in range(5):
+            print(heading())
+            for steps in range(6):
                 if direction[1] == steps:
                     fd(steps * grid_size)
                     if direction[2] == 0:
@@ -566,8 +542,8 @@ def follow_path(path):
                         token4()
         elif direction[0] == 'South':
             setheading(270)
-            heading()
-            for steps in range(5):
+            print(heading())
+            for steps in range(6):
                 if direction[1] == steps:
                     fd(steps * grid_size)
                     if direction[2] == 0:
@@ -582,8 +558,8 @@ def follow_path(path):
                         token4()
         elif direction[0] == 'West':
             setheading(180)
-            heading()
-            for steps in range(5):
+            print(heading())
+            for steps in range(6):
                 if direction[1] == steps:
                     fd(steps * grid_size)
                     if direction[2] == 0:
@@ -642,8 +618,8 @@ title("Things you find at an Ice Rink and Goals, ")
 ### ***** argument to the follow_path function.  Your program must
 ### ***** work for any data set that can be returned by the
 ### ***** random_path function.
-follow_path(fixed_path_c) # <-- used for code development only, not marking
-# follow_path(random_path()) # <-- used for assessment
+# follow_path(fixed_path_13) # <-- used for code development only, not marking
+follow_path(random_path()) # <-- used for assessment
 
 # Exit gracefully
 # ***** Change the default argument to False if you want the
