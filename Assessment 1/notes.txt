@@ -359,21 +359,23 @@ def choose_token(outside_list, inside_list):
                       token4()
 ___________________________________________________________
 
+ Make a function to reduce repative code.
+ Should never reapeat code examples
+if direction[1] == steps:
+  for steps in range(6);
+            fd(steps * grid_size)
+            if direction[2] == 0:
+                token0()
+            elif direction[2] == 1:
+                token1()
+            elif direction[2] == 2:
+                token2()
+            elif direction[2] == 3:
+                token3()
+            elif direction[2] == 4:
+                token4()x
 
-# using fuctions to make a simple if statment to reduce code waste
 
-def function(direction, Stepcount, fuctions_token):
-  if direction == start
-    if Stepcount == 'Top left'
-      goto(start_coords['Top left'][0] * 100, start_coords['Top left'][1] * 100)
-    elif Stepcount == 'Bottom left':
-      goto(start_coords['Bottom left'][0] * 100, start_coords['Bottom left'][1] * 100)
-    elif Stepcount == 'Top right':
-      goto(start_coords['Top right'][0] * 100, start_coords['Top right'][1] * 100)
-    elif Stepcount == 'Centre':
-      goto(start_coords['Centre'][0] * 100, start_coords['Centre'][1] * 100)
-    elif Stepcount == 'Bottom right':
-      goto(start_coords['Bottom right'][0] * 100, start_coords['Bottom right'][1] * 100)
-  elif direction == 'North':
-    setheading('north')
-  
+TODO List:
+  Draw icons for token
+  adjust the icons to fit into squares

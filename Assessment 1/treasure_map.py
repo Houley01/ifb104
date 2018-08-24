@@ -380,13 +380,45 @@ def horizontal_lines_of_the_net(gap_between_lines, langth_of_lines):
     fd(langth_of_lines)
 
 #-----Drawing of tokens----------------------------------------------#
-# NOTE:These are just a fill in
+#  Token 0 is the shortcut icon for the Ardunio IDE
 def token0():
-    setheading(0)
-    pencolor('red')
+    pensize(1) # makes sure the pen size is set to 1 before drawing the token
+    pencolor('black')
+    fillcolor('blue') # Fill colour for the ardunio icon background
     begin_fill()
     circle(50)
     end_fill()
+    up() # Pen up
+    setheading(90)
+    fd(50) # Forward
+    setheading(0)
+    down() # Pen Down
+    pencolor('white') # Change pen colour to white for the infenty sign
+    setheading(90)
+    pensize(5)
+    circle(20) # Circle drawn to the left inside the blue circle
+    circle(-20) # Circle drawn to the right inside the blue circle
+    up() # Pen up
+    setheading(0)
+    fd(12)
+    down()
+    fd(14.5)
+    bk(7.25)
+    setheading(90)
+    fd(7.25)
+    bk(14.5)
+    fd(7.25)
+    # Move for the negitve sign
+    up() # Pen up
+    setheading(180)
+    fd(31.5)
+    down()
+    fd(14.5)
+    up() # Pen up
+    bk(26.75) # Return the token back to the starting postion 
+    setheading(90)
+    bk(50)
+    pensize(1) # Returns the pen size back to the orginal size for the next token
 
 def token1():
     setheading(0)
@@ -416,7 +448,11 @@ def token4():
     circle(10)
     end_fill()
 # ___________________________________________________________
-# NOTE: Remove this
+# This start coords is used in both bits of Code
+# As it is defined in a function above the code bellow
+# is unable to understand what start_coords is.
+# start_coords examples where the start of the treasure
+# map begins.
 start_coords = {'Top left': [0, num_squares - 1],
                 'Bottom left': [0, 0],
                 'Top right': [num_squares - 1, num_squares - 1],
@@ -424,7 +460,6 @@ start_coords = {'Top left': [0, num_squares - 1],
                 'Bottom right': [num_squares - 1, 0]}
 # ____________________________________________________________#
 def follow_path(path):
-    print(path)
     if path[0][0] == 'Start':
     # GO to the top left of the grid
         if path[0][1] == 'Top left':
