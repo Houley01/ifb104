@@ -279,7 +279,7 @@ fixed_path_99 = [['Start', 'Top left', randint(0, 4)]] + \
 
 # If you want to create your own test data sets put them here
 # NOTE: Custom testing
-fixed_path_c = [['Start', 'Bottom left', 0], ['North', 5, 3]]
+fixed_path_c = [['Start', 'Bottom left', 0], ['North', 4, 1]]
 #
 #--------------------------------------------------------------------#
 
@@ -386,6 +386,7 @@ def token0():
     pencolor('black')
     fillcolor('blue') # Fill colour for the ardunio icon background
     begin_fill()
+    setheading(0)
     circle(50)
     end_fill()
     up() # Pen up
@@ -415,38 +416,90 @@ def token0():
     down()
     fd(14.5)
     up() # Pen up
-    bk(26.75) # Return the token back to the starting postion 
+    bk(26.75) # Return the token back to the starting postion
     setheading(90)
     bk(50)
     pensize(1) # Returns the pen size back to the orginal size for the next token
 
 def token1():
-    setheading(0)
-    pencolor('green')
+    # Token 2 is a LED
+    setheading(90)
+    up()
+    fd(65)
+    fillcolor('green')
     begin_fill()
-    circle(50)
+    down()
+    fd(20)
+    circle(20, extent=180)
+    fd(30)
+    setheading(180)
+    fd(5)
+    setheading(270) # South
+    fd(5)
+    setheading(0)
+    fd(50)
+    setheading(90)
+    fd(5)
+    setheading(180)
+    fd(5)
+    setheading(90)
+    fd(10)
     end_fill()
+    #------------------------------#
+    # metals poles
+    # Metal pole 1
+    up()
+    fillcolor('gray')
+    begin_fill()
+    setheading(250)
+    fd(17)
+    down()
+    setheading(270)
+    fd(65)
+    setheading(180)
+    fd(5)
+    setheading(90)
+    fd(66)
+    setheading(180)
+    end_fill()
+    # metal Pole 2
+    fd(20)
+    begin_fill()
+    setheading(270)
+    fd(60)
+    setheading(0)
+    fd(5)
+    setheading(90)
+    fd(60)
+    end_fill()
+    up()
 
 def token2():
+    down()
     setheading(0)
     pencolor('yellow')
     begin_fill()
     circle(50)
     end_fill()
+    up()
 
 def token3():
+    down()
     setheading(0)
     pencolor('blue')
     begin_fill()
     circle(50)
     end_fill()
+    up()
 
 def token4():
+    down()
     setheading(0)
     pencolor('black')
     begin_fill()
     circle(10)
     end_fill()
+    up()
 # ___________________________________________________________
 # This start coords is used in both bits of Code
 # As it is defined in a function above the code bellow
@@ -463,9 +516,11 @@ def follow_path(path):
     if path[0][0] == 'Start':
     # GO to the top left of the grid
         if path[0][1] == 'Top left':
+            goto(start_coords['Top left'][0] * 100, start_coords['Top left'][1] * 100)
+            setheading(0)
+            fd(50)
             pencolor('pink')
             down()
-            goto(start_coords['Top left'][0] * 100, start_coords['Top left'][1] * 100)
             if path[0][2] == 0:
                 token0()
             elif path[0][2] == 1:
@@ -478,10 +533,11 @@ def follow_path(path):
                 token4()
     # Go to bottom left of the grid
         elif path[0][1] == 'Bottom left':
-            print('Bottom Left')
             pencolor('pink')
-            down()
             goto(start_coords['Bottom left'][0] * 100, start_coords['Bottom left'][1] * 100)
+            setheading(0)
+            fd(50)
+            down()
             if path[0][2] == 0:
                 token0()
             elif path[0][2] == 1:
@@ -494,10 +550,11 @@ def follow_path(path):
                 token4()
     # Go to top right of the screen
         elif path[0][1] == 'Top right':
-            print('Top right')
+            goto(start_coords['Top right'][0] * 100, start_coords['Top right'][1] * 100)
+            setheading(0)
+            fd(50)
             pencolor('pink')
             down()
-            goto(start_coords['Top right'][0] * 100, start_coords['Top right'][1] * 100)
             if path[0][2] == 0:
                 token0()
             elif path[0][2] == 1:
@@ -510,10 +567,11 @@ def follow_path(path):
                 token4()
     # Go to the center of the grid
         elif path[0][1] == 'Centre':
-            print('Centre')
+            goto(start_coords['Centre'][0] * 100, start_coords['Centre'][1] * 100)
+            setheading(0)
+            fd(50)
             pencolor('pink')
             down()
-            goto(start_coords['Centre'][0] * 100, start_coords['Centre'][1] * 100)
             if path[0][2] == 0:
                 token0()
             elif path[0][2] == 1:
@@ -526,10 +584,11 @@ def follow_path(path):
                 token4()
     # Go to the Bottom right of the grid
         elif path[0][1] == 'Bottom right':
-            print('Bottom right')
+            goto(start_coords['Bottom right'][0] * 100, start_coords['Bottom right'][1] * 100)
+            setheading(0)
+            fd(50)
             pencolor('pink')
             down()
-            goto(start_coords['Bottom right'][0] * 100, start_coords['Bottom right'][1] * 100)
             if path[0][2] == 0:
                 token0()
             elif path[0][2] == 1:
@@ -544,7 +603,6 @@ def follow_path(path):
     for direction in path:
         print(direction)
         if direction[0] == 'North':
-            print(heading())
             setheading(90)
             for steps in range(6):
                 if direction[1] == steps:
@@ -653,8 +711,8 @@ title("Things you find at an Ice Rink and Goals, ")
 ### ***** argument to the follow_path function.  Your program must
 ### ***** work for any data set that can be returned by the
 ### ***** random_path function.
-# follow_path(fixed_path_13) # <-- used for code development only, not marking
-follow_path(random_path()) # <-- used for assessment
+follow_path(fixed_path_c) # <-- used for code development only, not marking
+# follow_path(random_path()) # <-- used for assessment
 
 # Exit gracefully
 # ***** Change the default argument to False if you want the
