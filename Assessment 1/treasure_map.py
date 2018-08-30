@@ -279,7 +279,7 @@ fixed_path_99 = [['Start', 'Top left', randint(0, 4)]] + \
 
 # If you want to create your own test data sets put them here
 # NOTE: Custom testing
-fixed_path_c = [['Start', 'Bottom left', 0], ['North', 4, 1]]
+fixed_path_c = [['Start', 'Bottom left', 1], ['North', 1, 0]]
 #
 #--------------------------------------------------------------------#
 
@@ -422,57 +422,62 @@ def token0():
     pensize(1) # Returns the pen size back to the orginal size for the next token
 
 def token1():
-    # Token 2 is a LED
-    setheading(90)
+    # Token 2 Green light emitting diode (LED)
+    pensize(1)
+    pencolor('white')
     up()
-    fd(65)
+    seth(90)
+    fd(32)
+    seth(0)
+    down()
     fillcolor('green')
     begin_fill()
-    down()
-    fd(20)
+    fd(25)
+    seth(90)
+    fd(5)
+    seth(180)
+    fd(5)
+    seth(90)
+    fd(40)
     circle(20, extent=180)
-    fd(30)
-    setheading(180)
+    fd(40)
+    seth(180)
     fd(5)
-    setheading(270) # South
+    seth(270)
     fd(5)
-    setheading(0)
-    fd(50)
-    setheading(90)
-    fd(5)
-    setheading(180)
-    fd(5)
-    setheading(90)
-    fd(10)
+    seth(0)
+    fd(25)
     end_fill()
+    # End of led
     #------------------------------#
     # metals poles
-    # Metal pole 1
     up()
     fillcolor('gray')
     begin_fill()
     setheading(250)
-    fd(17)
+    seth(0)
+    fd(12.5)
+    seth(270)
     down()
-    setheading(270)
-    fd(65)
-    setheading(180)
+    fd(25)
+    seth(180)
     fd(5)
-    setheading(90)
-    fd(66)
-    setheading(180)
-    end_fill()
-    # metal Pole 2
+    seth(90)
+    fd(25)
+    seth(180)
     fd(20)
-    begin_fill()
-    setheading(270)
-    fd(60)
-    setheading(0)
+    seth(270)
+    fd(30)
+    seth(0)
     fd(5)
-    setheading(90)
-    fd(60)
+    seth(90)
+    fd(30)
     end_fill()
     up()
+    seth(0)
+    fd(7.5)
+    seth(270)
+    fd(32)
 
 def token2():
     down()
@@ -486,11 +491,12 @@ def token2():
 def token3():
     down()
     setheading(0)
-    pencolor('blue')
+    pencolor('black')
     begin_fill()
-    circle(50)
+    circle(10)
     end_fill()
     up()
+
 
 def token4():
     down()
