@@ -144,8 +144,19 @@ def create_drawing_canvas():
 
     # Mark the space for drawing the legend
     goto((num_squares * grid_size) + margin, (num_squares * grid_size) // 2)
-    write('    Put your legend here', align = 'left',
+    write('    Electronic', align = 'left',
           font=('Arial', 24, 'normal'))
+    token0()
+    write(' Arduino IDE Icon')
+    token1()
+    write(' Green Light Emitting Diode (LED)')
+    token2()
+    write(' 8 Bit Microcontroller')
+    token3()
+    write(' Triode Transistor')
+    token4()
+    write(' Circuit Board')
+
 
     # Reset everything ready for the student's solution
     pencolor('black')
@@ -279,7 +290,7 @@ fixed_path_99 = [['Start', 'Top left', randint(0, 4)]] + \
 
 # If you want to create your own test data sets put them here
 # NOTE: Custom testing
-fixed_path_c = [['Start', 'Bottom left', 1], ['North', 1, 0]]
+fixed_path_c = [['Start', 'Bottom left', 1], ['North', 1, 0], ['North', 1, 2], ['North', 1, 3]]
 #
 #--------------------------------------------------------------------#
 
@@ -364,21 +375,6 @@ def random_path(print_path = True):
 
 
 #-----Student's Solution---------------------------------------------#
-#------Pre-defined function------------------------------------------#
-def horizontal_lines_of_the_net(gap_between_lines, langth_of_lines):
-    left(90)
-    up()
-    fd(gap_between_lines)
-    down()
-    left(90)
-    fd(langth_of_lines)
-    up()
-    right(90)
-    fd(gap_between_lines)
-    down()
-    right(90)
-    fd(langth_of_lines)
-
 #-----Drawing of tokens----------------------------------------------#
 #  Token 0 is the shortcut icon for the Ardunio IDE
 def token0():
@@ -422,8 +418,8 @@ def token0():
     pensize(1) # Returns the pen size back to the orginal size for the next token
 
 def token1():
-    # Token 2 Green light emitting diode (LED)
-    pensize(1)
+    # Token 2 Green Light Emitting Diode (LED)
+    pensize(1) # makes sure the pen size is set to 1 before drawing the token
     pencolor('white')
     up()
     seth(90)
@@ -480,22 +476,151 @@ def token1():
     fd(32)
 
 def token2():
-    down()
-    setheading(0)
-    pencolor('yellow')
-    begin_fill()
-    circle(50)
-    end_fill()
+    # 8 Bit Microcontroller
+    pensize(1) # makes sure the pen size is set to 1 before drawing the token
+    pencolor('black')
+    # Body
     up()
+    fd(5)
+    fillcolor('black')
+    begin_fill()
+    setheading(0)
+    down()
+    fd(20)
+    seth(90)
+    fd(90)
+    seth(180)
+    fd(40)
+    seth(270)
+    fd(90)
+    seth(0)
+    fd(0)
+    fd(20)
+    end_fill()
+    # Move to the end of the box
+    up()
+    fd(20)
+    seth(90)
+    # 4 Metal pin on the right
+    fillcolor('gray')
+    for pin in range(4): # Repeat this step 4 times
+        up()
+        setheading(90)
+        fd(15)
+        setheading(0)
+        down()
+        begin_fill()
+        fd(10)
+        seth(90)
+        fd(5)
+        seth(180)
+        fd(10)
+        end_fill()
+    # Move to the top left corner
+    up()
+    seth(90)
+    fd(10)
+    seth(180)
+    fd(40)
+    # 4 Mental pins
+    # Right Bottom Pin
+    for pin in range(4): # Repeat this step 4 times
+        up()
+        setheading(270)
+        fd(15)
+        setheading(180)
+        down()
+        begin_fill()
+        fd(10)
+        seth(270)
+        fd(5)
+        seth(0)
+        fd(10)
+        end_fill()
+    # Return to the start of the token.
+    up()
+    seth(270)
+    fd(10)
+    seth(0)
+    fd(15)
+    seth(270)
+    fd(5)
+
 
 def token3():
-    down()
-    setheading(0)
+    # 3 Pin, Triode Transistor
+    pensize(1) # makes sure the pen size is set to 1 before drawing the token
     pencolor('black')
+    up()
+    seth(90)
+    fd(2)
+    seth(180)
+    fd(10)
+    for pin in range(3):
+        up()
+        fillcolor('gray')
+        down()
+        begin_fill()
+        fd(5)
+        setheading(90)
+        fd(40)
+        setheading(0)
+        fd(5)
+        setheading(270)
+        fd(40)
+        end_fill()
+        setheading(0)
+        up()
+        fd(5)
+    # Draw the transistor housing.
+    up()
+    bk(5)
+    seth(90)
+    fd(40)
+    down()
+    fillcolor('black')
     begin_fill()
-    circle(10)
+    seth(0)
+    fd(7)
+    seth(90)
+    fd(40)
+    seth(180)
+    fd(50)
+    seth(270)
+    fd(40)
+    seth(0)
+    fd(50)
+    end_fill()
+    # Draw the transistor heat spreader.
+    fillcolor('gray')
+    seth(90)
+    fd(40)
+    begin_fill()
+    down()
+    fd(18)
+    seth(180)
+    fd(50)
+    seth(270)
+    fd(18)
     end_fill()
     up()
+    # Draw the circle in the heat spreader
+    fillcolor('white')
+    seth(0)
+    fd(25)
+    seth(90)
+    fd(4)
+    down()
+    begin_fill()
+    seth(0)
+    circle(5)
+    end_fill()
+    # Return to the starting postion.
+    up()
+    bk(2)
+    seth(270)
+    fd(86)
+
 
 
 def token4():
@@ -671,6 +796,10 @@ def follow_path(path):
                         token3()
                     elif direction[2] == 4:
                         token4()
+# write
+# goto((num_squares * grid_size) + margin, (num_squares * grid_size) // 2)
+# write('    Put your legend here', align = 'left',
+#       font=('Arial', 24, 'normal'))
 
 #--------------------------------------------------------------------#
 #
@@ -708,7 +837,7 @@ tracer(True)
 # Give the drawing canvas a title
 # ***** Replace this title with a description of your solution's theme
 # ***** and its tokens
-title("Things you find at an Ice Rink and Goals, ")
+title("Things To Do With Electronic, Arduino IDE, Light Emitting Diode (LED), 8-bit Microprocessor, Triode Transistor, Circuit Board")
 
 ### Call the student's function to follow the path
 ### ***** While developing your program you can call the follow_path
