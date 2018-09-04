@@ -155,7 +155,7 @@ def create_drawing_canvas():
     token3()
     write(' Triode Transistor')
     token4()
-    write(' Circuit Board')
+    write(' Push Switch')
 
 
     # Reset everything ready for the student's solution
@@ -290,7 +290,7 @@ fixed_path_99 = [['Start', 'Top left', randint(0, 4)]] + \
 
 # If you want to create your own test data sets put them here
 # NOTE: Custom testing
-fixed_path_c = [['Start', 'Bottom left', 1], ['North', 1, 0], ['North', 1, 2], ['North', 1, 3]]
+fixed_path_c = [['Start', 'Bottom left', 2], ['North', 1, 2], ['East', 1, 2], ['East', 1, 2], ['North', 1, 2], ['West', 1, 2], ['South', 2, 2]]
 #
 #--------------------------------------------------------------------#
 
@@ -481,6 +481,7 @@ def token2():
     pencolor('black')
     # Body
     up()
+    seth(90)
     fd(5)
     fillcolor('black')
     begin_fill()
@@ -539,12 +540,9 @@ def token2():
         end_fill()
     # Return to the start of the token.
     up()
+    fd(20)
     seth(270)
-    fd(10)
-    seth(0)
     fd(15)
-    seth(270)
-    fd(5)
 
 
 def token3():
@@ -624,13 +622,86 @@ def token3():
 
 
 def token4():
+    # Tact switch
+    pensize(1) # makes sure the pen size is set to 1 before drawing the token
+    fillcolor('black')
+    up()
+    seth(90)
+    fd(16)
     down()
-    setheading(0)
-    pencolor('black')
+    seth(0)
     begin_fill()
-    circle(10)
+    fd(40)
+    seth(90)
+    fd(60)
+    seth(180)
+    fd(80)
+    seth(270)
+    fd(60)
+    seth(0)
+    fd(40)
+    end_fill()
+    # Draw the metal pins
+    # Common mental pin
+    up()
+    fd(10)
+    pencolor('black')
+    fillcolor('gray')
+    begin_fill()
+    seth(270)
+    down()
+    fd(10)
+    seth(0)
+    fd(15)
+    seth(90)
+    fd(5)
+    seth(180)
+    fd(10)
+    seth(90)
+    fd(5)
     end_fill()
     up()
+    # Draw Middle metal pin
+    fd(10)
+    seth(0)
+    fd(25)
+    down()
+    begin_fill()
+    fd(10)
+    seth(90)
+    fd(5)
+    seth(180)
+    fd(10)
+    end_fill()
+    up()
+    seth(90)
+    fd(10)
+    fd(10)
+    seth(0)
+    down()
+    # Draw Middle metal pin
+    begin_fill()
+    fd(10)
+    seth(90)
+    fd(5)
+    seth(180)
+    fd(10)
+    end_fill()
+    # Draw the button in for the switch.
+    up()
+    fd(50)
+    seth(90)
+    fd(20)
+    fillcolor('red')
+    begin_fill()
+    down()
+    circle(10 , extent=180)
+    end_fill()
+    # Return home
+    up()
+    fd(76)
+    seth(0)
+    fd(30)
 # ___________________________________________________________
 # This start coords is used in both bits of Code
 # As it is defined in a function above the code bellow
@@ -684,7 +755,6 @@ def follow_path(path):
             goto(start_coords['Top right'][0] * 100, start_coords['Top right'][1] * 100)
             setheading(0)
             fd(50)
-            pencolor('pink')
             down()
             if path[0][2] == 0:
                 token0()
@@ -701,7 +771,6 @@ def follow_path(path):
             goto(start_coords['Centre'][0] * 100, start_coords['Centre'][1] * 100)
             setheading(0)
             fd(50)
-            pencolor('pink')
             down()
             if path[0][2] == 0:
                 token0()
@@ -718,7 +787,6 @@ def follow_path(path):
             goto(start_coords['Bottom right'][0] * 100, start_coords['Bottom right'][1] * 100)
             setheading(0)
             fd(50)
-            pencolor('pink')
             down()
             if path[0][2] == 0:
                 token0()
@@ -732,25 +800,8 @@ def follow_path(path):
                 token4()
 # 2nd item in the list
     for direction in path:
-        print(direction)
-        if direction[0] == 'North':
-            setheading(90)
-            for steps in range(6):
-                if direction[1] == steps:
-                    fd(steps * grid_size)
-                    if direction[2] == 0:
-                        token0()
-                    elif direction[2] == 1:
-                        token1()
-                    elif direction[2] == 2:
-                        token2()
-                    elif direction[2] == 3:
-                        token3()
-                    elif direction[2] == 4:
-                        token4()
-        elif direction[0] == 'East':
+        if direction[0] == 'East':
             setheading(0)
-            print(heading())
             for steps in range(6):
                 if direction[1] == steps:
                     fd(steps * grid_size)
@@ -764,9 +815,8 @@ def follow_path(path):
                         token3()
                     elif direction[2] == 4:
                         token4()
-        elif direction[0] == 'South':
-            setheading(270)
-            print(heading())
+        elif direction[0] == 'North':
+            setheading(90)
             for steps in range(6):
                 if direction[1] == steps:
                     fd(steps * grid_size)
@@ -782,7 +832,6 @@ def follow_path(path):
                         token4()
         elif direction[0] == 'West':
             setheading(180)
-            print(heading())
             for steps in range(6):
                 if direction[1] == steps:
                     fd(steps * grid_size)
@@ -796,10 +845,22 @@ def follow_path(path):
                         token3()
                     elif direction[2] == 4:
                         token4()
-# write
-# goto((num_squares * grid_size) + margin, (num_squares * grid_size) // 2)
-# write('    Put your legend here', align = 'left',
-#       font=('Arial', 24, 'normal'))
+        elif direction[0] == 'South':
+            setheading(270)
+            for steps in range(6):
+                if direction[1] == steps:
+                    fd(steps * grid_size)
+                    if direction[2] == 0:
+                        token0()
+                    elif direction[2] == 1:
+                        token1()
+                    elif direction[2] == 2:
+                        token2()
+                    elif direction[2] == 3:
+                        token3()
+                    elif direction[2] == 4:
+                        token4()
+
 
 #--------------------------------------------------------------------#
 #
@@ -832,12 +893,12 @@ speed('normal')
 # Decide whether or not to show the drawing being done step-by-step
 # ***** Set the following argument to False if you don't want to wait
 # ***** forever while the cursor moves around the screen
-tracer(True)
+tracer(False)
 
 # Give the drawing canvas a title
 # ***** Replace this title with a description of your solution's theme
 # ***** and its tokens
-title("Things To Do With Electronic, Arduino IDE, Light Emitting Diode (LED), 8-bit Microprocessor, Triode Transistor, Circuit Board")
+title("Things To Do With Electronic, Arduino IDE, Light Emitting Diode (LED), 8-bit Microprocessor, Triode Transistor, Push Switch")
 
 ### Call the student's function to follow the path
 ### ***** While developing your program you can call the follow_path
@@ -846,8 +907,8 @@ title("Things To Do With Electronic, Arduino IDE, Light Emitting Diode (LED), 8-
 ### ***** argument to the follow_path function.  Your program must
 ### ***** work for any data set that can be returned by the
 ### ***** random_path function.
-follow_path(fixed_path_c) # <-- used for code development only, not marking
-# follow_path(random_path()) # <-- used for assessment
+# follow_path(fixed_path_c) # <-- used for code development only, not marking
+follow_path(random_path()) # <-- used for assessment
 
 # Exit gracefully
 # ***** Change the default argument to False if you want the
