@@ -395,8 +395,11 @@ def random_path(print_path = True):
 
 #-----Student's Solution---------------------------------------------#
 #-----Drawing of tokens----------------------------------------------#
+list_token = [] # Holds the
+
 #  Token 0 is the shortcut icon for the Ardunio IDE
 def token0():
+    list_token.append(0) # Appending list_token is used to count how many times the token is used in the treasure map.
     pensize(1) # makes sure the pen size is set to 1 before drawing the token
     pencolor('black')
     fillcolor('blue') # Fill colour for the ardunio icon background
@@ -438,6 +441,7 @@ def token0():
 
 def token1():
     # Token 2 Green Light Emitting Diode (LED)
+    list_token.append(1) # Appending list_token is used to count how many times the token is used in the treasure map.
     pensize(1) # makes sure the pen size is set to 1 before drawing the token
     pencolor('white')
     up()
@@ -496,6 +500,7 @@ def token1():
 
 def token2():
     # 8 Bit Microcontroller
+    list_token.append(2) # Appending list_token is used to count how many times the token is used in the treasure map.
     pensize(1) # makes sure the pen size is set to 1 before drawing the token
     pencolor('black')
     # Body
@@ -566,6 +571,7 @@ def token2():
 
 def token3():
     # 3 Pin, Triode Transistor
+    list_token.append(3) # Appending list_token is used to count how many times the token is used in the treasure map.
     pensize(1) # makes sure the pen size is set to 1 before drawing the token
     pencolor('black')
     up()
@@ -641,7 +647,8 @@ def token3():
 
 
 def token4():
-    # Tact switch
+    # Tact switch/Push Switch
+    list_token.append(4) # Appending list_token is used to count how many times the token is used in the treasure map.
     pensize(1) # makes sure the pen size is set to 1 before drawing the token
     fillcolor('black')
     up()
@@ -751,6 +758,7 @@ def follow_path(path):
                 token3()
             elif path[0][2] == 4:
                 token4()
+
     # Go to bottom left of the grid
         elif path[0][1] == 'Bottom left':
             pencolor('pink')
@@ -927,7 +935,28 @@ title("Things To Do With Electronic, Arduino IDE, Light Emitting Diode (LED), 8-
 ### ***** random_path function.
 # follow_path(fixed_path_c) # <-- used for code development only, not marking
 follow_path(random_path()) # <-- used for assessment
+# variable
+token0_count = str(list_token.count(0) -1)
+token1_count = str(list_token.count(1) -1)
+token2_count = str(list_token.count(2) -1)
+token3_count = str(list_token.count(3) -1)
+token4_count = str(list_token.count(4) -1)
 
+
+# __________________________________________________________
+# REMOVE THIS BEOFR SUBMISSION
+print(list_token)
+print('Token 0')
+print(token0_count)
+print('Token 1')
+print(token1_count)
+print('Token 2')
+print(token2_count)
+print('Token 3')
+print(token3_count)
+print('Token 4')
+print(token4_count)
+# __________________________________________________________
 # Exit gracefully
 # ***** Change the default argument to False if you want the
 # ***** cursor (turtle) to remain visible at the end of the
