@@ -143,19 +143,38 @@ def create_drawing_canvas():
               font=('Arial', font_size, 'normal'))
 
     # Mark the space for drawing the legend
-    goto((num_squares * grid_size) + margin, (num_squares * grid_size) // 2)
-    write('    Electronic', align = 'left',
-          font=('Arial', 24, 'normal'))
+    goto(800, 680)
+    pencolor('white')
+    write('    Electronic', align = 'left', font=('Arial', 24, 'normal'))
+    goto(800, 550)
     token0()
-    write(' Arduino IDE Icon')
+    goto(850, 600)
+    pencolor('white')
+    write('  Arduino IDE Icon', align = 'left', font=('Arial', 18, 'normal'))
+
+    goto(800, 450)
     token1()
-    write(' Green Light Emitting Diode (LED)')
+    goto(850, 500)
+    pencolor('white')
+    write('Light Emitting Diode', align = 'left', font=('Arial', 18, 'normal'))
+
+    goto(800, 350)
     token2()
-    write(' 8 Bit Microcontroller')
+    pencolor('white')
+    goto(850, 400)
+    write('8-Bit Microcontroller', align = 'left', font=('Arial', 18, 'normal'))
+
+    goto(800, 250)
     token3()
-    write(' Triode Transistor')
+    pencolor('white')
+    goto(850, 300)
+    write(' Triode Transistor', align = 'left', font=('Arial', 18, 'normal'))
+
+    goto(800, 150)
     token4()
-    write(' Push Switch')
+    pencolor('white')
+    goto(850, 200)
+    write(' Push Switch', align = 'left', font=('Arial', 18, 'normal'))
 
 
     # Reset everything ready for the student's solution
@@ -721,7 +740,6 @@ def follow_path(path):
             goto(start_coords['Top left'][0] * 100, start_coords['Top left'][1] * 100)
             setheading(0)
             fd(50)
-            pencolor('pink')
             down()
             if path[0][2] == 0:
                 token0()
@@ -802,7 +820,7 @@ def follow_path(path):
     for direction in path:
         if direction[0] == 'East':
             setheading(0)
-            for steps in range(6):
+            for steps in range(7):
                 if direction[1] == steps:
                     fd(steps * grid_size)
                     if direction[2] == 0:
@@ -817,7 +835,7 @@ def follow_path(path):
                         token4()
         elif direction[0] == 'North':
             setheading(90)
-            for steps in range(6):
+            for steps in range(7):
                 if direction[1] == steps:
                     fd(steps * grid_size)
                     if direction[2] == 0:
@@ -832,7 +850,7 @@ def follow_path(path):
                         token4()
         elif direction[0] == 'West':
             setheading(180)
-            for steps in range(6):
+            for steps in range(7):
                 if direction[1] == steps:
                     fd(steps * grid_size)
                     if direction[2] == 0:
@@ -847,7 +865,7 @@ def follow_path(path):
                         token4()
         elif direction[0] == 'South':
             setheading(270)
-            for steps in range(6):
+            for steps in range(7):
                 if direction[1] == steps:
                     fd(steps * grid_size)
                     if direction[2] == 0:
