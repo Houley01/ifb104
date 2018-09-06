@@ -142,41 +142,6 @@ def create_drawing_canvas():
         write(str(y_coord), align = 'right',
               font=('Arial', font_size, 'normal'))
 
-    # Mark the space for drawing the legend
-    goto(800, 680)
-    pencolor('white')
-    write('    Electronic', align = 'left', font=('Arial', 24, 'normal'))
-    goto(800, 550)
-    token0()
-    goto(850, 600)
-    pencolor('white')
-    write('  Arduino IDE Icon', align = 'left', font=('Arial', 18, 'normal'))
-
-    goto(800, 450)
-    token1()
-    goto(850, 500)
-    pencolor('white')
-    write('Light Emitting Diode', align = 'left', font=('Arial', 18, 'normal'))
-
-    goto(800, 350)
-    token2()
-    pencolor('white')
-    goto(850, 400)
-    write('8-Bit Microcontroller', align = 'left', font=('Arial', 18, 'normal'))
-
-    goto(800, 250)
-    token3()
-    pencolor('white')
-    goto(850, 300)
-    write(' Triode Transistor', align = 'left', font=('Arial', 18, 'normal'))
-
-    goto(800, 150)
-    token4()
-    pencolor('white')
-    goto(850, 200)
-    write(' Push Switch', align = 'left', font=('Arial', 18, 'normal'))
-
-
     # Reset everything ready for the student's solution
     pencolor('black')
     width(1)
@@ -395,8 +360,10 @@ def random_path(print_path = True):
 
 #-----Student's Solution---------------------------------------------#
 #-----Drawing of tokens----------------------------------------------#
-list_token = [] # Holds the
+list_token = [] # List what tokens have been placed on the treasure map. (USE FOR PART B)
 
+# ____________________________________________________________________________________
+# Draw token 0
 #  Token 0 is the shortcut icon for the Ardunio IDE
 def token0():
     list_token.append(0) # Appending list_token is used to count how many times the token is used in the treasure map.
@@ -439,8 +406,10 @@ def token0():
     bk(50)
     pensize(1) # Returns the pen size back to the orginal size for the next token
 
+# ____________________________________________________________________________________
+# Draw token 1
+# Token 2 Green Light Emitting Diode (LED)
 def token1():
-    # Token 2 Green Light Emitting Diode (LED)
     list_token.append(1) # Appending list_token is used to count how many times the token is used in the treasure map.
     pensize(1) # makes sure the pen size is set to 1 before drawing the token
     pencolor('white')
@@ -492,12 +461,15 @@ def token1():
     seth(90)
     fd(30)
     end_fill()
+    # Return to the start of the token.
     up()
     seth(0)
     fd(7.5)
     seth(270)
     fd(32)
 
+# ____________________________________________________________________________________
+# Draw token 2
 def token2():
     # 8 Bit Microcontroller
     list_token.append(2) # Appending list_token is used to count how many times the token is used in the treasure map.
@@ -568,7 +540,8 @@ def token2():
     seth(270)
     fd(15)
 
-
+# ____________________________________________________________________________________
+# Draw token 3
 def token3():
     # 3 Pin, Triode Transistor
     list_token.append(3) # Appending list_token is used to count how many times the token is used in the treasure map.
@@ -638,14 +611,15 @@ def token3():
     seth(0)
     circle(5)
     end_fill()
-    # Return to the starting postion.
+    # Return to the start of the token.
     up()
     bk(2)
     seth(270)
     fd(86)
 
 
-
+# ____________________________________________________________________________________
+# Draw token 4
 def token4():
     # Tact switch/Push Switch
     list_token.append(4) # Appending list_token is used to count how many times the token is used in the treasure map.
@@ -723,12 +697,12 @@ def token4():
     down()
     circle(10 , extent=180)
     end_fill()
-    # Return home
+    # Return to the start of the token.
     up()
     fd(76)
     seth(0)
     fd(30)
-# ___________________________________________________________
+# ____________________________________________________________________________________
 # This start coords is used in both bits of Code
 # As it is defined in a function above the code bellow
 # is unable to understand what start_coords is.
@@ -739,7 +713,7 @@ start_coords = {'Top left': [0, num_squares - 1],
                 'Top right': [num_squares - 1, num_squares - 1],
                 'Centre': [num_squares // 2, num_squares // 2],
                 'Bottom right': [num_squares - 1, 0]}
-# ____________________________________________________________#
+# ____________________________________________________________________________________
 def follow_path(path):
     if path[0][0] == 'Start':
     # GO to the top left of the grid
@@ -830,7 +804,7 @@ def follow_path(path):
             setheading(0)
             for steps in range(7):
                 if direction[1] == steps:
-                    fd(steps * grid_size)
+                    fd(steps * grid_size) # steps x 100
                     if direction[2] == 0:
                         token0()
                     elif direction[2] == 1:
@@ -933,18 +907,56 @@ title("Things To Do With Electronic, Arduino IDE, Light Emitting Diode (LED), 8-
 ### ***** argument to the follow_path function.  Your program must
 ### ***** work for any data set that can be returned by the
 ### ***** random_path function.
-# follow_path(fixed_path_c) # <-- used for code development only, not marking
+# follow_path(fixed_path_99) # <-- used for code development only, not marking
 follow_path(random_path()) # <-- used for assessment
-# variable
-token0_count = str(list_token.count(0) -1)
-token1_count = str(list_token.count(1) -1)
-token2_count = str(list_token.count(2) -1)
-token3_count = str(list_token.count(3) -1)
-token4_count = str(list_token.count(4) -1)
 
+# ____________________________________________________________________________________
+# Count how many times a token is display in the treasure map.
+token0_count = str(list_token.count(0)) # Count how many times list_token has 0 in it.
+token1_count = str(list_token.count(1)) # Count how many times list_token has 1 in it.
+token2_count = str(list_token.count(2)) # Count how many times list_token has 2 in it.
+token3_count = str(list_token.count(3)) # Count how many times list_token has 3 in it.
+token4_count = str(list_token.count(4)) # Count how many times list_token has 4 in it.
+total_count = len(list_token) # Count the how many items are in the list
+# ____________________________________________________________________________________
+# Display Legend on right side of the screen.
+goto(800, 680)
+pencolor('black')
+write('      Electronic', align = 'left', font=('Arial', 24, 'normal'))
+write(total_count, align = 'left', font=('Arial', 24, 'normal')) # Write how many tokens are displayed in the TREASURE MAP
+goto(800, 550)
+token0()
+goto(855, 600)
+pencolor('black')
+write('      Arduino IDE', align = 'left', font=('Arial', 18, 'normal'))
+write(token0_count, align = 'left', font=('Arial', 18, 'normal')) # Write how many times token 0 is display on screen
+goto(800, 450)
+token1()
+goto(850, 500)
+pencolor('black')
+write('      LED', align = 'left', font=('Arial', 18, 'normal'))
+write(token1_count, align = 'left', font=('Arial', 18, 'normal')) # Write how many times token 1 is display on screen
+goto(800, 350)
+token2()
+pencolor('black')
+goto(850, 400)
+write('     8-Bit Microcontroller', align = 'left', font=('Arial', 18, 'normal'))
+write(token2_count, align = 'left', font=('Arial', 18, 'normal')) # Write how many times token 2 is display on screen
+goto(800, 250)
+token3()
+pencolor('black')
+goto(850, 300)
+write('      Triode Transistor', align = 'left', font=('Arial', 18, 'normal'))
+write(token3_count, align = 'left', font=('Arial', 18, 'normal')) # Write how many times token 3 is display on screen
+goto(800, 150)
+token4()
+pencolor('black')
+goto(852, 200)
+write('      Push Switch', align = 'left', font=('Arial', 18, 'normal'))
+write(token4_count, align = 'left', font=('Arial', 18, 'normal')) # Write how many times token 4 is display on screen
 
 # __________________________________________________________
-# REMOVE THIS BEOFR SUBMISSION
+# REMOVE THIS before SUBMISSION
 print(list_token)
 print('Token 0')
 print(token0_count)
@@ -956,6 +968,8 @@ print('Token 3')
 print(token3_count)
 print('Token 4')
 print(token4_count)
+print('total')
+print(total_count)
 # __________________________________________________________
 # Exit gracefully
 # ***** Change the default argument to False if you want the
