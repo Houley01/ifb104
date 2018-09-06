@@ -702,6 +702,8 @@ def token4():
     fd(76)
     seth(0)
     fd(30)
+#  End of drawing tokens
+
 # ____________________________________________________________________________________
 # This start coords is used in both bits of Code
 # As it is defined in a function above the code bellow
@@ -720,7 +722,7 @@ def follow_path(path):
         if path[0][1] == 'Top left':
             goto(start_coords['Top left'][0] * 100, start_coords['Top left'][1] * 100)
             setheading(0)
-            fd(50)
+            fd(50) # Move forward 50 due to tokens start from the center of the grid square.
             down()
             if path[0][2] == 0:
                 token0()
@@ -735,11 +737,11 @@ def follow_path(path):
 
     # Go to bottom left of the grid
         elif path[0][1] == 'Bottom left':
-            pencolor('pink')
             goto(start_coords['Bottom left'][0] * 100, start_coords['Bottom left'][1] * 100)
             setheading(0)
-            fd(50)
+            fd(50) # Move forward 50 due to tokens start from the center of the grid square.
             down()
+            # Pick which token is wanted from 0 to 4
             if path[0][2] == 0:
                 token0()
             elif path[0][2] == 1:
@@ -754,8 +756,9 @@ def follow_path(path):
         elif path[0][1] == 'Top right':
             goto(start_coords['Top right'][0] * 100, start_coords['Top right'][1] * 100)
             setheading(0)
-            fd(50)
+            fd(50) # Move forward 50 due to tokens start from the center of the grid square.
             down()
+            # Pick which token is wanted from 0 to 4
             if path[0][2] == 0:
                 token0()
             elif path[0][2] == 1:
@@ -770,8 +773,9 @@ def follow_path(path):
         elif path[0][1] == 'Centre':
             goto(start_coords['Centre'][0] * 100, start_coords['Centre'][1] * 100)
             setheading(0)
-            fd(50)
+            fd(50) # Move forward 50 due to tokens start from the center of the grid square.
             down()
+            # Pick which token is wanted from 0 to 4
             if path[0][2] == 0:
                 token0()
             elif path[0][2] == 1:
@@ -786,8 +790,9 @@ def follow_path(path):
         elif path[0][1] == 'Bottom right':
             goto(start_coords['Bottom right'][0] * 100, start_coords['Bottom right'][1] * 100)
             setheading(0)
-            fd(50)
-            down()
+            fd(50) # Move forward 50 due to tokens start from the center of the grid square.
+            down() # Pen down
+            # Pick which token is wanted from 0 to 4
             if path[0][2] == 0:
                 token0()
             elif path[0][2] == 1:
@@ -799,10 +804,10 @@ def follow_path(path):
             elif path[0][2] == 4:
                 token4()
 # 2nd item in the list
-    for direction in path:
+    for direction in path: # Start looping throught the list of list
         if direction[0] == 'East':
             setheading(0)
-            for steps in range(7):
+            for steps in range(7): # for x amount of steps in the range of 0 to 6
                 if direction[1] == steps:
                     fd(steps * grid_size) # steps x 100
                     if direction[2] == 0:
@@ -817,9 +822,9 @@ def follow_path(path):
                         token4()
         elif direction[0] == 'North':
             setheading(90)
-            for steps in range(7):
+            for steps in range(7): # for x amount of steps in the range of 0 to 6
                 if direction[1] == steps:
-                    fd(steps * grid_size)
+                    fd(steps * grid_size) # x times 100
                     if direction[2] == 0:
                         token0()
                     elif direction[2] == 1:
@@ -832,9 +837,9 @@ def follow_path(path):
                         token4()
         elif direction[0] == 'West':
             setheading(180)
-            for steps in range(7):
+            for steps in range(7): # for x amount of steps in the range of 0 to 6
                 if direction[1] == steps:
-                    fd(steps * grid_size)
+                    fd(steps * grid_size) # x times 100
                     if direction[2] == 0:
                         token0()
                     elif direction[2] == 1:
@@ -847,8 +852,8 @@ def follow_path(path):
                         token4()
         elif direction[0] == 'South':
             setheading(270)
-            for steps in range(7):
-                if direction[1] == steps:
+            for steps in range(7): # for x amount of steps in the range of 0 to 6
+                if direction[1] == steps: # x times 100
                     fd(steps * grid_size)
                     if direction[2] == 0:
                         token0()
