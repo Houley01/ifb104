@@ -1,0 +1,745 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <title>User XP Hiscores - RuneClan</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+  <meta name="keywords" content="runescape, xp tracker, xp tracking, rs tracker, gaming, clans, hiscores, user hiscores, experience, daily, overall" />
+
+  <meta name="description" content="RuneClan offers xp tracking & tools which help you manage your RuneScape clan." />
+  <link rel="shortcut icon" href="https://www.runeclan.com/favicon_rc.ico" />
+  <link rel="stylesheet" type="text/css" href="http://www.runeclan.com/templates/default/style37.css" />
+  <script type="text/javascript" src="http://www.runeclan.com/templates/default/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="http://www.runeclan.com/templates/default/rc_javascript11.js"></script>
+  <script type="text/javascript" src="http://www.runeclan.com/templates/default/BlockAdBlock/blockadblock.js"></script>
+
+  <script type="text/javascript">
+    // Function called if AdBlock is not detected
+    function adBlockNotDetected() {}
+    // Function called if AdBlock is detected
+    function adBlockDetected() {
+      document.getElementById('adinfonotice').style.display = 'block';
+    }
+
+    if (typeof blockAdBlock === 'undefined') {
+      adBlockDetected();
+    } else {
+      blockAdBlock.on(true, adBlockDetected).onNotDetected(adBlockNotDetected);
+    }
+  </script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+  <div class="header_spacer"></div>
+  <div class="header_bar">
+    <div style="float:left;padding:7px;">24 members | 165 guests online</div>
+    <div style="float:right;padding:3px;"><a href="http://www.runeclan.com/" class="button medium blue bluebutton">Login</a> <a href="http://www.runeclan.com/join" class="button medium blue bluebutton">New Account</a> </div>
+    <div style="clear:both;"></div>
+  </div>
+
+  <div class="cookies">Some features on our site require the use of cookies. These allow us to keep you logged in etc. <form action="/xp-tracker" method="post"><input type="submit" name="cookies" value="Dismiss" /></form>
+  </div>
+  <div class="adinfonotice" id="adinfonotice">It looks like you're using an adblocker. We rely on ads and donations to fund the site. We won't force you to view the ads, but we'd really appreciate if you whitelisted us. <form action="/xp-tracker"
+      method="post"><input type="submit" name="adnotice" value="Dismiss" /></form>
+  </div>
+
+
+  <div class="header">
+
+
+    <a href="/"><div class="logo"></div></a>
+
+    <div class="version_wrap">
+      <div class="version_select version_selected"><a href="http://www.runeclan.com/" class="whitelink">RuneScape 3</a></div>
+      <div class="version_select"><a href="http://oldschool.runeclan.com/" class="whitelink">Old School</a></div>
+    </div>
+
+    <div class="header_right">
+
+
+    </div>
+    <div style="clear:both;"></div>
+  </div>
+
+
+
+  <div class="wrapper">
+
+    <div class="topnav_wrap">
+
+      <div class="topnav_left">
+        <div style="position:relative;float:left;" id="clan_tracking_wrap" onmouseleave="hoverMenuOff()">
+          <div class="topnav_sub" id="clan_tracking_sub"><a href="/clans" style="font-size:22px;margin-top:4px;display:inline-block;" class="topnav_sub_b topnav">Clan List</a><br /><a href="/hiscores" style="font-size:22px;margin-top:4px;display:inline-block;" class="topnav_sub_b topnav">Clan Hiscores</a><br /></div><a href="/hiscores" style="float:left;" class="topnav" onmouseover="hoverMenuOn('clan_tracking')">Clan Tracker</a></div>
+          <div style="position:relative;float:left;" id="user_tracking_wrap" onmouseleave="hoverMenuOff()">
+            <div class="topnav_sub" id="user_tracking_sub"><a href="/xp-tracker" style="font-size:22px;margin-top:4px;display:inline-block;" class="topnav_sub_b topnav">User Hiscores</a><br /><a href="/user-records" style="font-size:22px;margin-top:4px;display:inline-block;" class="topnav_sub_b topnav">User Records</a><br /></div><a href="/xp-tracker" style="float:left;" class="topnav" onmouseover="hoverMenuOn('user_tracking')">User Tracker</a></div>
+            <div style="position:relative;float:left;" id="ge-database_wrap"><a href="/ge-database" style="float:left;" class="topnav">Grand Exchange</a></div>
+            <div style="position:relative;float:left;" id="forums_wrap"><a href="http://forums.runeclan.com/" style="float:left;" class="topnav">Forums</a></div>
+          </div>
+
+          <div class="topnav_right">
+          </div>
+
+          <div style="clear:both;"></div>
+
+        </div>
+
+        <div class="page_content">
+
+          <div class="breadcrumb">
+            <div class="breadcrumb_l"><a href="/">Home</a> → User XP Tracking</div>
+            <div style="float:right;">Clan update in progress | Day ends in 2 minutes <form action="http://www.runeclan.com/search" id="cse-search-box">
+                <div style="display:inline;">
+                  <input type="hidden" name="cx" value="partner-pub-0006604715530158:8803671278" />
+                  <input type="hidden" name="cof" value="FORID:10" />
+                  <input type="hidden" name="ie" value="UTF-8" />
+                  <input type="text" name="q" size="20" />
+                  <input type="submit" name="sa" value="Search" />
+  </div>
+              </form>
+
+              <script type="text/javascript" src="http://www.google.co.uk/coop/cse/brand?form=cse-search-box&lang=en"></script>
+
+            </div>
+            <div style="clear:both;"></div>
+          </div>
+          <div class="hiscores_wrap">
+            <div class="box">
+              <div class="box_title"><span style="float:left;">User Hiscores & XP Tracking</span><span style="float:right;"><input type="button" value="Request RSN Change" onclick="window.location.href='/account/name-change';" /></span>
+                <div style="clear:both;"></div>
+              </div>
+              <div class="box_content">
+                <table width="100%">
+                  <tr>
+                    <td width="10%" class="clan_hs_tleft" valign="top">
+                      <div class="clan_trk_tleft">
+                        <div class="clan_trk_skb clan_trk_skb_sel" style="background-image:url(http://www.runeclan.com/images/skills/overall.png)"><a href="/xp-tracker/?skill=2">Overall</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/attack.png)"><a href="/xp-tracker/?skill=3">Attack</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/defence.png)"><a href="/xp-tracker/?skill=4">Defence</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/strength.png)"><a href="/xp-tracker/?skill=5">Strength</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/constitution.png)"><a href="/xp-tracker/?skill=6">Constitution</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/ranged.png)"><a href="/xp-tracker/?skill=7">Ranged</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/prayer.png)"><a href="/xp-tracker/?skill=8">Prayer</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/magic.png)"><a href="/xp-tracker/?skill=9">Magic</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/cooking.png)"><a href="/xp-tracker/?skill=10">Cooking</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/woodcutting.png)"><a href="/xp-tracker/?skill=11">Woodcutting</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/fletching.png)"><a href="/xp-tracker/?skill=12">Fletching</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/fishing.png)"><a href="/xp-tracker/?skill=13">Fishing</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/firemaking.png)"><a href="/xp-tracker/?skill=14">Firemaking</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/crafting.png)"><a href="/xp-tracker/?skill=15">Crafting</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/smithing.png)"><a href="/xp-tracker/?skill=16">Smithing</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/mining.png)"><a href="/xp-tracker/?skill=17">Mining</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/herblore.png)"><a href="/xp-tracker/?skill=18">Herblore</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/agility.png)"><a href="/xp-tracker/?skill=19">Agility</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/thieving.png)"><a href="/xp-tracker/?skill=20">Thieving</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/slayer.png)"><a href="/xp-tracker/?skill=21">Slayer</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/farming.png)"><a href="/xp-tracker/?skill=22">Farming</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/runecrafting.png)"><a href="/xp-tracker/?skill=23">Runecrafting</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/hunter.png)"><a href="/xp-tracker/?skill=24">Hunter</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/construction.png)"><a href="/xp-tracker/?skill=25">Construction</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/summoning.png)"><a href="/xp-tracker/?skill=26">Summoning</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/dungeoneering.png)"><a href="/xp-tracker/?skill=27">Dungeoneering</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/divination.png)"><a href="/xp-tracker/?skill=28">Divination</a></div>
+                        <div class="clan_trk_skb" style="background-image:url(http://www.runeclan.com/images/skills/invention.png)"><a href="/xp-tracker/?skill=29">Invention</a></div>
+                        <div style="clear:both;"></div>
+                        <div class="hi_sky fixedElement" style="width:160px;">
+                          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+                          <!-- RuneClan Header -->
+
+                          <ins class="adsbygoogle"
+
+			 style="display:inline-block;width:120px;height:600px"
+
+			 data-ad-client="ca-pub-0006604715530158"
+
+			 data-ad-slot="1440482073"></ins>
+
+                          <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                          </script>
+                        </div>
+                        <script type="text/javascript">
+                          $(window).scroll(function(e) {
+                            var $el = $('.fixedElement');
+                            var isPositionFixed = ($el.css('position') == 'fixed');
+                            var newHeight = -250 + ($(document).height() - ($(window).scrollTop() + $(window).height()));
+                            if ($(window).scrollTop() + $(window).height() > $(document).height() - 300) {
+                              $('.fixedElement').css({
+                                'position': 'fixed',
+                                'top': newHeight + 'px'
+                              });
+                            }
+                            if ($(this).scrollTop() > 900 && !isPositionFixed) {
+                              $('.fixedElement').css({
+                                'position': 'fixed',
+                                'top': '0px'
+                              });
+                            }
+                            if ($(this).scrollTop() < 900 && isPositionFixed) {
+                              $('.fixedElement').css({
+                                'position': 'static',
+                                'top': '0px'
+                              });
+                            }
+                          });
+                        </script>
+                    </td>
+                    <td width="90%" valign="top" style="border-spacing:0px;">
+                      <div class="adlgleaderboard">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+                        <!-- RuneClan Header2 -->
+
+                        <ins class="adsbygoogle"
+
+				 style="display:inline-block;width:728px;height:90px"
+
+				 data-ad-client="ca-pub-0006604715530158"
+
+				 data-ad-slot="3972669271"></ins>
+
+                        <script>
+
+                          (adsbygoogle = window.adsbygoogle || []).push({});
+
+				 </script>
+                      </div>
+                      <div class="xp_tracker_user_h">Track User: <form action="/xp-tracker" method="post"><input type="text" name="rsn"> <input type="submit" value="Enter" style="font-weight:bold;"></form>
+                      </div>
+                      <div class="clan_trk_wrap"><span class="clan_trk_title">User Hiscores: <img src="http://www.runeclan.com/images/skills/overall.png" alt="Overall" /> Overall</span>
+                        <div class="pagination">
+                          <div class="pagination_page">Page 1 of 400</div>
+                          <div class="pagination_select"><span class="disabled">« previous</span><span class="current">1</span><a href="/xp-tracker/2?skill=2">2</a><a href="/xp-tracker/3?skill=2">3</a><a href="/xp-tracker/4?skill=2">4</a><a href="/xp-tracker/5?skill=2">5</a><a href="/xp-tracker/6?skill=2">6</a><a href="/xp-tracker/7?skill=2">7</a>...<a href="/xp-tracker/399?skill=2">399</a><a href="/xp-tracker/400?skill=2">400</a><a href="/xp-tracker/2?skill=2">next »</a></div>
+                          <div style="clear:both;"></div>
+                        </div>
+                        <table width="100%" cellpadding="0" cellspacing="0" class="regular">
+                          <tr>
+                            <th width="8%">Rank</th>
+                            <th width="17%">Name</th>
+                            <th width="13%" class="clan_trk_th">Today <a href="?skill=2&sort_by=today&order=asc"><img src="/templates/default/images/arrow-asc.gif" class="arrow_inactive" alt="Sort" /></a><img src="/templates/default/images/arrow-desc.gif" alt="Sort" /></th>
+                            <th width="14%" class="clan_trk_th">Y'day <a href="?skill=2&sort_by=yesterday&order=asc"><img src="/templates/default/images/arrow-asc.gif" class="arrow_inactive" alt="Sort" /></a><a href="?skill=2&sort_by=yesterday&order=desc"><img src="/templates/default/images/arrow-desc.gif" class="arrow_inactive" alt="Sort" /></a></th>
+                            <th width="15%" class="clan_trk_th">Week <a href="?skill=2&sort_by=week&order=asc"><img src="/templates/default/images/arrow-asc.gif" class="arrow_inactive" alt="Sort" /></a><a href="?skill=2&sort_by=week&order=desc"><img src="/templates/default/images/arrow-desc.gif" class="arrow_inactive" alt="Sort" /></a></th>
+                            <th width="15%" class="clan_trk_th">Month <a href="?skill=2&sort_by=month&order=asc"><img src="/templates/default/images/arrow-asc.gif" class="arrow_inactive" alt="Sort" /></a><a href="?skill=2&sort_by=month&order=desc"><img src="/templates/default/images/arrow-desc.gif" class="arrow_inactive" alt="Sort" /></a></th>
+                            <th width="18%" class="clan_trk_th">DXP Weekend <a href="?skill=2&sort_by=double_xp_weekend&order=asc"><img src="/templates/default/images/arrow-asc.gif" class="arrow_inactive" alt="Sort" /></a><a href="?skill=2&sort_by=double_xp_weekend&order=desc"><img src="/templates/default/images/arrow-desc.gif" class="arrow_inactive" alt="Sort" /></a></th>
+                          </tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">1</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Ragger);"><a href="/user/Ragger" name="1">Ragger</a></td>
+                            <td class="clan_td clan_xpgain_trk">33,748,008</td>
+                            <td class="clan_td clan_xpgain_trk">1,240,272</td>
+                            <td class="clan_td clan_xpgain_trk">40,719,264</td>
+                            <td class="clan_td clan_xpgain_trk">107,075,022</td>
+                            <td class="clan_td clan_xpgain_trk">73,055,888</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">2</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Mad+scary);"><a href="/user/Mad+scary" name="2">Mad scary</a></td>
+                            <td class="clan_td clan_xpgain_trk">32,449,843</td>
+                            <td class="clan_td clan_xpgain_trk">5,230,040</td>
+                            <td class="clan_td clan_xpgain_trk">37,679,883</td>
+                            <td class="clan_td clan_xpgain_trk">87,866,551</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">3</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Lady+Leah);"><a href="/user/Lady+Leah" name="3">Lady Leah</a></td>
+                            <td class="clan_td clan_xpgain_trk">28,348,910</td>
+                            <td class="clan_td clan_xpgain_trk">3,074,557</td>
+                            <td class="clan_td clan_xpgain_trk">33,326,574</td>
+                            <td class="clan_td clan_xpgain_trk">120,396,980</td>
+                            <td class="clan_td clan_xpgain_trk">67,839,262</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">4</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Shichi);"><a href="/user/Shichi" name="4">Shichi</a></td>
+                            <td class="clan_td clan_xpgain_trk">22,411,370</td>
+                            <td class="clan_td clan_xpgain_trk">20,691,634</td>
+                            <td class="clan_td clan_xpgain_trk">63,270,527</td>
+                            <td class="clan_td clan_xpgain_trk">121,532,564</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">5</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Le+Sara);"><a href="/user/Le+Sara" name="5">Le Sara</a></td>
+                            <td class="clan_td clan_xpgain_trk">22,164,817</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                            <td class="clan_td clan_xpgain_trk">26,859,583</td>
+                            <td class="clan_td clan_xpgain_trk">130,106,706</td>
+                            <td class="clan_td clan_xpgain_trk">49,524,094</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">6</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Midas);"><a href="/user/Midas" name="6">Midas</a></td>
+                            <td class="clan_td clan_xpgain_trk">21,966,715</td>
+                            <td class="clan_td clan_xpgain_trk">3,181,362</td>
+                            <td class="clan_td clan_xpgain_trk">37,598,881</td>
+                            <td class="clan_td clan_xpgain_trk">267,768,585</td>
+                            <td class="clan_td clan_xpgain_trk">151,525,662</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">7</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Dark+R1d3r);"><a href="/user/Dark+R1d3r" name="7">Dark R1d3r</a></td>
+                            <td class="clan_td clan_xpgain_trk">19,417,240</td>
+                            <td class="clan_td clan_xpgain_trk">4,124,362</td>
+                            <td class="clan_td clan_xpgain_trk">24,649,080</td>
+                            <td class="clan_td clan_xpgain_trk">170,438,727</td>
+                            <td class="clan_td clan_xpgain_trk">72,602,997</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">8</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Jornal+velho);"><a href="/user/Jornal+velho" name="8">Jornal velho</a></td>
+                            <td class="clan_td clan_xpgain_trk">19,194,653</td>
+                            <td class="clan_td clan_xpgain_trk">9,969,155</td>
+                            <td class="clan_td clan_xpgain_trk">45,676,060</td>
+                            <td class="clan_td clan_xpgain_trk">55,975,339</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">9</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Cofi);"><a href="/user/Cofi" name="9">Cofi</a></td>
+                            <td class="clan_td clan_xpgain_trk">18,857,975</td>
+                            <td class="clan_td clan_xpgain_trk">1,628,249</td>
+                            <td class="clan_td clan_xpgain_trk">25,137,099</td>
+                            <td class="clan_td clan_xpgain_trk">144,230,212</td>
+                            <td class="clan_td clan_xpgain_trk">83,051,802</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">10</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Reaper+Bro);"><a href="/user/Reaper+Bro" name="10">Reaper Bro</a></td>
+                            <td class="clan_td clan_xpgain_trk">18,386,598</td>
+                            <td class="clan_td clan_xpgain_trk">20,754,205</td>
+                            <td class="clan_td clan_xpgain_trk">56,498,738</td>
+                            <td class="clan_td clan_xpgain_trk">240,685,875</td>
+                            <td class="clan_td clan_xpgain_trk">162,729,698</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">11</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=TacKerz);"><a href="/user/TacKerz" name="11">TacKerz</a></td>
+                            <td class="clan_td clan_xpgain_trk">18,034,222</td>
+                            <td class="clan_td clan_xpgain_trk">5,496,660</td>
+                            <td class="clan_td clan_xpgain_trk">40,892,629</td>
+                            <td class="clan_td clan_xpgain_trk">173,959,827</td>
+                            <td class="clan_td clan_xpgain_trk">39,267,242</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">12</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Arrowfury504);"><a href="/user/Arrowfury504" name="12">Arrowfury504</a></td>
+                            <td class="clan_td clan_xpgain_trk">17,976,694</td>
+                            <td class="clan_td clan_xpgain_trk">2,970,147</td>
+                            <td class="clan_td clan_xpgain_trk">23,946,411</td>
+                            <td class="clan_td clan_xpgain_trk">134,503,816</td>
+                            <td class="clan_td clan_xpgain_trk">60,315,335</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">13</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=BoneRunner);"><a href="/user/BoneRunner" name="13">BoneRunner</a></td>
+                            <td class="clan_td clan_xpgain_trk">17,797,230</td>
+                            <td class="clan_td clan_xpgain_trk">19,276,201</td>
+                            <td class="clan_td clan_xpgain_trk">48,964,987</td>
+                            <td class="clan_td clan_xpgain_trk">116,629,209</td>
+                            <td class="clan_td clan_xpgain_trk">23,763,125</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">14</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Pay2Playme);"><a href="/user/Pay2Playme" name="14">Pay2Playme</a></td>
+                            <td class="clan_td clan_xpgain_trk">17,768,603</td>
+                            <td class="clan_td clan_xpgain_trk">7,260,562</td>
+                            <td class="clan_td clan_xpgain_trk">33,443,552</td>
+                            <td class="clan_td clan_xpgain_trk">89,121,958</td>
+                            <td class="clan_td clan_xpgain_trk">44,726,304</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">15</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Mark+DTD);"><a href="/user/Mark+DTD" name="15">Mark DTD</a></td>
+                            <td class="clan_td clan_xpgain_trk">17,659,073</td>
+                            <td class="clan_td clan_xpgain_trk">9,113,466</td>
+                            <td class="clan_td clan_xpgain_trk">29,011,356</td>
+                            <td class="clan_td clan_xpgain_trk">105,072,821</td>
+                            <td class="clan_td clan_xpgain_trk">24,704,898</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">16</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Fugglenuts);"><a href="/user/Fugglenuts" name="16">Fugglenuts</a></td>
+                            <td class="clan_td clan_xpgain_trk">17,655,414</td>
+                            <td class="clan_td clan_xpgain_trk">10,159,288</td>
+                            <td class="clan_td clan_xpgain_trk">32,114,468</td>
+                            <td class="clan_td clan_xpgain_trk">63,391,130</td>
+                            <td class="clan_td clan_xpgain_trk">25,108,193</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">17</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=CupCak3Ninja);"><a href="/user/CupCak3Ninja" name="17">CupCak3Ninja</a></td>
+                            <td class="clan_td clan_xpgain_trk">17,642,955</td>
+                            <td class="clan_td clan_xpgain_trk">15,438,994</td>
+                            <td class="clan_td clan_xpgain_trk">47,478,884</td>
+                            <td class="clan_td clan_xpgain_trk">143,449,412</td>
+                            <td class="clan_td clan_xpgain_trk">21,675,279</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">18</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=nukedumy);"><a href="/user/nukedumy" name="18">nukedumy</a></td>
+                            <td class="clan_td clan_xpgain_trk">17,495,285</td>
+                            <td class="clan_td clan_xpgain_trk">15,294,718</td>
+                            <td class="clan_td clan_xpgain_trk">49,757,931</td>
+                            <td class="clan_td clan_xpgain_trk">158,901,508</td>
+                            <td class="clan_td clan_xpgain_trk">37,467,472</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">19</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=VladMcDoogle);"><a href="/user/VladMcDoogle" name="19">VladMcDoogle</a></td>
+                            <td class="clan_td clan_xpgain_trk">17,053,503</td>
+                            <td class="clan_td clan_xpgain_trk">5,116,650</td>
+                            <td class="clan_td clan_xpgain_trk">28,790,080</td>
+                            <td class="clan_td clan_xpgain_trk">243,980,239</td>
+                            <td class="clan_td clan_xpgain_trk">86,642,475</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">20</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Escada+Afk);"><a href="/user/Escada+Afk" name="20">Escada Afk</a></td>
+                            <td class="clan_td clan_xpgain_trk">17,022,440</td>
+                            <td class="clan_td clan_xpgain_trk">6,112,613</td>
+                            <td class="clan_td clan_xpgain_trk">24,362,303</td>
+                            <td class="clan_td clan_xpgain_trk">178,897,039</td>
+                            <td class="clan_td clan_xpgain_trk">122,368,248</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">21</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=BluePentagon);"><a href="/user/BluePentagon" name="21">BluePentagon</a></td>
+                            <td class="clan_td clan_xpgain_trk">16,838,101</td>
+                            <td class="clan_td clan_xpgain_trk">10,895,726</td>
+                            <td class="clan_td clan_xpgain_trk">42,398,543</td>
+                            <td class="clan_td clan_xpgain_trk">184,704,847</td>
+                            <td class="clan_td clan_xpgain_trk">57,336,227</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">22</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=La+Krissa);"><a href="/user/La+Krissa" name="22">La Krissa</a></td>
+                            <td class="clan_td clan_xpgain_trk">16,594,988</td>
+                            <td class="clan_td clan_xpgain_trk">2,466,048</td>
+                            <td class="clan_td clan_xpgain_trk">20,589,357</td>
+                            <td class="clan_td clan_xpgain_trk">84,690,078</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">23</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=yugistar1);"><a href="/user/yugistar1" name="23">yugistar1</a></td>
+                            <td class="clan_td clan_xpgain_trk">16,428,984</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                            <td class="clan_td clan_xpgain_trk">20,043,838</td>
+                            <td class="clan_td clan_xpgain_trk">52,487,329</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">24</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Gegha);"><a href="/user/Gegha" name="24">Gegha</a></td>
+                            <td class="clan_td clan_xpgain_trk">16,361,518</td>
+                            <td class="clan_td clan_xpgain_trk">14,516,827</td>
+                            <td class="clan_td clan_xpgain_trk">34,012,287</td>
+                            <td class="clan_td clan_xpgain_trk">70,737,796</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">25</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Smarteredge);"><a href="/user/Smarteredge" name="25">Smarteredge</a></td>
+                            <td class="clan_td clan_xpgain_trk">16,203,379</td>
+                            <td class="clan_td clan_xpgain_trk">5,465,298</td>
+                            <td class="clan_td clan_xpgain_trk">35,725,958</td>
+                            <td class="clan_td clan_xpgain_trk">196,487,584</td>
+                            <td class="clan_td clan_xpgain_trk">23,898,091</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">26</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Tck+Sir+Roy);"><a href="/user/Tck+Sir+Roy" name="26">Tck Sir Roy</a></td>
+                            <td class="clan_td clan_xpgain_trk">16,107,700</td>
+                            <td class="clan_td clan_xpgain_trk">6,516,315</td>
+                            <td class="clan_td clan_xpgain_trk">27,169,590</td>
+                            <td class="clan_td clan_xpgain_trk">63,154,472</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">27</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Stadolf);"><a href="/user/Stadolf" name="27">Stadolf</a></td>
+                            <td class="clan_td clan_xpgain_trk">16,036,622</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                            <td class="clan_td clan_xpgain_trk">16,036,622</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">28</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Cinema);"><a href="/user/Cinema" name="28">Cinema</a></td>
+                            <td class="clan_td clan_xpgain_trk">15,697,486</td>
+                            <td class="clan_td clan_xpgain_trk">7,930,302</td>
+                            <td class="clan_td clan_xpgain_trk">37,687,658</td>
+                            <td class="clan_td clan_xpgain_trk">128,367,391</td>
+                            <td class="clan_td clan_xpgain_trk">88,571,593</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">29</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Chip+Roll);"><a href="/user/Chip+Roll" name="29">Chip Roll</a></td>
+                            <td class="clan_td clan_xpgain_trk">15,606,092</td>
+                            <td class="clan_td clan_xpgain_trk">14,243,417</td>
+                            <td class="clan_td clan_xpgain_trk">39,704,927</td>
+                            <td class="clan_td clan_xpgain_trk">58,056,666</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">30</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=XP+Hoarder);"><a href="/user/XP+Hoarder" name="30">XP Hoarder</a></td>
+                            <td class="clan_td clan_xpgain_trk">15,198,610</td>
+                            <td class="clan_td clan_xpgain_trk">4,983,629</td>
+                            <td class="clan_td clan_xpgain_trk">23,544,490</td>
+                            <td class="clan_td clan_xpgain_trk">85,562,786</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">31</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Abriana);"><a href="/user/Abriana" name="31">Abriana</a></td>
+                            <td class="clan_td clan_xpgain_trk">14,737,781</td>
+                            <td class="clan_td clan_xpgain_trk">6,835,436</td>
+                            <td class="clan_td clan_xpgain_trk">36,479,229</td>
+                            <td class="clan_td clan_xpgain_trk">155,813,163</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">32</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Nguyen);"><a href="/user/Nguyen" name="32">Nguyen</a></td>
+                            <td class="clan_td clan_xpgain_trk">14,341,466</td>
+                            <td class="clan_td clan_xpgain_trk">5,350,258</td>
+                            <td class="clan_td clan_xpgain_trk">22,886,592</td>
+                            <td class="clan_td clan_xpgain_trk">52,492,284</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">33</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Paradoux_308);"><a href="/user/Paradoux_308" name="33">Paradoux_308</a></td>
+                            <td class="clan_td clan_xpgain_trk">14,164,622</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                            <td class="clan_td clan_xpgain_trk">16,763,037</td>
+                            <td class="clan_td clan_xpgain_trk">36,178,736</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">34</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=GoatWorthy);"><a href="/user/GoatWorthy" name="34">GoatWorthy</a></td>
+                            <td class="clan_td clan_xpgain_trk">14,108,333</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                            <td class="clan_td clan_xpgain_trk">14,475,013</td>
+                            <td class="clan_td clan_xpgain_trk">37,550,147</td>
+                            <td class="clan_td clan_xpgain_trk">20,953,699</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">35</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Karlzz);"><a href="/user/Karlzz" name="35">Karlzz</a></td>
+                            <td class="clan_td clan_xpgain_trk">14,095,561</td>
+                            <td class="clan_td clan_xpgain_trk">3,523,713</td>
+                            <td class="clan_td clan_xpgain_trk">21,381,023</td>
+                            <td class="clan_td clan_xpgain_trk">230,102,246</td>
+                            <td class="clan_td clan_xpgain_trk">79,547,492</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">36</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=zpf);"><a href="/user/zpf" name="36">zpf</a></td>
+                            <td class="clan_td clan_xpgain_trk">13,829,585</td>
+                            <td class="clan_td clan_xpgain_trk">10,014,872</td>
+                            <td class="clan_td clan_xpgain_trk">31,483,138</td>
+                            <td class="clan_td clan_xpgain_trk">207,750,782</td>
+                            <td class="clan_td clan_xpgain_trk">119,199,306</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">37</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=J+Bear);"><a href="/user/J+Bear" name="37">J Bear</a></td>
+                            <td class="clan_td clan_xpgain_trk">13,803,840</td>
+                            <td class="clan_td clan_xpgain_trk">2,756,790</td>
+                            <td class="clan_td clan_xpgain_trk">17,640,444</td>
+                            <td class="clan_td clan_xpgain_trk">33,562,393</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">38</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Illianer);"><a href="/user/Illianer" name="38">Illianer</a></td>
+                            <td class="clan_td clan_xpgain_trk">13,693,551</td>
+                            <td class="clan_td clan_xpgain_trk">6,419,354</td>
+                            <td class="clan_td clan_xpgain_trk">29,810,625</td>
+                            <td class="clan_td clan_xpgain_trk">70,056,498</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">39</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Vivemoi);"><a href="/user/Vivemoi" name="39">Vivemoi</a></td>
+                            <td class="clan_td clan_xpgain_trk">13,588,974</td>
+                            <td class="clan_td clan_xpgain_trk">13,189,880</td>
+                            <td class="clan_td clan_xpgain_trk">46,508,105</td>
+                            <td class="clan_td clan_xpgain_trk">143,981,553</td>
+                            <td class="clan_td clan_xpgain_trk">51,301,513</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">40</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=A+Cuppa+Tea);"><a href="/user/A+Cuppa+Tea" name="40">A Cuppa Tea</a></td>
+                            <td class="clan_td clan_xpgain_trk">13,581,123</td>
+                            <td class="clan_td clan_xpgain_trk">8,852,995</td>
+                            <td class="clan_td clan_xpgain_trk">26,829,064</td>
+                            <td class="clan_td clan_xpgain_trk">78,722,568</td>
+                            <td class="clan_td clan_xpgain_trk">30,813,808</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">41</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Rugg);"><a href="/user/Rugg" name="41">Rugg</a></td>
+                            <td class="clan_td clan_xpgain_trk">13,564,349</td>
+                            <td class="clan_td clan_xpgain_trk">1,490,846</td>
+                            <td class="clan_td clan_xpgain_trk">15,873,502</td>
+                            <td class="clan_td clan_xpgain_trk">66,536,272</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">42</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=BBQ+Ribs);"><a href="/user/BBQ+Ribs" name="42">BBQ Ribs</a></td>
+                            <td class="clan_td clan_xpgain_trk">13,425,596</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                            <td class="clan_td clan_xpgain_trk">13,494,411</td>
+                            <td class="clan_td clan_xpgain_trk">63,297,322</td>
+                            <td class="clan_td clan_xpgain_trk">68,525,778</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">43</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=5+0+1);"><a href="/user/5+0+1" name="43">5 0 1</a></td>
+                            <td class="clan_td clan_xpgain_trk">13,273,995</td>
+                            <td class="clan_td clan_xpgain_trk">7,150,376</td>
+                            <td class="clan_td clan_xpgain_trk">26,202,371</td>
+                            <td class="clan_td clan_xpgain_trk">66,852,561</td>
+                            <td class="clan_td clan_xpgain_trk">23,192,140</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">44</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Georgetown);"><a href="/user/Georgetown" name="44">Georgetown</a></td>
+                            <td class="clan_td clan_xpgain_trk">13,258,182</td>
+                            <td class="clan_td clan_xpgain_trk">2,669,897</td>
+                            <td class="clan_td clan_xpgain_trk">18,408,173</td>
+                            <td class="clan_td clan_xpgain_trk">115,803,122</td>
+                            <td class="clan_td clan_xpgain_trk">62,203,833</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">45</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Raxburn);"><a href="/user/Raxburn" name="45">Raxburn</a></td>
+                            <td class="clan_td clan_xpgain_trk">13,246,867</td>
+                            <td class="clan_td clan_xpgain_trk">9,893,256</td>
+                            <td class="clan_td clan_xpgain_trk">30,211,793</td>
+                            <td class="clan_td clan_xpgain_trk">102,521,521</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">46</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=A+Lemonade);"><a href="/user/A+Lemonade" name="46">A Lemonade</a></td>
+                            <td class="clan_td clan_xpgain_trk">13,163,132</td>
+                            <td class="clan_td clan_xpgain_trk">2,171,334</td>
+                            <td class="clan_td clan_xpgain_trk">16,233,288</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">47</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Yrs);"><a href="/user/Yrs" name="47">Yrs</a></td>
+                            <td class="clan_td clan_xpgain_trk">13,133,233</td>
+                            <td class="clan_td clan_xpgain_trk">16,440,902</td>
+                            <td class="clan_td clan_xpgain_trk">46,046,288</td>
+                            <td class="clan_td clan_xpgain_trk">127,286,255</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">48</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=0HmongKing0);"><a href="/user/0HmongKing0" name="48">0HmongKing0</a></td>
+                            <td class="clan_td clan_xpgain_trk">13,122,304</td>
+                            <td class="clan_td clan_xpgain_trk">3,093,396</td>
+                            <td class="clan_td clan_xpgain_trk">18,650,333</td>
+                            <td class="clan_td clan_xpgain_trk">36,653,014</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">49</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=IVIassiv);"><a href="/user/IVIassiv" name="49">IVIassiv</a></td>
+                            <td class="clan_td clan_xpgain_trk">13,021,375</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                            <td class="clan_td clan_xpgain_trk">13,376,055</td>
+                            <td class="clan_td clan_xpgain_trk">37,941,031</td>
+                            <td class="clan_td clan_xpgain_trk">0</td>
+                          <tr>
+                          <tr>
+                            <td class="clan_td clan_num_rank">50</td>
+                            <td class="clan_td clan_rsn2" style="background-image:url(http://www.runeclan.com/images/chat_head.php?a=Pker+Dude+Jr);"><a href="/user/Pker+Dude+Jr" name="50">Pker Dude Jr</a></td>
+                            <td class="clan_td clan_xpgain_trk">12,997,378</td>
+                            <td class="clan_td clan_xpgain_trk">11,625,855</td>
+                            <td class="clan_td clan_xpgain_trk">41,445,828</td>
+                            <td class="clan_td clan_xpgain_trk">238,799,892</td>
+                            <td class="clan_td clan_xpgain_trk">132,915,535</td>
+                          <tr>
+                        </table>
+                        <div class="pagination">
+                          <div class="pagination_page">Page 1 of 400</div>
+                          <div class="pagination_select"><span class="disabled">« previous</span><span class="current">1</span><a href="/xp-tracker/2?skill=2">2</a><a href="/xp-tracker/3?skill=2">3</a><a href="/xp-tracker/4?skill=2">4</a><a href="/xp-tracker/5?skill=2">5</a><a href="/xp-tracker/6?skill=2">6</a><a href="/xp-tracker/7?skill=2">7</a>...<a href="/xp-tracker/399?skill=2">399</a><a href="/xp-tracker/400?skill=2">400</a><a href="/xp-tracker/2?skill=2">next »</a></div>
+                          <div style="clear:both;"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <div class="adlgleaderboard" style="margin-top:12px;">
+                  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+                  <!-- RuneClan Header2 -->
+
+                  <ins class="adsbygoogle"
+
+				 style="display:inline-block;width:728px;height:90px"
+
+				 data-ad-client="ca-pub-0006604715530158"
+
+				 data-ad-slot="3972669271"></ins>
+
+                  <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                  </script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page_footer">
+
+          <div style="float:left;font-size:11px;">Thursday 20th of September 2018 05:58:04 AM<br />Page generated in 0.3236 seconds</div>
+            <div style="float:right;"><a href="http://www.games-vault.com/" target="_blank">Free Games</a> | <a href="http://www.img-vault.com/" target="_blank">Free Image Hosting</a> | <a href="http://www.proxy-vault.com/" target="_blank">Free Web Proxy</a>
+              | <a href="/terms">Terms of Use</a> | <a href="/privacy">Privacy Policy</a> | <a href="/donate"><img src="http://www.runeclan.com/images/donate.gif" style="height:22px;width:auto;" alt="Donate" /></a></div>
+            <div style="clear:both;text-align:center;">RuneScape ® is a registered trademark of Jagex © 1999 - 2018 Jagex Ltd. </div>
+          </div>
+
+        </div>
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-49520834-1']);
+          _gaq.push(['_setDomainName', 'runeclan.com']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+
+</body>
+
+</html>

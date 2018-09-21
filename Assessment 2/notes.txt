@@ -1,0 +1,11 @@
+find this for top 10 players xp gained and clan
+<td class="clan_td clan_num_rank">(RANKING SCORE)1(RANKING SCORE)</td>
+
+archive/images/ is where the images used for the project are stored
+archive/test.html is a template for exporting a website into a easy to read Section
+
+support_files are given from QUT to use with the project but not be submitted.
+________________________________________________________________________________
+archive/player.html = RuneScape 3 download from runeclan
+archive/clan.html = RuneScape 3 download from runeclan
+archive/old_school_xp.html = old school RuneScape downloaded from runeclan

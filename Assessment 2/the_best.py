@@ -84,9 +84,7 @@ from sqlite3 import *
 # this function in your solution if you choose to call "urlopen"
 # directly, but it is provided for your convenience.)
 #
-def download(url = 'http://www.wikipedia.org/',
-             target_filename = 'download',
-             filename_extension = 'html'):
+def download(url, target_filename, filename_extension):
 
     # Import an exception raised when a web server denies access
     # to a document
@@ -135,5 +133,102 @@ def download(url = 'http://www.wikipedia.org/',
 # Put your solution at the end of this file.
 #
 
-##### DEVELOP YOUR SOLUTION HERE #####
-pass
+main_screen = Tk() # Main screen
+
+
+#____________________ Setup ____________________#
+
+# Main screen settings
+main_screen.title('Runescape') # Title
+# main_screen.geometry('400x400') # Set the screen size
+
+#____________________ End of Set Up ____________________#
+
+#____________________ Variables ____________________#
+top_10_radio = IntVar()
+main_screen_logo_image = PhotoImage(file = 'archive/images/placeholder.png')
+#____________________ End of Variables ____________________#
+
+#____________________ Widgets ____________________#
+runescape_logo_label = Label(image = main_screen_logo_image)
+preview_button = Button(text = ' Preview', font = ('Arial', 24))
+updated_button = Button(text = ' Updated', font = ('Arial', 24))
+
+# group 1
+group_1_preview_radio_button = Radiobutton(text = ' Previous', variable = top_10_radio, value = 1)
+group_1_current_radio_button = Radiobutton(text = ' Current', variable = top_10_radio, value = 2)
+
+# group 2
+group_2_preview_radio_button = Radiobutton(text = ' Previous', variable = top_10_radio, value = 3)
+group_2_current_radio_button = Radiobutton(text = ' Current', variable = top_10_radio, value = 4)
+
+# group 3
+group_3_preview_radio_button = Radiobutton(text = ' Previous', variable = top_10_radio, value = 5)
+group_3_current_radio_button = Radiobutton(text = ' Current', variable = top_10_radio, value = 6)
+
+#____________________ End of Widget ____________________#
+def preview_list_in_new_window():
+    if top_10_radio == 1: # Previous player data
+        rs3_player_xp_screen = Tk() # Top 10 xp gained today after 10am to 9:59am the next day
+
+    elif top_10_radio == 2: # Current player data
+        rs3_player_xp_screen = Tk() # Top 10 xp gained today after 10am to 9:59am the next day
+
+    elif top_10_radio == 3: # Previous clan data
+        clan_ranking = Tk() # Top 10 clans clan for the day.
+
+    elif top_10_radio == 4: # Current clan data
+        clan_ranking = Tk() # Top 10 clans clan for the day.
+
+    elif top_10_radio == 5: # Previous player data from old school RuneScape
+        oldschool_player_xp_screen = Tk() # Top 10 xp gained today after 10am to 9:59am the next day
+
+    elif top_10_radio == 6: # Current player data from old school RuneScape
+        oldschool_player_xp_screen = Tk() # Top 10 xp gained today after 10am to 9:59am the next day
+        
+    else:
+        pass
+def export_list_to_web():
+    pass
+# Top 10 xp gained screen settings
+# player_xp_screen.title('Top 10 XP Gained Today') # Title
+# player_xp_screen.geometry('400x400') # Set the screen size
+#
+# # Top 10 clans Settins
+# clan_ranking.title('Top 10 Clan with the most of XP Today') # Title
+# clan_ranking.geometry('400x400') # Set the screen size
+
+#____________________ Widget Placement ____________________#
+# Sceen 1
+runescape_logo_label.grid(column=0, row=0, columnspan=2, rowspan=3, sticky=W+E+N+S)
+group_1_preview_radio_button.grid(column=3, row=0)
+group_1_current_radio_button.grid(column=4, row=0)
+group_2_preview_radio_button.grid(column=3, row=1)
+group_2_current_radio_button.grid(column=4, row=1)
+group_3_preview_radio_button.grid(column=3, row=2)
+group_3_current_radio_button.grid(column=4, row=2)
+preview_button.grid(column=3, row=3)
+updated_button.grid(column=4, row=3)
+
+# Screen 2
+# Screen 3s
+#____________________ End 0f Widget Placement ____________________#
+
+#__________ Collect Information from Websie ____________#
+def download_top_10_player():
+    download('http://www.runeclan.com/xp-tracker', 'archive/player', 'html')
+
+def download_top_10_clan():
+    download('http://www.runeclan.com/hiscores', 'archive/clan', 'html')
+
+def download_top_10_old_school():
+    download('http://oldschool.runeclan.com/xp-tracker', 'archive/old_school_xp', 'html')
+
+# download_top_10_clan()
+# download_top_10_player()
+# download_top_10_old_school()
+#__________  End of Collect Information from Websie ____________#
+# Start the event loop
+main_screen.mainloop() # Main Screen
+# player_xp_screen.mainloop() # Top 10 players of the day.
+# clan_ranking.mainloop() # Top 10 clans for the day.
