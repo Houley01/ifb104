@@ -147,15 +147,86 @@ main_screen.title('Runescape') # Title
 #____________________ Variables ____________________#
 top_10_radio = IntVar()
 main_screen_logo_image = PhotoImage(file = 'archive/images/placeholder.png')
+# archive_rs3_player = 'archive/player.html'
+# Read HTML FILES
+archive_rs3_player_html = open('archive/player.html').read()
+search_rs3_player_html = findall('[0-9,a-z,A-Z, ,\-,\_]+</a></td>', archive_rs3_player_html) # Find all the players name in the document
+
+print('Search Findings from html')
+print(search_rs3_player_html)
+print()
+print()
+print()
+# print('bar')
+# bar = [foo.strip('</a></td>')for foo in str(foo)]
+print('Top 10')
+# count = 1
+# while count < 11:
+#     # print(count,top_10_player)
+#     print(count, search_rs3_player_html[count-1])
+#     count = count + 1
+
+
 #____________________ End of Variables ____________________#
 
+def preview_list():
+    if top_10_radio.get() == 1: # Previous player data
+        rs3_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
+        rs3_player_xp_screen.title('Top 10')
+        count = 1
+        while count < 11:
+            # print(count,top_10_player)
+            # print(count, search_rs3_player_html[count-1])
+            Label(rs3_player_xp_screen, text=count).pack()
+            Label(rs3_player_xp_screen, text=search_rs3_player_html[count-1]).pack()
+            count = count + 1
+    elif top_10_radio.get() == 2: # Current player data
+        rs3_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
+
+    elif top_10_radio.get() == 3: # Previous clan data
+        clan_ranking = Toplevel() # Top 10 clans clan for the day.
+
+    elif top_10_radio.get() == 4: # Current clan data
+        clan_ranking = Toplevel() # Top 10 clans clan for the day.
+
+    elif top_10_radio.get() == 5: # Previous player data from old school RuneScape
+        oldschool_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
+
+    elif top_10_radio.get() == 6: # Current player data from old school RuneScape
+        oldschool_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
+
+    else:
+        pass
+        # Currently does nothing.
+def export_list():
+    if top_10_radio.get() == 1: # Previous player data
+        # rs3_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
+        print('Previous List for player')
+    elif top_10_radio.get() == 2: # Current player data
+        # rs3_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
+        print('Current List for player')
+    elif top_10_radio.get() == 3: # Previous clan data
+        # clan_ranking = Toplevel() # Top 10 clans clan for the day.
+        print('Previous List for clan')
+    elif top_10_radio.get() == 4: # Current clan data
+        # clan_ranking = Toplevel() # Top 10 clans clan for the day.
+        print('Current List for clan xp')
+    elif top_10_radio.get() == 5: # Previous player data from old school RuneScape
+        # oldschool_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
+        print('Previous List for Old School player')
+    elif top_10_radio.get() == 6: # Current player data from old school RuneScape
+        # oldschool_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
+        print('Current List for Old School player')
+    else:
+        pass
 #____________________ Widgets ____________________#
 runescape_logo_label = Label(image = main_screen_logo_image)
-preview_button = Button(text = ' Preview', font = ('Arial', 24))
+preview_button = Button(text = ' Preview', font = ('Arial', 24), command = preview_list)
 updated_button = Button(text = ' Updated', font = ('Arial', 24))
 
 # group 1
-group_1_preview_radio_button = Radiobutton(text = ' Previous', variable = top_10_radio, value = 1)
+top_10_radio.set(1) # REMOVE THIS AFTER TESTING
+group_1_preview_radio_button = Radiobutton(text = ' Previous', variable = top_10_radio, value = 1,)
 group_1_current_radio_button = Radiobutton(text = ' Current', variable = top_10_radio, value = 2)
 
 # group 2
@@ -167,29 +238,7 @@ group_3_preview_radio_button = Radiobutton(text = ' Previous', variable = top_10
 group_3_current_radio_button = Radiobutton(text = ' Current', variable = top_10_radio, value = 6)
 
 #____________________ End of Widget ____________________#
-def preview_list_in_new_window():
-    if top_10_radio == 1: # Previous player data
-        rs3_player_xp_screen = Tk() # Top 10 xp gained today after 10am to 9:59am the next day
 
-    elif top_10_radio == 2: # Current player data
-        rs3_player_xp_screen = Tk() # Top 10 xp gained today after 10am to 9:59am the next day
-
-    elif top_10_radio == 3: # Previous clan data
-        clan_ranking = Tk() # Top 10 clans clan for the day.
-
-    elif top_10_radio == 4: # Current clan data
-        clan_ranking = Tk() # Top 10 clans clan for the day.
-
-    elif top_10_radio == 5: # Previous player data from old school RuneScape
-        oldschool_player_xp_screen = Tk() # Top 10 xp gained today after 10am to 9:59am the next day
-
-    elif top_10_radio == 6: # Current player data from old school RuneScape
-        oldschool_player_xp_screen = Tk() # Top 10 xp gained today after 10am to 9:59am the next day
-        
-    else:
-        pass
-def export_list_to_web():
-    pass
 # Top 10 xp gained screen settings
 # player_xp_screen.title('Top 10 XP Gained Today') # Title
 # player_xp_screen.geometry('400x400') # Set the screen size
