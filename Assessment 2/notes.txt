@@ -1,6 +1,10 @@
 find this for top 10 players xp gained and clan
-<td class="clan_td clan_num_rank">(RANKING SCORE)1(RANKING SCORE)</td>
+regex: [0-9,a-z,A-Z, ,\-,\_]+</a></td>
+Becomes this: username</a></td>
 
+find clan names in the clan.html file
+regex: [0-9,a-z,A-Z, ,\-,\_]+</a><br /><i
+becomes this: clan name</a><br /><i
 archive/images/ is where the images used for the project are stored
 archive/test.html is a template for exporting a website into a easy to read Section
 

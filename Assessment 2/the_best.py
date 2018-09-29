@@ -149,10 +149,10 @@ top_10_radio = IntVar()
 # archive_rs3_player = 'archive/player.html'
 # Read HTML FILES
 archive_rs3_player_html = open('archive/player.html').read()
-search_rs3_player_html = findall('[0-9,a-z,A-Z, ,\-,\_]+</a></td>', archive_rs3_player_html) # Find all the players name in the document
+search_rs3_player_html_archive = findall('[0-9,a-z,A-Z, ,\-,\_]+</a></td>', archive_rs3_player_html) # Find all the players name in the document
 
 print('Search Findings from html')
-print(search_rs3_player_html)
+print(search_rs3_player_html_archive)
 print()
 print()
 print()
@@ -195,16 +195,16 @@ def preview_list():
         postion_9 = Label(rs3_player_xp_screen, text="9:", font=font_times_15, justify="left")
         postion_10 = Label(rs3_player_xp_screen, text="10:", font=font_times_15, justify="left")
 
-        player_user_name_1 = Label(rs3_player_xp_screen, text=search_rs3_player_html[0], font=font_times_15, justify="left")
-        player_user_name_2 = Label(rs3_player_xp_screen, text=search_rs3_player_html[1], font=font_times_15, justify="left")
-        player_user_name_3 = Label(rs3_player_xp_screen, text=search_rs3_player_html[2], font=font_times_15, justify="left")
-        player_user_name_4 = Label(rs3_player_xp_screen, text=search_rs3_player_html[3], font=font_times_15, justify="left")
-        player_user_name_5 = Label(rs3_player_xp_screen, text=search_rs3_player_html[4], font=font_times_15, justify="left")
-        player_user_name_6 = Label(rs3_player_xp_screen, text=search_rs3_player_html[5], font=font_times_15, justify="left")
-        player_user_name_7 = Label(rs3_player_xp_screen, text=search_rs3_player_html[6], font=font_times_15, justify="left")
-        player_user_name_8 = Label(rs3_player_xp_screen, text=search_rs3_player_html[7], font=font_times_15, justify="left")
-        player_user_name_9 = Label(rs3_player_xp_screen, text=search_rs3_player_html[8], font=font_times_15, justify="left")
-        player_user_name_10 = Label(rs3_player_xp_screen, text=search_rs3_player_html[9], font=font_times_15, justify="left")
+        player_user_name_1 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[0], font=font_times_15, justify="left")
+        player_user_name_2 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[1], font=font_times_15, justify="left")
+        player_user_name_3 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[2], font=font_times_15, justify="left")
+        player_user_name_4 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[3], font=font_times_15, justify="left")
+        player_user_name_5 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[4], font=font_times_15, justify="left")
+        player_user_name_6 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[5], font=font_times_15, justify="left")
+        player_user_name_7 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[6], font=font_times_15, justify="left")
+        player_user_name_8 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[7], font=font_times_15, justify="left")
+        player_user_name_9 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[8], font=font_times_15, justify="left")
+        player_user_name_10 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[9], font=font_times_15, justify="left")
             # count = count + 1
         top_player_image = Label(rs3_player_xp_screen, image=RS3_logo_image)
     # Layout for top 10 players of the day
@@ -230,10 +230,63 @@ def preview_list():
         player_user_name_8.grid(column=2, row=10, sticky=W)
         player_user_name_9.grid(column=2, row=11, sticky=W)
         player_user_name_10.grid(column=2, row=12, sticky=W)
-        
-    elif top_10_radio.get() == 2: # Current player data
-        rs3_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
 
+    elif top_10_radio.get() == 2: # Current player data for to 10
+        rs3_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
+        rs3_player_xp_screen.title('Top 10')
+        runeclan_top_10_link = 'http://www.runeclan.com/xp-tracker'
+        get_webite = urlopen(runeclan_top_10_link) # collect the website html document
+        current_top_10_player = get_webite.read() # Read website
+        search_rs3_player_html_current = findall('[0-9,a-z,A-Z, ,\-,\_]+</a></td>', str(current_top_10_player)) # Find all the players name in the document
+        # 2nd Screen Widget ____________________________________________________________________
+        postion_1 = Label(rs3_player_xp_screen, text="1:", font=font_times_15, justify="left")
+        postion_2 = Label(rs3_player_xp_screen, text="2:", font=font_times_15, justify="left")
+        postion_3 = Label(rs3_player_xp_screen, text="3:", font=font_times_15, justify="left")
+        postion_4 = Label(rs3_player_xp_screen, text="4:", font=font_times_15, justify="left")
+        postion_5 = Label(rs3_player_xp_screen, text="5:", font=font_times_15, justify="left")
+        postion_6 = Label(rs3_player_xp_screen, text="6:", font=font_times_15, justify="left")
+        postion_7 = Label(rs3_player_xp_screen, text="7:", font=font_times_15, justify="left")
+        postion_8 = Label(rs3_player_xp_screen, text="8:", font=font_times_15, justify="left")
+        postion_9 = Label(rs3_player_xp_screen, text="9:", font=font_times_15, justify="left")
+        postion_10 = Label(rs3_player_xp_screen, text="10:", font=font_times_15, justify="left")
+
+        player_user_name_1 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[0], font=font_times_15, justify="left")
+        player_user_name_2 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[1], font=font_times_15, justify="left")
+        player_user_name_3 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[2], font=font_times_15, justify="left")
+        player_user_name_4 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[3], font=font_times_15, justify="left")
+        player_user_name_5 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[4], font=font_times_15, justify="left")
+        player_user_name_6 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[5], font=font_times_15, justify="left")
+        player_user_name_7 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[6], font=font_times_15, justify="left")
+        player_user_name_8 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[7], font=font_times_15, justify="left")
+        player_user_name_9 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[8], font=font_times_15, justify="left")
+        player_user_name_10 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[9], font=font_times_15, justify="left")
+        top_player_image = Label(rs3_player_xp_screen, image=RS3_logo_image)
+        #____________________________________________________________________
+    # Layout for top 10 players of the day
+        top_player_image.grid(column=0, row=0, columnspan=4, rowspan=2)
+        postion_1.grid(column=1, row=3)
+        postion_2.grid(column=1, row=4)
+        postion_3.grid(column=1, row=5)
+        postion_4.grid(column=1, row=6)
+        postion_5.grid(column=1, row=7)
+        postion_6.grid(column=1, row=8)
+        postion_7.grid(column=1, row=9)
+        postion_8.grid(column=1, row=10)
+        postion_9.grid(column=1, row=11)
+        postion_10.grid(column=1, row=12)
+
+        player_user_name_1.grid(column=2, row=3, sticky=W)
+        player_user_name_2.grid(column=2, row=4, sticky=W)
+        player_user_name_3.grid(column=2, row=5, sticky=W)
+        player_user_name_4.grid(column=2, row=6, sticky=W)
+        player_user_name_5.grid(column=2, row=7, sticky=W)
+        player_user_name_6.grid(column=2, row=8, sticky=W)
+        player_user_name_7.grid(column=2, row=9, sticky=W)
+        player_user_name_8.grid(column=2, row=10, sticky=W)
+        player_user_name_9.grid(column=2, row=11, sticky=W)
+        player_user_name_10.grid(column=2, row=12, sticky=W)
+        #____________________________________________________________________
+        
     elif top_10_radio.get() == 3: # Previous clan data
         clan_ranking = Toplevel() # Top 10 clans clan for the day.
 
@@ -276,7 +329,7 @@ preview_button = Button(text = ' Preview', font = ('Arial', 24), command = previ
 updated_button = Button(text = ' Updated', font = ('Arial', 24))
 
 # group 1
-top_10_radio.set(1) # REMOVE THIS AFTER TESTING
+top_10_radio.set(2) # REMOVE THIS AFTER TESTING
 group_1_preview_radio_button = Radiobutton(text = ' Previous', variable = top_10_radio, value = 1,)
 group_1_current_radio_button = Radiobutton(text = ' Current', variable = top_10_radio, value = 2)
 
