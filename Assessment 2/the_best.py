@@ -531,7 +531,6 @@ preview_button = Button(text = ' Preview', font = ('Arial', 24), command = previ
 updated_button = Button(text = ' Updated', font = ('Arial', 24))
 
 # group 1
-top_10_radio.set(4) # REMOVE THIS AFTER TESTING
 group_1_preview_radio_button = Radiobutton(text = ' Previous', variable = top_10_radio, value = 1,)
 group_1_current_radio_button = Radiobutton(text = ' Current', variable = top_10_radio, value = 2)
 
