@@ -1,6 +1,9 @@
 find this for top 10 players xp gained and clan
 regex: [0-9,a-z,A-Z, ,\-,\_]+</a></td>
 Becomes this: username</a></td>
+Regex: ((Mon|Tues|Wednes|Thurs|Fri|Satur|Sun)(day)?)\s\d{1,2}(st|nd|rd|th)\sof\s(January?|February?|March?|April?|May|June?|July?|August?|September?|October?|November?|December?)\s\d{4}
+Finds: 'DAY(Monday) DATE(1-31)(st|nd|rd|th) of MONTH YEAR'
+
 
 find clan names in the clan.html file
 regex: [0-9,a-z,A-Z, ,\-,\_]+</a><br /><i

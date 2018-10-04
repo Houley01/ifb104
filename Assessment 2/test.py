@@ -1,9 +1,15 @@
 from urllib.request import urlopen
 from re import *
 top_10_radio = 5
+search_rs3_player_html_archive = []
 archive_rs3_player_html = open('archive/player.html').read()
-search_rs3_player_html_archive = findall('[0-9,a-z,A-Z, ,\-,\_]+</a></td>', str(archive_rs3_player_html)) # Find all the players name in the document
+placeholder = findall('[0-9,a-z,A-Z, ,\-,\_]+</a></td>', str(archive_rs3_player_html)) # Find all the players name in the document
+count = 0
 
+for player in placeholder:
+    search_rs3_player_html_archive.append(placeholder[count].replace('</a></td>', ''))
+    count = count + 1
+print(search_rs3_player_html_archive)
 search_rs3_clan_html_archive_xp_rate = findall('>[0-9,]+<', archive_rs3_player_html)
 
 print(search_rs3_clan_html_archive_xp_rate[10].strip('<>')) #1
