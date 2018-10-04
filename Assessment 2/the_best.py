@@ -517,10 +517,28 @@ def preview_list():
         pass
         # Currently does nothing.
 def export_list():
+    start_of_table_row = "<tr>"
+    end_of_table_row = '</tr>'
     if top_10_radio == 1:
+        results_for_top_10_username = []
+        results_for_top_10_xp = []
+        count = 0
+        read_html_file = open('archive/player.html').read() # Open and read file located in archive with the name of player.html
+        placeholder_results_for_top_10_username = findall('[0-9,a-z,A-Z, ,\-,\_]+</a></td>', read_html_file) # Find all the players name in the document
+        for player in placeholder_results_for_top_10_username:
+            results_for_top_10_username.append(placeholder_results_for_top_10[count].replace('</a></td>', '')) # Go throught the list of runescape players and removes '</a></td>'
+            count = count + 1
+
+        #  Find the xp related to the top 10 players who gained the most xp in the day
+        count = 0
+        placeholder_results_for_top_10_xp_relating_to_player = findall('[0-9,a-z,A-Z, ,\-,\_]+</a></td>', read_html_file) # Find all the players name in the document
+        for player in placeholder_results_for_top_10_xp_relating_to_player:
+            results_for_top_10_xp.append(placeholder_results_for_top_10_xp_relating_to_player[count].replace('<>', '')) # Go throught the list of runescape players and removes '</a></td>'
+            count = count + 1
+
         HTML_title = "Previous Top 10 players list for xp gained"
         HTML_heading = "<h1>Top 10 players who have gained the most xp today </h1>"
-        HTML_heading_image = '<img src="https://vignette.wikia.nocookie.net/runescape2/images/3/3d/RuneScape_3_Logo.png/revision/latest?cb=20140317195258" alt="RuneScape 3 lolgo from RuneWiki">'
+        HTML_heading_image = '<img src="https://vignette.wikia.nocookie.net/runescape2/images/3/3d/RuneScape_3_Logo.png/revision/latest?cb=20140317195258" alt="RuneScape 3 logo from RuneWiki">'
         HTML_table_heading = """<table>
         <tr>
           <th>Ranking</th>
@@ -530,10 +548,32 @@ def export_list():
         </tr>
         """
 
+        username_1 = results_Username[0] # Username for most xp gained
+        username_2 = results_Username[1] # Username for most xp gained
+        username_3 = results_Username[2] # Username for most xp gained
+        username_4 = results_Username[3] # Username for most xp gained
+        username_5 = results_Username[4] # Username for most xp gained
+        username_6 = results_Username[5] # Username for most xp gained
+        username_7 = results_Username[6] # Username for most xp gained
+        username_8 = results_Username[7] # Username for most xp gained
+        username_9 = results_Username[8] # Username for most xp gained
+        username_10 = results_Username[9] # Username for most xp gained
+
+        xp_1 = results_xp_from_top_10[0] # top 10 player's xp gained
+        xp_2 = results_xp_from_top_10[1] # top 10 player's xp gained
+        xp_3 = results_xp_from_top_10[2] # top 10 player's xp gained
+        xp_4 = results_xp_from_top_10[3] # top 10 player's xp gained
+        xp_5 = results_xp_from_top_10[4] # top 10 player's xp gained
+        xp_6 = results_xp_from_top_10[5] # top 10 player's xp gained
+        xp_7 = results_xp_from_top_10[6] # top 10 player's xp gained
+        xp_8 = results_xp_from_top_10[7] # top 10 player's xp gained
+        xp_9 = results_xp_from_top_10[8] # top 10 player's xp gained
+        xp_10 = results_xp_from_top_10[9] # top 10 player's xp gained
+
     elif top_10_radio == 2:
         HTML_title = "Current Top 10 players list for xp gained"
         HTML_heading = "<h1>Top 10 players who have gained the most xp today </h1>"
-        HTML_heading_image = '<img src="https://vignette.wikia.nocookie.net/runescape2/images/3/3d/RuneScape_3_Logo.png/revision/latest?cb=20140317195258" alt="RuneScape 3 lolgo from RuneWiki">'
+        HTML_heading_image = '<img src="https://vignette.wikia.nocookie.net/runescape2/images/3/3d/RuneScape_3_Logo.png/revision/latest?cb=20140317195258" alt="RuneScape 3 logo from RuneWiki">'
         HTML_table_heading = """<table>
         <tr>
           <th>Ranking</th>
@@ -597,13 +637,58 @@ def export_list():
 
     else:
         HTML_title = "No data is given"
-
-    create_html_file = open("archive/export.html", "w")
-    create_html_file.write(HTML_head_part_a)
-    create_html_file.write(HTML_title)
-    create_html_file.write(HTML_head_part_b)
-    create_html_file.write("info HERE")
-    create_html_file.write(HTML_end)
+    print()
+    print()
+    print(results_for_top_10_username)
+    print()
+    print()
+    print(results_for_top_10_xp)
+    #create_html_file = open("archive/export.html", "w")
+    # create_html_file.write(HTML_head_part_a)
+    # create_html_file.write(HTML_title)
+    # create_html_file.write(HTML_head_part_b)
+    # # start of the row 1 of 10
+    # create_html_file.write(start_of_table_row)
+    # create_html_file.write(postion_1)
+    # create_html_file.write(end_of_table_row)
+    # # start of the row 2 of 10
+    # create_html_file.write(start_of_table_row)
+    # create_html_file.write(postion_2)
+    # create_html_file.write(end_of_table_row)
+    # # start of the row 3 of 10
+    # create_html_file.write(start_of_table_row)
+    # create_html_file.write(postion_3)
+    # create_html_file.write(end_of_table_row)
+    # # start of the row 4 of 10
+    # create_html_file.write(start_of_table_row)
+    # create_html_file.write(postion_4)
+    # create_html_file.write(end_of_table_row)
+    # # start of the row 5  of 10
+    # create_html_file.write(start_of_table_row)
+    # create_html_file.write(postion_5)
+    # create_html_file.write(end_of_table_row)
+    # # start of the row 6
+    # create_html_file.write(start_of_table_row)
+    # create_html_file.write(postion_6)
+    # create_html_file.write(end_of_table_row)
+    # # start of the row 7 of 10
+    # create_html_file.write(start_of_table_row)
+    # create_html_file.write(postion_7)
+    # create_html_file.write(end_of_table_row)
+    # # start of the row 8 of 10
+    # create_html_file.write(start_of_table_row)
+    # create_html_file.write(postion_8)
+    # create_html_file.write(end_of_table_row)
+    # # start of the row 9 of 10
+    # create_html_file.write(start_of_table_row)
+    # create_html_file.write(postion_9)
+    # create_html_file.write(end_of_table_row)
+    # # start of the row 10 of 10
+    # create_html_file.write(start_of_table_row)
+    # create_html_file.write(postion_10)
+    # create_html_file.write(end_of_table_row)
+    #
+    # create_html_file.write(HTML_end)
 #____________________ Widgets ____________________#
 runescape_logo_label = Label(image = main_screen_logo_image)
 preview_button = Button(text = ' Preview', font = ('Arial', 24), command = preview_list)
