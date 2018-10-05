@@ -2,6 +2,9 @@ find this for top 10 players xp gained and clan
 regex: [0-9,a-z,A-Z, ,\-,\_]+</a></td>
 Becomes this: username</a></td>
 Regex: ((Mon|Tues|Wednes|Thurs|Fri|Satur|Sun)(day)?)\s\d{1,2}(st|nd|rd|th)\sof\s(January?|February?|March?|April?|May|June?|July?|August?|September?|October?|November?|December?)\s\d{4}
+
+(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) (([0-9]{1,2})(st|nd|rd|th)) of (January?|February?|March?|April?|May|June?|July?|August?|September?|October?|November?|December?) ([0-9]{4})
+
 Finds: 'DAY(Monday) DATE(1-31)(st|nd|rd|th) of MONTH YEAR'
 
 
@@ -16,3 +19,13 @@ ________________________________________________________________________________
 archive/player.html = RuneScape 3 download from runeclan
 archive/clan.html = RuneScape 3 download from runeclan
 archive/old_school_xp.html = old school RuneScape downloaded from runeclan
+
+def write_html_file(title, heading_1, image, table_heading, postion_1, postion_2, postion_3, postion_4, postion_5,postion_6, postion_7, postion_8, postion_9, postion_10, publication_date):
+
+results_for_top_10_username
+results_for_top_10_xp
+results_user_icon
+HTML_title (done)
+HTML_heading (done)
+HTML_heading_image (done)
+HTML_table_heading (done)
