@@ -521,29 +521,30 @@ def export_list():
         results_for_top_10_username = []
         results_for_top_10_xp = []
         results_user_icon = []
-        count = 0
         read_html_file = open('archive/player.html').read() # Open and read file located in archive with the name of player.html
-        placeholder_publication_date = findall('((Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) ([0-9]{1,2})(st|nd|rd|th) of (January|February|March|April|May|June|July|August|September|October|November|December) ([0-9]{4}))', read_html_file) # finds the day the webpage was gernerated.
-        placeholder_publication_date = list(set(placeholder_publication_date))
-        publication_date = "<p>" + placeholder_publication_date[0][0] + "</p>"
-        placeholder_results_for_top_10_username = findall('[0-9,a-z,A-Z, ,\-,\_]+</a></td>', read_html_file) # Find all the players name in the document
-        for player in placeholder_results_for_top_10_username:
-            results_for_top_10_username.append(placeholder_results_for_top_10_username[count].replace('</a></td>', '')) # Go throught the list of runescape players and removes '</a></td>'
-            count = count + 1
-
-        #  Find the xp related to the top 10 players who gained the most xp in the day
-        count = 0
-        placeholder_results_for_top_10_xp_relating_to_player = findall('>[0-9,]+<', read_html_file) # Find all the players name in the document
-        for player in placeholder_results_for_top_10_xp_relating_to_player:
-            results_for_top_10_xp.append(placeholder_results_for_top_10_xp_relating_to_player[count].strip('<>')) # Go throught the list of runescape players and removes '</a></td>'
-            count = count + 1
+        # Find all the players name in the document
+        placeholder_results_for_top_10_username = findall('[0-9,a-z,A-Z, ,\-,\_]+</a></td>', read_html_file)
         # Find all the user icons in the html document
-        count = 0
         placeholder_results_for_user_icon = findall('http://www.runeclan.com/images/chat_head.php\?a=[A-Z,a-z, ,\+,0-9]+', read_html_file)
-        for playericon in placeholder_results_for_user_icon:
-            results_user_icon.append('<img src="' + placeholder_results_for_user_icon[count] + '" alt="Runescaps players icons">') # Go throught the list and add img src and alt= text
-            count = count + 1
+        #  Find the xp related to the top 10 players who gained the most xp in the day
+        placeholder_results_for_top_10_xp_relating_to_player = findall('>[0-9,]+<', read_html_file)
+        # finds the day the webpage was gernerated.
+        publication_date = findall('((Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) ([0-9]{1,2})(st|nd|rd|th) of (January|February|March|April|May|June|July|August|September|October|November|December) ([0-9]{4}))', read_html_file)
+        publication_date = "<p>" + publication_date[0][0] + "</p>"
 
+        count = 0 # This know as count++ in other languages. Count change while inside the loop
+        # Loop throught all the list and remove certin characters
+        for results in placeholder_results_for_top_10_username: # Loop goes for 50 times
+            results_for_top_10_username.append(placeholder_results_for_top_10_username[count].replace('</a></td>', '')) # Go throught the list of runescape players and removes '</a></td>'
+            results_user_icon.append('<img src="' + placeholder_results_for_user_icon[count] + '" alt="Runescaps players icons">') # Go throught the list and add img src and alt= text
+            count = count + 1 # count++
+
+        count = 0 # Reset count for the next loop
+        # Loop throught all the list and remove certin characters
+        for results in placeholder_results_for_top_10_xp_relating_to_player: # Loop goes for 318
+            results_for_top_10_xp.append(placeholder_results_for_top_10_xp_relating_to_player[count].strip('<>')) # Go throught the list of runescape players and removes '<>'
+            count = count + 1
+        # Predefinded vaibale need to give the website some content
         HTML_title = "Previous Top 10 players list for xp gained"
         HTML_heading = "<h1>Top 10 players who have gained the most xp today </h1>"
         HTML_heading_image = '<img src="https://vignette.wikia.nocookie.net/runescape2/images/3/3d/RuneScape_3_Logo.png/revision/latest?cb=20140317195258" alt="RuneScape 3 logo from RuneWiki">'
