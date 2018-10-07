@@ -625,17 +625,57 @@ def export_list():
         write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date)
 
     elif top_10_radio.get() == 3:
+        results_for_top_10_clan = []
+        results_for_top_10_xp = []
+        results_clan_icon = []
+        read_html_file = open('archive/clan.html').read() # Read data from archive/clan.html
+        # Find all the players name in the document
+        placeholder_results_for_top_10_clan = findall('[0-9,a-z,A-Z, ,\-,\_]+</a><br /><i', str(read_html_file))
+        # Find all the user icons in the html document
+        placeholder_results_for_clan_icon = findall('http://www\.runeclan\.com/images//clan_banner\.php\?a=[A-Z,a-z, ,\+,0-9]+', str(read_html_file))
+        #  Find the xp related to the top 10 players who gained the most xp in the day
+        placeholder_results_for_top_10_xp_relating_to_clan = findall('>[0-9,]+<', str(read_html_file))
+        # finds the day the webpage was gernerated.
+        publication_date = findall('((Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) ([0-9]{1,2})(st|nd|rd|th) of (January|February|March|April|May|June|July|August|September|October|November|December) ([0-9]{4}))', str(read_html_file))
+        publication_date = "<p>" + publication_date[0][0] + "</p>"
+
+        count = 0 # This know as count++ in other languages. Count change while inside the loop
+        # Loop throught all the list and remove certin characters
+        for results in placeholder_results_for_top_10_clan: # Loop goes for 50 times
+            results_for_top_10_clan.append(placeholder_results_for_top_10_clan[count].replace('</a></td>', '')) # Go throught the list of runescape players and removes '</a></td>'
+            results_clan_icon.append('<img src="' + placeholder_results_for_clan_icon[count] + '" alt="Runescaps players icons">') # Go throught the list and add img src and alt= text
+            count = count + 1 # count++
+
+        count = 0 # Reset count for the next loop
+        # Loop throught all the list and remove certin characters
+        for results in placeholder_results_for_top_10_xp_relating_to_clan: # Loop goes for 318
+            results_for_top_10_xp.append(placeholder_results_for_top_10_xp_relating_to_clan[count].strip('<>')) # Go throught the list of runescape players and removes '<>'
+            count = count + 1
+
+        # Predefinded vaibale need to give the website some content
         HTML_title = "Previous Top 10 clan"
         HTML_heading = "<h1>Previously top 10 clans based on how much xp the clan has gathered in a day.</h1>"
         HTML_heading_image = '<img src="" alt="">'
         HTML_table_heading = """<table>
         <tr>
-          <th>Ranking</th>
-          <th>Clan Banner</th>
-          <th>Clan Name</th>
-          <th>Today's XP Gained</th>
+        <th>Ranking</th>
+        <th>Clan Banner</th>
+        <th>Clan Name</th>
+        <th>Today's XP Gained</th>
         </tr>
         """
+        postion_1_for_xp_gained = "<td>" + "1" + "</td>" + "<td>" + results_clan_icon[0] +"</td>" + "<td>" + results_for_top_10_clan[0] + "</td>" + "<td>" + results_for_top_10_xp[10] + "</td>"
+        postion_2_for_xp_gained = "<td>" + "2" + "</td>" + "<td>" + results_clan_icon[1] +"</td>" + "<td>" + results_for_top_10_clan[1] + "</td>" + "<td>" + results_for_top_10_xp[16] + "</td>"
+        postion_3_for_xp_gained = "<td>" + "3" + "</td>" + "<td>" + results_clan_icon[2] +"</td>" + "<td>" + results_for_top_10_clan[2] + "</td>" + "<td>" + results_for_top_10_xp[22] + "</td>"
+        postion_4_for_xp_gained = "<td>" + "4" + "</td>" + "<td>" + results_clan_icon[3] +"</td>" + "<td>" + results_for_top_10_clan[3] + "</td>" + "<td>" + results_for_top_10_xp[28] + "</td>"
+        postion_5_for_xp_gained = "<td>" + "5" + "</td>" + "<td>" + results_clan_icon[4] +"</td>" + "<td>" + results_for_top_10_clan[4] + "</td>" + "<td>" + results_for_top_10_xp[34] + "</td>"
+        postion_6_for_xp_gained = "<td>" + "6" + "</td>" + "<td>" + results_clan_icon[5] +"</td>" + "<td>" + results_for_top_10_clan[5] + "</td>" + "<td>" + results_for_top_10_xp[40] + "</td>"
+        postion_7_for_xp_gained = "<td>" + "7" + "</td>" + "<td>" + results_clan_icon[6] +"</td>" + "<td>" + results_for_top_10_clan[6] + "</td>" + "<td>" + results_for_top_10_xp[46] + "</td>"
+        postion_8_for_xp_gained = "<td>" + "8" + "</td>" + "<td>" + results_clan_icon[7] +"</td>" + "<td>" + results_for_top_10_clan[7] + "</td>" + "<td>" + results_for_top_10_xp[52] + "</td>"
+        postion_9_for_xp_gained = "<td>" + "9" + "</td>" + "<td>" + results_clan_icon[8] +"</td>" + "<td>" + results_for_top_10_clan[8] + "</td>" + "<td>" + results_for_top_10_xp[58] + "</td>"
+        postion_10_for_xp_gained = "<td>" + "10" +  "</td>" + "<td>" + results_clan_icon[9] + "</td>" + "<td>" + results_for_top_10_clan[9] + "</td>" + "<td>" + results_for_top_10_xp[64] + "</td>"
+
+        write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date)
 
     elif top_10_radio.get() == 4:
         results_for_top_10_clan = []
@@ -695,18 +735,47 @@ def export_list():
         write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date)
 
     elif top_10_radio.get() == 5:
-        HTML_title = "Previous Top 10 old school players list for xp gained"
-        HTML_heading = "<h1>Previous Top 10 old school player based on how much xp the player has gathered on the day.</h1>"
-        HTML_heading_image = '<img src="" alt="">'
-        HTML_table_heading = """<table>
-        <tr>
-          <th>Ranking</th>
-          <th>Player Icon</th>
-          <th>Username</th>
-          <th>Today's XP Gained</th>
-        </tr>
-        """
+        results_for_top_10_username = []
+        results_for_top_10_xp = []
+        results_user_icon = []
+        read_html_file = open('archive/old_school_xp.html').read() # Open and read file located in archive with the name of old_school_xp.html
+        # Find all the players name in the document
+        placeholder_results_for_top_10_username = findall('[0-9,a-z,A-Z, ,\-,\_]+</a></td>', str(read_html_file))
+        # Find all the user icons in the html document
+        placeholder_results_for_user_icon = findall('http://www\.runeclan\.com/images/chat_head_os\.php\?a=[A-Z,a-z, ,\+,0-9]+', str(read_html_file))
+        #  Find the xp related to the top 10 players who gained the most xp in the day
+        placeholder_results_for_top_10_xp_relating_to_player = findall('>[0-9,]+<', str(read_html_file))
+        # finds the day the webpage was gernerated.
+        publication_date = findall('((Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) ([0-9]{1,2})(st|nd|rd|th) of (January|February|March|April|May|June|July|August|September|October|November|December) ([0-9]{4}))', str(read_html_file))
+        publication_date = "<p>" + publication_date[0][0] + "</p>"
 
+        count = 0 # This know as count++ in other languages. Count change while inside the loop
+        # Loop throught all the list and remove certin characters
+        for results in placeholder_results_for_top_10_username: # Loop goes for 50 times
+            results_for_top_10_username.append(placeholder_results_for_top_10_username[count].replace('</a></td>', '')) # Go throught the list of runescape players and removes '</a></td>'
+            results_user_icon.append('<img src="' + placeholder_results_for_user_icon[count] + '" alt="Runescaps players icons">') # Go throught the list and add img src and alt= text
+            count = count + 1 # count++
+
+        count = 0 # Reset count for the next loop
+        # Loop throught all the list and remove certin characters
+        for results in placeholder_results_for_top_10_xp_relating_to_player: # Loop goes for 318
+            results_for_top_10_xp.append(placeholder_results_for_top_10_xp_relating_to_player[count].strip('<>')) # Go throught the list of runescape players and removes '<>'
+            count = count + 1
+        print(results_for_top_10_xp)
+        # Predefinded vaibale need to give the website some content
+
+        postion_1_for_xp_gained = "<td>" + "1" + "</td>" + "<td>" + results_user_icon[0] +"</td>" + "<td>" + results_for_top_10_username[0] + "</td>" + "<td>" + results_for_top_10_xp[3] + "</td>"
+        postion_2_for_xp_gained = "<td>" + "2" + "</td>" + "<td>" + results_user_icon[1] +"</td>" + "<td>" + results_for_top_10_username[1] + "</td>" + "<td>" + results_for_top_10_xp[9] + "</td>"
+        postion_3_for_xp_gained = "<td>" + "3" + "</td>" + "<td>" + results_user_icon[2] +"</td>" + "<td>" + results_for_top_10_username[2] + "</td>" + "<td>" + results_for_top_10_xp[15] + "</td>"
+        postion_4_for_xp_gained = "<td>" + "4" + "</td>" + "<td>" + results_user_icon[3] +"</td>" + "<td>" + results_for_top_10_username[3] + "</td>" + "<td>" + results_for_top_10_xp[21] + "</td>"
+        postion_5_for_xp_gained = "<td>" + "5" + "</td>" + "<td>" + results_user_icon[4] +"</td>" + "<td>" + results_for_top_10_username[4] + "</td>" + "<td>" + results_for_top_10_xp[27] + "</td>"
+        postion_6_for_xp_gained = "<td>" + "6" + "</td>" + "<td>" + results_user_icon[5] +"</td>" + "<td>" + results_for_top_10_username[5] + "</td>" + "<td>" + results_for_top_10_xp[33] + "</td>"
+        postion_7_for_xp_gained = "<td>" + "7" + "</td>" + "<td>" + results_user_icon[6] +"</td>" + "<td>" + results_for_top_10_username[6] + "</td>" + "<td>" + results_for_top_10_xp[39] + "</td>"
+        postion_8_for_xp_gained = "<td>" + "8" + "</td>" + "<td>" + results_user_icon[7] +"</td>" + "<td>" + results_for_top_10_username[7] + "</td>" + "<td>" + results_for_top_10_xp[45] + "</td>"
+        postion_9_for_xp_gained = "<td>" + "9" + "</td>" + "<td>" + results_user_icon[8] +"</td>" + "<td>" + results_for_top_10_username[8] + "</td>" + "<td>" + results_for_top_10_xp[51] + "</td>"
+        postion_10_for_xp_gained = "<td>" + "10" +  "</td>" + "<td>" + results_user_icon[9] + "</td>" + "<td>" + results_for_top_10_username[9] + "</td>" + "<td>" + results_for_top_10_xp[57] + "</td>"
+
+        write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date)
     elif top_10_radio.get() == 6:
         results_for_top_10_username = []
         results_for_top_10_xp = []
