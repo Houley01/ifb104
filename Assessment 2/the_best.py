@@ -53,6 +53,7 @@ from urllib.request import urlopen
 # Import the standard Tkinter functions. (You WILL need to use
 # these functions in your solution.)
 from tkinter import *
+from tkinter import messagebox
 
 # Functions for finding all occurrences of a pattern
 # defined via a regular expression, as well as
@@ -146,7 +147,7 @@ main_screen.title('Runescape') # Title
 
 #____________________ Variables ____________________#
 top_10_radio = IntVar()
-top_10_radio.set(4) # REMOVE THIS
+
 # Predefinded fonts
 font_heading_1 = ("Arial", 25)
 font_times_15 = ("Times", 15)
@@ -157,6 +158,8 @@ RS3_logo_image = PhotoImage(file="archive/images/RuneScape_3_Logo.png")
 OSRS_logo_image = PhotoImage(file="archive/images/Old_School_RuneScape_logo.png")
 Clan_banner_image = PhotoImage(file="archive/images/Clan_Banner.png")
 #____________________ End of Variables ____________________#
+def alert(button_choice): # Create an alert box if none of the radio button are selected.
+    messagebox.showinfo(title="Alert", message=button_choice)
 
 def preview_list():
     if top_10_radio.get() == 1: # Previous player data
@@ -169,7 +172,7 @@ def preview_list():
             count = count + 1
 
         rs3_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
-        rs3_player_xp_screen.title('Top 10')
+        rs3_player_xp_screen.title('Top 10 xp gainned in the past')
         postion_1 = Label(rs3_player_xp_screen, text="1:", font=font_times_15, justify="left")
         postion_2 = Label(rs3_player_xp_screen, text="2:", font=font_times_15, justify="left")
         postion_3 = Label(rs3_player_xp_screen, text="3:", font=font_times_15, justify="left")
@@ -221,7 +224,7 @@ def preview_list():
         search_rs3_player_html_current = []
         count = 0
         rs3_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
-        rs3_player_xp_screen.title('Top 10')
+        rs3_player_xp_screen.title('Top 10 xp gained in RuneScape 3 currently')
         runeclan_top_10_link = 'http://www.runeclan.com/xp-tracker'
         get_webite = urlopen(runeclan_top_10_link) # collect the website html document
         current_top_10_player = get_webite.read() # Read website
@@ -348,7 +351,7 @@ def preview_list():
             search_rs3_clan_html_current.append(placeholder_search_rs3_clan_html_current[count].replace('</a><br /><i', '')) # Go throught the list of runescape players and removes '</a></td>'
             count = count + 1
         clan_ranking = Toplevel() # Top 10 clans for the day.
-        clan_ranking.title('Top 10 Clan for the day')
+        clan_ranking.title('Current Top 10 Clan for the day')
         # 2nd Screen Widget ____________________________________________________________________
         postion_1 = Label(clan_ranking, text="1:", font=font_times_15, justify="left")
         postion_2 = Label(clan_ranking, text="2:", font=font_times_15, justify="left")
@@ -406,6 +409,7 @@ def preview_list():
             search_OSRS_player_html_archive.append(placeholder_search_OSRS_player_html_archive[count].replace('</a></td>', '')) # Go throught the list of runescape players and removes '</a></td>'
             count = count + 1
         oldschool_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
+        oldschool_player_xp_screen.title('Pervious Top 10 xp gained in Old School RuneScape')
         # 2nd Screen Widget ____________________________________________________________________
         postion_1 = Label(oldschool_player_xp_screen, text="1:", font=font_times_15, justify="left")
         postion_2 = Label(oldschool_player_xp_screen, text="2:", font=font_times_15, justify="left")
@@ -466,6 +470,7 @@ def preview_list():
             search_OSRS_player_html_current.append(placeholder_search_OSRS_player_html_current[count].replace('</a></td>', '')) # Go throught the list of runescape players and removes '</a></td>'
             count = count + 1
         oldschool_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
+        oldschool_player_xp_screen.title('Current Top 10 xp gained in Old School RuneScape')
         # 2nd Screen Widget ____________________________________________________________________
         postion_1 = Label(oldschool_player_xp_screen, text="1:", font=font_times_15, justify="left")
         postion_2 = Label(oldschool_player_xp_screen, text="2:", font=font_times_15, justify="left")
@@ -490,7 +495,7 @@ def preview_list():
         player_user_name_10 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_current[9], font=font_times_15, justify="left")
         OSRS_image = Label(oldschool_player_xp_screen, image=OSRS_logo_image)
         #____________________________________________________________________
-    # Layout for top 10 players of the day
+        # Layout for top 10 players of the day
         OSRS_image.grid(column=0, row=0, columnspan=4, rowspan=2)
         postion_1.grid(column=1, row=3)
         postion_2.grid(column=1, row=4)
@@ -513,9 +518,10 @@ def preview_list():
         player_user_name_8.grid(column=2, row=10, sticky=W)
         player_user_name_9.grid(column=2, row=11, sticky=W)
         player_user_name_10.grid(column=2, row=12, sticky=W)
+
     else:
-        pass
-        # Currently does nothing.
+        alert("Preview was clicked. To preview a list please click on a button above.")
+
 def export_list():
     if top_10_radio.get() == 1:
         results_for_top_10_username = []
@@ -761,9 +767,18 @@ def export_list():
         for results in placeholder_results_for_top_10_xp_relating_to_player: # Loop goes for 318
             results_for_top_10_xp.append(placeholder_results_for_top_10_xp_relating_to_player[count].strip('<>')) # Go throught the list of runescape players and removes '<>'
             count = count + 1
-        print(results_for_top_10_xp)
         # Predefinded vaibale need to give the website some content
-
+        HTML_title = "Current Top 10 old school players list for xp gained"
+        HTML_heading = "<h1>Current  Top 10 old school player based on how much xp the player has gathered on the today</h1>"
+        HTML_heading_image = '<img src="" alt="">'
+        HTML_table_heading = """<table>
+        <tr>
+          <th>Ranking</th>
+          <th>Player Icon</th>
+          <th>Username</th>
+          <th>Today's XP Gained</th>
+        </tr>
+        """
         postion_1_for_xp_gained = "<td>" + "1" + "</td>" + "<td>" + results_user_icon[0] +"</td>" + "<td>" + results_for_top_10_username[0] + "</td>" + "<td>" + results_for_top_10_xp[3] + "</td>"
         postion_2_for_xp_gained = "<td>" + "2" + "</td>" + "<td>" + results_user_icon[1] +"</td>" + "<td>" + results_for_top_10_username[1] + "</td>" + "<td>" + results_for_top_10_xp[9] + "</td>"
         postion_3_for_xp_gained = "<td>" + "3" + "</td>" + "<td>" + results_user_icon[2] +"</td>" + "<td>" + results_for_top_10_username[2] + "</td>" + "<td>" + results_for_top_10_xp[15] + "</td>"
@@ -776,6 +791,7 @@ def export_list():
         postion_10_for_xp_gained = "<td>" + "10" +  "</td>" + "<td>" + results_user_icon[9] + "</td>" + "<td>" + results_for_top_10_username[9] + "</td>" + "<td>" + results_for_top_10_xp[57] + "</td>"
 
         write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date)
+
     elif top_10_radio.get() == 6:
         results_for_top_10_username = []
         results_for_top_10_xp = []
@@ -805,7 +821,6 @@ def export_list():
         for results in placeholder_results_for_top_10_xp_relating_to_player: # Loop goes for 318
             results_for_top_10_xp.append(placeholder_results_for_top_10_xp_relating_to_player[count].strip('<>')) # Go throught the list of runescape players and removes '<>'
             count = count + 1
-        print(results_for_top_10_xp)
         # Predefinded vaibale need to give the website some content
         HTML_title = "Current Top 10 old school players list for xp gained"
         HTML_heading = "<h1>Current  Top 10 old school player based on how much xp the player has gathered on the today</h1>"
@@ -830,8 +845,9 @@ def export_list():
         postion_10_for_xp_gained = "<td>" + "10" +  "</td>" + "<td>" + results_user_icon[9] + "</td>" + "<td>" + results_for_top_10_username[9] + "</td>" + "<td>" + results_for_top_10_xp[57] + "</td>"
 
         write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date)
+
     else:
-        HTML_title = "No data is given"
+        alert("Export was clicked. To preview a list please click on a button above.")
 
 def write_html_file(title, heading_1, image, table_heading, postion_1, postion_2, postion_3, postion_4, postion_5,postion_6, postion_7, postion_8, postion_9, postion_10, publication_date):
     HTML_head_part_a = """<!DOCTYPE html>
@@ -907,22 +923,26 @@ def write_html_file(title, heading_1, image, table_heading, postion_1, postion_2
     # End of the table
     create_html_file.write(publication_date) # Write the publication date of the webpage to the html docment
     create_html_file.write(HTML_end)
+
 #____________________ Widgets ____________________#
 runescape_logo_label = Label(image = main_screen_logo_image)
 preview_button = Button(text = ' Preview', font = ('Arial', 24), command = preview_list)
 export_button = Button(text = ' Export', font = ('Arial', 24), command=export_list)
 
 # group 1
-group_1_preview_radio_button = Radiobutton(text = ' Previous', variable = top_10_radio, value = 1,)
-group_1_current_radio_button = Radiobutton(text = ' Current', variable = top_10_radio, value = 2)
+group_1_widgets = LabelFrame(main_screen, text='Top 10 players who have gained the most xp')
+group_1_preview_radio_button = Radiobutton(group_1_widgets, text = ' Previous', variable = top_10_radio, value = 1,)
+group_1_current_radio_button = Radiobutton(group_1_widgets, text = ' Current', variable = top_10_radio, value = 2)
 
 # group 2
-group_2_preview_radio_button = Radiobutton(text = ' Previous', variable = top_10_radio, value = 3)
-group_2_current_radio_button = Radiobutton(text = ' Current', variable = top_10_radio, value = 4)
+group_2_widgets = LabelFrame(main_screen, text='Top 10 clans who have gained the most xp')
+group_2_preview_radio_button = Radiobutton(group_2_widgets, text = ' Previous', variable = top_10_radio, value = 3)
+group_2_current_radio_button = Radiobutton(group_2_widgets, text = ' Current', variable = top_10_radio, value = 4)
 
 # group 3
-group_3_preview_radio_button = Radiobutton(text = ' Previous', variable = top_10_radio, value = 5)
-group_3_current_radio_button = Radiobutton(text = ' Current', variable = top_10_radio, value = 6)
+group_3_widgets = LabelFrame(main_screen, text='Top 10 OSRS Players who have gained the most xp')
+group_3_preview_radio_button = Radiobutton(group_3_widgets, text = ' Previous', variable = top_10_radio, value = 5)
+group_3_current_radio_button = Radiobutton(group_3_widgets, text = ' Current', variable = top_10_radio, value = 6)
 
 #____________________ End of Widget ____________________#
 
@@ -930,32 +950,22 @@ group_3_current_radio_button = Radiobutton(text = ' Current', variable = top_10_
 #____________________ Widget Placement ____________________#
 # Sceen 1
 runescape_logo_label.grid(column=0, row=0, columnspan=2, rowspan=3, sticky=W+E+N+S)
-group_1_preview_radio_button.grid(column=3, row=0)
-group_1_current_radio_button.grid(column=4, row=0)
-group_2_preview_radio_button.grid(column=3, row=1)
-group_2_current_radio_button.grid(column=4, row=1)
-group_3_preview_radio_button.grid(column=3, row=2)
-group_3_current_radio_button.grid(column=4, row=2)
-preview_button.grid(column=3, row=3)
-export_button.grid(column=4, row=3)
+group_1_widgets.grid(column=3, row=0, columnspan=4) # Place a boarded in the window for group 1 of Radiobutton
+group_1_preview_radio_button.grid(column=1, row=1) # Place in group_1_widgets
+group_1_current_radio_button.grid(column=2, row=1) # Place in group_1_widgets
 
-# RuneScape Top 10 players of the day screen layout.
-# Screen 3s
+group_2_widgets.grid(column=3, row=1, columnspan=4) # Place a boarded in the window for group 2 of Radiobutton
+group_2_preview_radio_button.grid(column=1, row=1) # Place in group_2_widgets
+group_2_current_radio_button.grid(column=2, row=1) # Place in group_2_widgets
+
+group_3_widgets.grid(column=3, row=2, columnspan=4) # Place a boarded in the window for group 2 of Radiobutton
+group_3_preview_radio_button.grid(column=1, row=1) # Place in group_3_widgets
+group_3_current_radio_button.grid(column=2, row=1) # Place in group_3_widgets
+
+preview_button.grid(column=3, row=4) # Buttons are place at the bottom of the window
+export_button.grid(column=4, row=4) # Buttons are place at the bottom of the window
+
 #____________________ End 0f Widget Placement ____________________#
 
-#__________ Collect Information from Websie ____________#
-def download_top_10_player():
-    download('http://www.runeclan.com/xp-tracker', 'archive/player', 'html')
-
-def download_top_10_clan():
-    download('http://www.runeclan.com/hiscores', 'archive/clan', 'html')
-
-def download_top_10_old_school():
-    download('http://oldschool.runeclan.com/xp-tracker', 'archive/old_school_xp', 'html')
-
-# download_top_10_clan()
-# download_top_10_player()
-# download_top_10_old_school()
-#__________  End of Collect Information from Websie ____________#
 # Start the event loop
 main_screen.mainloop() # Main Screen
