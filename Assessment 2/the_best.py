@@ -140,7 +140,7 @@ main_screen = Tk() # Main screen
 #____________________ Setup ____________________#
 
 # Main screen settings
-main_screen.title('Runescape') # Title
+main_screen.title('Runescape, Race to top postion') # Title
 # main_screen.geometry('400x400') # Set the screen size
 
 #____________________ End of Set Up ____________________#
@@ -153,7 +153,8 @@ font_heading_1 = ("Arial", 25)
 font_times_15 = ("Times", 15)
 
 # Images
-main_screen_logo_image = PhotoImage(file = 'archive/images/placeholder.png')
+main_screen_leftside_logo_image = PhotoImage(file="archive/images/main_screen_left.png")
+main_screen_rightside_logo_image = PhotoImage(file="archive/images/main_screen_right.png")
 RS3_logo_image = PhotoImage(file="archive/images/RuneScape_3_Logo.png")
 OSRS_logo_image = PhotoImage(file="archive/images/Old_School_RuneScape_logo.png")
 Clan_banner_image = PhotoImage(file="archive/images/Clan_Banner.png")
@@ -847,7 +848,7 @@ def export_list():
         write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date)
 
     else:
-        alert("Export was clicked. To preview a list please click on a button above.")
+        alert("Export was clicked. To export a list please click on a button above.")
 
 def write_html_file(title, heading_1, image, table_heading, postion_1, postion_2, postion_3, postion_4, postion_5,postion_6, postion_7, postion_8, postion_9, postion_10, publication_date):
     HTML_head_part_a = """<!DOCTYPE html>
@@ -925,45 +926,49 @@ def write_html_file(title, heading_1, image, table_heading, postion_1, postion_2
     create_html_file.write(HTML_end)
 
 #____________________ Widgets ____________________#
-runescape_logo_label = Label(image = main_screen_logo_image)
+Title_label = Label(main_screen, text="Race to top postion.", font=font_heading_1)
+runescape_logo_label_left = Label(image = main_screen_leftside_logo_image)
 preview_button = Button(text = ' Preview', font = ('Arial', 24), command = preview_list)
 export_button = Button(text = ' Export', font = ('Arial', 24), command=export_list)
+runescape_logo_label_right = Label(image = main_screen_rightside_logo_image)
 
 # group 1
-group_1_widgets = LabelFrame(main_screen, text='Top 10 players who have gained the most xp')
-group_1_preview_radio_button = Radiobutton(group_1_widgets, text = ' Previous', variable = top_10_radio, value = 1,)
-group_1_current_radio_button = Radiobutton(group_1_widgets, text = ' Current', variable = top_10_radio, value = 2)
+group_1_widgets = LabelFrame(main_screen, text='Top 10 players who have gained the most xp', font=font_times_15)
+group_1_preview_radio_button = Radiobutton(group_1_widgets, text = ' Previous', variable = top_10_radio, value = 1, font=font_times_15)
+group_1_current_radio_button = Radiobutton(group_1_widgets, text = ' Current', variable = top_10_radio, value = 2, font=font_times_15)
 
 # group 2
-group_2_widgets = LabelFrame(main_screen, text='Top 10 clans who have gained the most xp')
-group_2_preview_radio_button = Radiobutton(group_2_widgets, text = ' Previous', variable = top_10_radio, value = 3)
-group_2_current_radio_button = Radiobutton(group_2_widgets, text = ' Current', variable = top_10_radio, value = 4)
+group_2_widgets = LabelFrame(main_screen, text='Top 10 clans who have gained the most xp', font=font_times_15)
+group_2_preview_radio_button = Radiobutton(group_2_widgets, text = ' Previous', variable = top_10_radio, value = 3, font=font_times_15)
+group_2_current_radio_button = Radiobutton(group_2_widgets, text = ' Current', variable = top_10_radio, value = 4, font=font_times_15)
 
 # group 3
-group_3_widgets = LabelFrame(main_screen, text='Top 10 OSRS Players who have gained the most xp')
-group_3_preview_radio_button = Radiobutton(group_3_widgets, text = ' Previous', variable = top_10_radio, value = 5)
-group_3_current_radio_button = Radiobutton(group_3_widgets, text = ' Current', variable = top_10_radio, value = 6)
+group_3_widgets = LabelFrame(main_screen, text='Top 10 OSRS Players who have gained the most xp', font=font_times_15)
+group_3_preview_radio_button = Radiobutton(group_3_widgets, text = ' Previous', variable = top_10_radio, value = 5, font=font_times_15)
+group_3_current_radio_button = Radiobutton(group_3_widgets, text = ' Current', variable = top_10_radio, value = 6, font=font_times_15)
 
 #____________________ End of Widget ____________________#
 
 
 #____________________ Widget Placement ____________________#
 # Sceen 1
-runescape_logo_label.grid(column=0, row=0, columnspan=2, rowspan=3, sticky=W+E+N+S)
-group_1_widgets.grid(column=3, row=0, columnspan=4) # Place a boarded in the window for group 1 of Radiobutton
+Title_label.grid(column=2, row=0, columnspan=2)
+runescape_logo_label_left.grid(column=0, row=1, columnspan=2, rowspan=2, sticky=W)
+group_1_widgets.grid(column=2, row=1, columnspan=2) # Place a boarded in the window for group 1 of Radiobutton
 group_1_preview_radio_button.grid(column=1, row=1) # Place in group_1_widgets
 group_1_current_radio_button.grid(column=2, row=1) # Place in group_1_widgets
+runescape_logo_label_right.grid(column=4, row=1, columnspan=2, rowspan=2, sticky=E)
 
-group_2_widgets.grid(column=3, row=1, columnspan=4) # Place a boarded in the window for group 2 of Radiobutton
+group_2_widgets.grid(column=2, row=2, columnspan=2) # Place a boarded in the window for group 2 of Radiobutton
 group_2_preview_radio_button.grid(column=1, row=1) # Place in group_2_widgets
 group_2_current_radio_button.grid(column=2, row=1) # Place in group_2_widgets
 
-group_3_widgets.grid(column=3, row=2, columnspan=4) # Place a boarded in the window for group 2 of Radiobutton
+group_3_widgets.grid(column=2, row=3, columnspan=2) # Place a boarded in the window for group 2 of Radiobutton
 group_3_preview_radio_button.grid(column=1, row=1) # Place in group_3_widgets
 group_3_current_radio_button.grid(column=2, row=1) # Place in group_3_widgets
 
-preview_button.grid(column=3, row=4) # Buttons are place at the bottom of the window
-export_button.grid(column=4, row=4) # Buttons are place at the bottom of the window
+preview_button.grid(column=2, row=7) # Buttons are place at the bottom of the window
+export_button.grid(column=3, row=7) # Buttons are place at the bottom of the window
 
 #____________________ End 0f Widget Placement ____________________#
 
