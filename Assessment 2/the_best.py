@@ -528,7 +528,9 @@ def export_list():
         results_for_top_10_username = []
         results_for_top_10_xp = []
         results_user_icon = []
-        read_html_file = open('archive/player.html').read() # Open and read file located in archive with the name of player.html
+        file_location = 'archive/player.html'
+        read_html_file = open(file_location).read() # Open and read file located in archive with the name of player.html
+        file_location = '../'+file_location # Add a ../ this cause the browser to go back 1 folder
         # Find all the players name in the document
         placeholder_results_for_top_10_username = findall('[0-9,a-z,A-Z, ,\-,\_]+</a></td>', read_html_file)
         # Find all the user icons in the html document
@@ -537,7 +539,7 @@ def export_list():
         placeholder_results_for_top_10_xp_relating_to_player = findall('>[0-9,]+<', read_html_file)
         # finds the day the webpage was gernerated.
         publication_date = findall('((Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) ([0-9]{1,2})(st|nd|rd|th) of (January|February|March|April|May|June|July|August|September|October|November|December) ([0-9]{4}))', read_html_file)
-        publication_date = "<p>" + publication_date[0][0] + "</p>"
+        publication_date = publication_date[0][0]
 
         count = 0 # This know as count++ in other languages. Count change while inside the loop
         # Loop throught all the list and remove certin characters
@@ -555,13 +557,15 @@ def export_list():
         HTML_title = "Previous Top 10 players list for xp gained"
         HTML_heading = "<h1>Top 10 players who have gained the most xp today </h1>"
         HTML_heading_image = '<img src="https://vignette.wikia.nocookie.net/runescape2/images/3/3d/RuneScape_3_Logo.png/revision/latest?cb=20140317195258" alt="RuneScape 3 logo from RuneWiki">'
-        HTML_table_heading = """<table>
-        <tr>
-          <th>Ranking</th>
-          <th>Player Icon</th>
-          <th>Username</th>
-          <th>Today's XP Gained</th>
-        </tr>
+        HTML_table_heading = """<table class="table  table-hover">
+        <thead>
+            <tr>
+              <th>Ranking</th>
+              <th>Player Icon</th>
+              <th>Username</th>
+              <th>Today's XP Gained</th>
+            </tr>
+        </thead>
         """
         postion_1_for_xp_gained = "<td>" + "1" + "</td>" + "<td>" + results_user_icon[0] +"</td>" + "<td>" + results_for_top_10_username[0] + "</td>" + "<td>" + results_for_top_10_xp[10] + "</td>"
         postion_2_for_xp_gained = "<td>" + "2" + "</td>" + "<td>" + results_user_icon[1] +"</td>" + "<td>" + results_for_top_10_username[1] + "</td>" + "<td>" + results_for_top_10_xp[16] + "</td>"
@@ -574,7 +578,7 @@ def export_list():
         postion_9_for_xp_gained = "<td>" + "9" + "</td>" + "<td>" + results_user_icon[8] +"</td>" + "<td>" + results_for_top_10_username[8] + "</td>" + "<td>" + results_for_top_10_xp[58] + "</td>"
         postion_10_for_xp_gained = "<td>" + "10" +  "</td>" + "<td>" + results_user_icon[9] + "</td>" + "<td>" + results_for_top_10_username[9] + "</td>" + "<td>" + results_for_top_10_xp[64] + "</td>"
 
-        write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date)
+        write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date, file_location)
 
     elif top_10_radio.get() == 2:
         results_for_top_10_username = []
@@ -591,7 +595,7 @@ def export_list():
         placeholder_results_for_top_10_xp_relating_to_player = findall('>[0-9,]+<', str(read_html_file))
         # finds the day the webpage was gernerated.
         publication_date = findall('((Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) ([0-9]{1,2})(st|nd|rd|th) of (January|February|March|April|May|June|July|August|September|October|November|December) ([0-9]{4}))', str(read_html_file))
-        publication_date = "<p>" + publication_date[0][0] + "</p>"
+        publication_date = publication_date[0][0]
 
         count = 0 # This know as count++ in other languages. Count change while inside the loop
         # Loop throught all the list and remove certin characters
@@ -610,13 +614,15 @@ def export_list():
         HTML_title = "Current Top 10 players list for xp gained"
         HTML_heading = "<h1>Top 10 players who have gained the most xp today </h1>"
         HTML_heading_image = '<img src="https://vignette.wikia.nocookie.net/runescape2/images/3/3d/RuneScape_3_Logo.png/revision/latest?cb=20140317195258" alt="RuneScape 3 logo from RuneWiki">'
-        HTML_table_heading = """<table>
-        <tr>
-          <th>Ranking</th>
-          <th>Player Icon</th>
-          <th>Username</th>
-          <th>Today's XP Gained</th>
-        </tr>
+        HTML_table_heading = """<table class="table  table-hover">
+        <thead>
+            <tr>
+              <th>Ranking</th>
+              <th>Player Icon</th>
+              <th>Username</th>
+              <th>Today's XP Gained</th>
+            </tr>
+        </thead>
         """
         postion_1_for_xp_gained = "<td>" + "1" + "</td>" + "<td>" + results_user_icon[0] +"</td>" + "<td>" + results_for_top_10_username[0] + "</td>" + "<td>" + results_for_top_10_xp[10] + "</td>"
         postion_2_for_xp_gained = "<td>" + "2" + "</td>" + "<td>" + results_user_icon[1] +"</td>" + "<td>" + results_for_top_10_username[1] + "</td>" + "<td>" + results_for_top_10_xp[16] + "</td>"
@@ -629,13 +635,15 @@ def export_list():
         postion_9_for_xp_gained = "<td>" + "9" + "</td>" + "<td>" + results_user_icon[8] +"</td>" + "<td>" + results_for_top_10_username[8] + "</td>" + "<td>" + results_for_top_10_xp[58] + "</td>"
         postion_10_for_xp_gained = "<td>" + "10" +  "</td>" + "<td>" + results_user_icon[9] + "</td>" + "<td>" + results_for_top_10_username[9] + "</td>" + "<td>" + results_for_top_10_xp[64] + "</td>"
 
-        write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date)
+        write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date, runeclan_top_10_link)
 
     elif top_10_radio.get() == 3:
         results_for_top_10_clan = []
         results_for_top_10_xp = []
         results_clan_icon = []
-        read_html_file = open('archive/clan.html').read() # Read data from archive/clan.html
+        file_location = 'archive/clan.html'
+        read_html_file = open(file_location).read() # Read data from archive/clan.html
+        file_location = '../'+file_location # Add a ../ this cause the browser to go back 1 folder
         # Find all the players name in the document
         placeholder_results_for_top_10_clan = findall('[0-9,a-z,A-Z, ,\-,\_]+</a><br /><i', str(read_html_file))
         # Find all the user icons in the html document
@@ -644,7 +652,7 @@ def export_list():
         placeholder_results_for_top_10_xp_relating_to_clan = findall('>[0-9,]+<', str(read_html_file))
         # finds the day the webpage was gernerated.
         publication_date = findall('((Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) ([0-9]{1,2})(st|nd|rd|th) of (January|February|March|April|May|June|July|August|September|October|November|December) ([0-9]{4}))', str(read_html_file))
-        publication_date = "<p>" + publication_date[0][0] + "</p>"
+        publication_date = publication_date[0][0]
 
         count = 0 # This know as count++ in other languages. Count change while inside the loop
         # Loop throught all the list and remove certin characters
@@ -663,13 +671,15 @@ def export_list():
         HTML_title = "Previous Top 10 clan"
         HTML_heading = "<h1>Previously top 10 clans based on how much xp the clan has gathered in a day.</h1>"
         HTML_heading_image = '<img src="" alt="">'
-        HTML_table_heading = """<table>
-        <tr>
-        <th>Ranking</th>
-        <th>Clan Banner</th>
-        <th>Clan Name</th>
-        <th>Today's XP Gained</th>
-        </tr>
+        HTML_table_heading = """<table class="table  table-hover">
+        <thead>
+            <tr>
+            <th>Ranking</th>
+            <th>Clan Banner</th>
+            <th>Clan Name</th>
+            <th>Today's XP Gained</th>
+            </tr>
+        </thead>
         """
         postion_1_for_xp_gained = "<td>" + "1" + "</td>" + "<td>" + results_clan_icon[0] +"</td>" + "<td>" + results_for_top_10_clan[0] + "</td>" + "<td>" + results_for_top_10_xp[10] + "</td>"
         postion_2_for_xp_gained = "<td>" + "2" + "</td>" + "<td>" + results_clan_icon[1] +"</td>" + "<td>" + results_for_top_10_clan[1] + "</td>" + "<td>" + results_for_top_10_xp[16] + "</td>"
@@ -682,7 +692,7 @@ def export_list():
         postion_9_for_xp_gained = "<td>" + "9" + "</td>" + "<td>" + results_clan_icon[8] +"</td>" + "<td>" + results_for_top_10_clan[8] + "</td>" + "<td>" + results_for_top_10_xp[58] + "</td>"
         postion_10_for_xp_gained = "<td>" + "10" +  "</td>" + "<td>" + results_clan_icon[9] + "</td>" + "<td>" + results_for_top_10_clan[9] + "</td>" + "<td>" + results_for_top_10_xp[64] + "</td>"
 
-        write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date)
+        write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date, file_location)
 
     elif top_10_radio.get() == 4:
         results_for_top_10_clan = []
@@ -699,7 +709,7 @@ def export_list():
         placeholder_results_for_top_10_xp_relating_to_clan = findall('>[0-9,]+<', str(read_html_file))
         # finds the day the webpage was gernerated.
         publication_date = findall('((Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) ([0-9]{1,2})(st|nd|rd|th) of (January|February|March|April|May|June|July|August|September|October|November|December) ([0-9]{4}))', str(read_html_file))
-        publication_date = "<p>" + publication_date[0][0] + "</p>"
+        publication_date = publication_date[0][0]
 
         count = 0 # This know as count++ in other languages. Count change while inside the loop
         # Loop throught all the list and remove certin characters
@@ -718,13 +728,15 @@ def export_list():
         HTML_title = "Current Top 10 clan"
         HTML_heading = "<h1>Current Top 10 clans based on how much xp the clan has gathered today.</h1>"
         HTML_heading_image = '<img src="http://www.runeclan.com/images/clan_banner.php?a=blank+banner" alt="Runescape 3 clan banner">'
-        HTML_table_heading = """<table>
-        <tr>
-          <th>Ranking</th>
-          <th>Clan Banner</th>
-          <th>Clan Name</th>
-          <th>Today's XP Gained</th>
-        </tr>
+        HTML_table_heading = """<table class="table  table-hover">
+        <thead>
+            <tr>
+              <th>Ranking</th>
+              <th>Clan Banner</th>
+              <th>Clan Name</th>
+              <th>Today's XP Gained</th>
+            </tr>
+        </thead>
         """
         # The following turn out to be
         # <td> 1 </td> <td> <img src="http://www.runeclan.com/images/clan_banner.php?a=blank+banner"> </td> <td> clan name </td> <td> 9,999,999,999 </td>
@@ -739,13 +751,15 @@ def export_list():
         postion_9_for_xp_gained = "<td>" + "9" + "</td>" + "<td>" + results_clan_icon[8] +"</td>" + "<td>" + results_for_top_10_clan[8] + "</td>" + "<td>" + results_for_top_10_xp[58] + "</td>"
         postion_10_for_xp_gained = "<td>" + "10" +  "</td>" + "<td>" + results_clan_icon[9] + "</td>" + "<td>" + results_for_top_10_clan[9] + "</td>" + "<td>" + results_for_top_10_xp[64] + "</td>"
 
-        write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date)
+        write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date, runeclan_top_10_link)
 
     elif top_10_radio.get() == 5:
         results_for_top_10_username = []
         results_for_top_10_xp = []
         results_user_icon = []
-        read_html_file = open('archive/old_school_xp.html').read() # Open and read file located in archive with the name of old_school_xp.html
+        file_location = 'archive/old_school_xp.html'
+        read_html_file = open(file_location).read() # Open and read file located in archive with the name of old_school_xp.html
+        file_location = '../'+file_location # Add a ../ this cause the browser to go back 1 folder
         # Find all the players name in the document
         placeholder_results_for_top_10_username = findall('[0-9,a-z,A-Z, ,\-,\_]+</a></td>', str(read_html_file))
         # Find all the user icons in the html document
@@ -754,7 +768,7 @@ def export_list():
         placeholder_results_for_top_10_xp_relating_to_player = findall('>[0-9,]+<', str(read_html_file))
         # finds the day the webpage was gernerated.
         publication_date = findall('((Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) ([0-9]{1,2})(st|nd|rd|th) of (January|February|March|April|May|June|July|August|September|October|November|December) ([0-9]{4}))', str(read_html_file))
-        publication_date = "<p>" + publication_date[0][0] + "</p>"
+        publication_date = publication_date[0][0]
 
         count = 0 # This know as count++ in other languages. Count change while inside the loop
         # Loop throught all the list and remove certin characters
@@ -772,13 +786,15 @@ def export_list():
         HTML_title = "Current Top 10 old school players list for xp gained"
         HTML_heading = "<h1>Current  Top 10 old school player based on how much xp the player has gathered on the today</h1>"
         HTML_heading_image = '<img src="" alt="">'
-        HTML_table_heading = """<table>
-        <tr>
-          <th>Ranking</th>
-          <th>Player Icon</th>
-          <th>Username</th>
-          <th>Today's XP Gained</th>
-        </tr>
+        HTML_table_heading = """<table class="table  table-hover">
+        <thead>
+            <tr>
+              <th>Ranking</th>
+              <th>Player Icon</th>
+              <th>Username</th>
+              <th>Today's XP Gained</th>
+            </tr>
+        </thead>
         """
         postion_1_for_xp_gained = "<td>" + "1" + "</td>" + "<td>" + results_user_icon[0] +"</td>" + "<td>" + results_for_top_10_username[0] + "</td>" + "<td>" + results_for_top_10_xp[3] + "</td>"
         postion_2_for_xp_gained = "<td>" + "2" + "</td>" + "<td>" + results_user_icon[1] +"</td>" + "<td>" + results_for_top_10_username[1] + "</td>" + "<td>" + results_for_top_10_xp[9] + "</td>"
@@ -791,7 +807,7 @@ def export_list():
         postion_9_for_xp_gained = "<td>" + "9" + "</td>" + "<td>" + results_user_icon[8] +"</td>" + "<td>" + results_for_top_10_username[8] + "</td>" + "<td>" + results_for_top_10_xp[51] + "</td>"
         postion_10_for_xp_gained = "<td>" + "10" +  "</td>" + "<td>" + results_user_icon[9] + "</td>" + "<td>" + results_for_top_10_username[9] + "</td>" + "<td>" + results_for_top_10_xp[57] + "</td>"
 
-        write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date)
+        write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date, file_location)
 
     elif top_10_radio.get() == 6:
         results_for_top_10_username = []
@@ -808,7 +824,7 @@ def export_list():
         placeholder_results_for_top_10_xp_relating_to_player = findall('>[0-9,]+<', str(read_html_file))
         # finds the day the webpage was gernerated.
         publication_date = findall('((Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) ([0-9]{1,2})(st|nd|rd|th) of (January|February|March|April|May|June|July|August|September|October|November|December) ([0-9]{4}))', str(read_html_file))
-        publication_date = "<p>" + publication_date[0][0] + "</p>"
+        publication_date = publication_date[0][0]
 
         count = 0 # This know as count++ in other languages. Count change while inside the loop
         # Loop throught all the list and remove certin characters
@@ -826,13 +842,15 @@ def export_list():
         HTML_title = "Current Top 10 old school players list for xp gained"
         HTML_heading = "<h1>Current  Top 10 old school player based on how much xp the player has gathered on the today</h1>"
         HTML_heading_image = '<img src="" alt="">'
-        HTML_table_heading = """<table>
-        <tr>
-          <th>Ranking</th>
-          <th>Player Icon</th>
-          <th>Username</th>
-          <th>Today's XP Gained</th>
-        </tr>
+        HTML_table_heading = """<table class="table  table-hover">
+        <thead>
+            <tr>
+              <th>Ranking</th>
+              <th>Player Icon</th>
+              <th>Username</th>
+              <th>Today's XP Gained</th>
+            </tr>
+        </thead>
         """
         postion_1_for_xp_gained = "<td>" + "1" + "</td>" + "<td>" + results_user_icon[0] +"</td>" + "<td>" + results_for_top_10_username[0] + "</td>" + "<td>" + results_for_top_10_xp[3] + "</td>"
         postion_2_for_xp_gained = "<td>" + "2" + "</td>" + "<td>" + results_user_icon[1] +"</td>" + "<td>" + results_for_top_10_username[1] + "</td>" + "<td>" + results_for_top_10_xp[9] + "</td>"
@@ -845,18 +863,18 @@ def export_list():
         postion_9_for_xp_gained = "<td>" + "9" + "</td>" + "<td>" + results_user_icon[8] +"</td>" + "<td>" + results_for_top_10_username[8] + "</td>" + "<td>" + results_for_top_10_xp[51] + "</td>"
         postion_10_for_xp_gained = "<td>" + "10" +  "</td>" + "<td>" + results_user_icon[9] + "</td>" + "<td>" + results_for_top_10_username[9] + "</td>" + "<td>" + results_for_top_10_xp[57] + "</td>"
 
-        write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date)
+        write_html_file(HTML_title, HTML_heading, HTML_heading_image, HTML_table_heading, postion_1_for_xp_gained, postion_2_for_xp_gained, postion_3_for_xp_gained, postion_4_for_xp_gained, postion_5_for_xp_gained, postion_6_for_xp_gained, postion_7_for_xp_gained, postion_8_for_xp_gained, postion_9_for_xp_gained, postion_10_for_xp_gained, publication_date,  runeclan_top_10_link)
 
     else:
         alert("Export was clicked. To export a list please click on a button above.")
 
-def write_html_file(title, heading_1, image, table_heading, postion_1, postion_2, postion_3, postion_4, postion_5,postion_6, postion_7, postion_8, postion_9, postion_10, publication_date):
+def write_html_file(title, heading_1, image, table_heading, postion_1, postion_2, postion_3, postion_4, postion_5,postion_6, postion_7, postion_8, postion_9, postion_10, publication_date, location_of_info):
     HTML_head_part_a = """<!DOCTYPE html>
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="css/master.css">
-        <meta charset="utf-8">
-        <title>"""
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+          <meta charset="utf-8">
+          <title>"""
     HTML_head_part_b = """</title>
       </head>
       <style media="screen">
@@ -880,6 +898,7 @@ def write_html_file(title, heading_1, image, table_heading, postion_1, postion_2
     create_html_file.write(heading_1)
     create_html_file.write(image)
     create_html_file.write(table_heading) # Write the heading table
+    create_html_file.write('<tbody>') # body of the table
     # start of the row 1 of 10
     create_html_file.write(start_of_table_row)
     create_html_file.write(postion_1)
@@ -920,9 +939,11 @@ def write_html_file(title, heading_1, image, table_heading, postion_1, postion_2
     create_html_file.write(start_of_table_row)
     create_html_file.write(postion_10)
     create_html_file.write(end_of_table_row)
-    create_html_file.write("</table>")
+    create_html_file.write('</tbody>') # End tag of the table body.
+    create_html_file.write("</table>") # End tag of the table
     # End of the table
-    create_html_file.write(publication_date) # Write the publication date of the webpage to the html docment
+    create_html_file.write('<p>Date of publication: ' +     publication_date+'</p>') # Write the publication date of the webpage to the html docment
+    create_html_file.write('<a href="' + location_of_info + '"> Location from '+location_of_info + '</a>') # Write the where the data came from
     create_html_file.write(HTML_end)
 
 #____________________ Widgets ____________________#
