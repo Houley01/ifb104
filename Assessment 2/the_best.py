@@ -150,6 +150,7 @@ top_10_radio = IntVar()
 
 # Predefinded fonts
 font_heading_1 = ("Arial", 25)
+button_font = ("Arial", 24)
 font_times_15 = ("Times", 15)
 
 # Images
@@ -949,8 +950,8 @@ def write_html_file(title, heading_1, image, table_heading, postion_1, postion_2
 #____________________ Widgets ____________________#
 Title_label = Label(main_screen, text="Race to top postion.", font=font_heading_1)
 runescape_logo_label_left = Label(image = main_screen_leftside_logo_image)
-preview_button = Button(text = ' Preview', font = ('Arial', 24), command = preview_list)
-export_button = Button(text = ' Export', font = ('Arial', 24), command=export_list)
+preview_button = Button(text = ' Preview', font = button_font, command = preview_list)
+export_button = Button(text = ' Export', font = button_font, command=export_list)
 runescape_logo_label_right = Label(image = main_screen_rightside_logo_image)
 
 # group 1
