@@ -169,7 +169,7 @@ database_location = 'top_ten.db' # Change the location of the database when mark
 def alert(button_choice): # Create an alert box if none of the radio button are selected.
     messagebox.showinfo(title="Alert", message=button_choice)
 
-def preview_list(): # gernerates a tkinter window with data from local files or from a website.
+def preview_list(): # gernerates the data tp be displayed in a tk window with data from local files or from a website.
     if top_10_radio.get() == 1: # Previous player data
         search_rs3_player_html_archive = []
         count = 0
@@ -179,60 +179,25 @@ def preview_list(): # gernerates a tkinter window with data from local files or 
             search_rs3_player_html_archive.append(placeholder_search_rs3_player_html_archive[count].replace('</a></td>', '')) # Go throught the list of runescape players and removes '</a></td>'
             count = count + 1
 
-        rs3_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
-        rs3_player_xp_screen.title('Top 10 xp gainned in the past')
-        postion_1 = Label(rs3_player_xp_screen, text="1:", font=font_times_15, justify="left")
-        postion_2 = Label(rs3_player_xp_screen, text="2:", font=font_times_15, justify="left")
-        postion_3 = Label(rs3_player_xp_screen, text="3:", font=font_times_15, justify="left")
-        postion_4 = Label(rs3_player_xp_screen, text="4:", font=font_times_15, justify="left")
-        postion_5 = Label(rs3_player_xp_screen, text="5:", font=font_times_15, justify="left")
-        postion_6 = Label(rs3_player_xp_screen, text="6:", font=font_times_15, justify="left")
-        postion_7 = Label(rs3_player_xp_screen, text="7:", font=font_times_15, justify="left")
-        postion_8 = Label(rs3_player_xp_screen, text="8:", font=font_times_15, justify="left")
-        postion_9 = Label(rs3_player_xp_screen, text="9:", font=font_times_15, justify="left")
-        postion_10 = Label(rs3_player_xp_screen, text="10:", font=font_times_15, justify="left")
+        # Vaibale list to be past throught to display_preview_list function
+        title = 'Top 10 xp gained in RuneScape 3 Pervious'
+        poll_postion_1 = search_rs3_player_html_archive[0]
+        poll_postion_2 = search_rs3_player_html_archive[1]
+        poll_postion_3 = search_rs3_player_html_archive[2]
+        poll_postion_4 = search_rs3_player_html_archive[3]
+        poll_postion_5 = search_rs3_player_html_archive[4]
+        poll_postion_6 = search_rs3_player_html_archive[5]
+        poll_postion_7 = search_rs3_player_html_archive[6]
+        poll_postion_8 = search_rs3_player_html_archive[7]
+        poll_postion_9 = search_rs3_player_html_archive[8]
+        poll_postion_10 = search_rs3_player_html_archive[9]
+        RS3_image = RS3_logo_image # Image
 
-        player_user_name_1 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[0], font=font_times_15, justify="left")
-        player_user_name_2 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[1], font=font_times_15, justify="left")
-        player_user_name_3 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[2], font=font_times_15, justify="left")
-        player_user_name_4 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[3], font=font_times_15, justify="left")
-        player_user_name_5 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[4], font=font_times_15, justify="left")
-        player_user_name_6 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[5], font=font_times_15, justify="left")
-        player_user_name_7 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[6], font=font_times_15, justify="left")
-        player_user_name_8 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[7], font=font_times_15, justify="left")
-        player_user_name_9 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[8], font=font_times_15, justify="left")
-        player_user_name_10 = Label(rs3_player_xp_screen, text=search_rs3_player_html_archive[9], font=font_times_15, justify="left")
-            # count = count + 1
-        top_player_image = Label(rs3_player_xp_screen, image=RS3_logo_image)
-        # Layout for top 10 players of the day
-        top_player_image.grid(column=0, row=0, columnspan=4, rowspan=2)
-        postion_1.grid(column=1, row=3)
-        postion_2.grid(column=1, row=4)
-        postion_3.grid(column=1, row=5)
-        postion_4.grid(column=1, row=6)
-        postion_5.grid(column=1, row=7)
-        postion_6.grid(column=1, row=8)
-        postion_7.grid(column=1, row=9)
-        postion_8.grid(column=1, row=10)
-        postion_9.grid(column=1, row=11)
-        postion_10.grid(column=1, row=12)
-
-        player_user_name_1.grid(column=2, row=3, sticky=W)
-        player_user_name_2.grid(column=2, row=4, sticky=W)
-        player_user_name_3.grid(column=2, row=5, sticky=W)
-        player_user_name_4.grid(column=2, row=6, sticky=W)
-        player_user_name_5.grid(column=2, row=7, sticky=W)
-        player_user_name_6.grid(column=2, row=8, sticky=W)
-        player_user_name_7.grid(column=2, row=9, sticky=W)
-        player_user_name_8.grid(column=2, row=10, sticky=W)
-        player_user_name_9.grid(column=2, row=11, sticky=W)
-        player_user_name_10.grid(column=2, row=12, sticky=W)
+        display_preview_list(title, RS3_image, poll_postion_1, poll_postion_2, poll_postion_3, poll_postion_4, poll_postion_5, poll_postion_6, poll_postion_7, poll_postion_8, poll_postion_9, poll_postion_10) # Call display_preview_list with the variable pass through
 
     elif top_10_radio.get() == 2: # Current player data for to 10
         search_rs3_player_html_current = []
         count = 0
-        rs3_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
-        rs3_player_xp_screen.title('Top 10 xp gained in RuneScape 3 currently')
         runeclan_top_10_link = 'http://www.runeclan.com/xp-tracker'
         get_webite = urlopen(runeclan_top_10_link) # collect the website html document
         current_top_10_player = get_webite.read() # Read website
@@ -240,53 +205,22 @@ def preview_list(): # gernerates a tkinter window with data from local files or 
         for player in placeholder_search_rs3_player_html_current:
             search_rs3_player_html_current.append(placeholder_search_rs3_player_html_current[count].replace('</a></td>', '')) # Go throught the list of runescape players and removes '</a></td>'
             count = count + 1
-        # 2nd Screen Widget ____________________________________________________________________
-        postion_1 = Label(rs3_player_xp_screen, text="1:", font=font_times_15, justify="left")
-        postion_2 = Label(rs3_player_xp_screen, text="2:", font=font_times_15, justify="left")
-        postion_3 = Label(rs3_player_xp_screen, text="3:", font=font_times_15, justify="left")
-        postion_4 = Label(rs3_player_xp_screen, text="4:", font=font_times_15, justify="left")
-        postion_5 = Label(rs3_player_xp_screen, text="5:", font=font_times_15, justify="left")
-        postion_6 = Label(rs3_player_xp_screen, text="6:", font=font_times_15, justify="left")
-        postion_7 = Label(rs3_player_xp_screen, text="7:", font=font_times_15, justify="left")
-        postion_8 = Label(rs3_player_xp_screen, text="8:", font=font_times_15, justify="left")
-        postion_9 = Label(rs3_player_xp_screen, text="9:", font=font_times_15, justify="left")
-        postion_10 = Label(rs3_player_xp_screen, text="10:", font=font_times_15, justify="left")
 
-        player_user_name_1 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[0], font=font_times_15, justify="left")
-        player_user_name_2 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[1], font=font_times_15, justify="left")
-        player_user_name_3 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[2], font=font_times_15, justify="left")
-        player_user_name_4 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[3], font=font_times_15, justify="left")
-        player_user_name_5 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[4], font=font_times_15, justify="left")
-        player_user_name_6 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[5], font=font_times_15, justify="left")
-        player_user_name_7 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[6], font=font_times_15, justify="left")
-        player_user_name_8 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[7], font=font_times_15, justify="left")
-        player_user_name_9 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[8], font=font_times_15, justify="left")
-        player_user_name_10 = Label(rs3_player_xp_screen, text=search_rs3_player_html_current[9], font=font_times_15, justify="left")
-        top_player_image = Label(rs3_player_xp_screen, image=RS3_logo_image)
-        #____________________________________________________________________
-        # Layout for top 10 players of the day
-        top_player_image.grid(column=0, row=0, columnspan=4, rowspan=2)
-        postion_1.grid(column=1, row=3)
-        postion_2.grid(column=1, row=4)
-        postion_3.grid(column=1, row=5)
-        postion_4.grid(column=1, row=6)
-        postion_5.grid(column=1, row=7)
-        postion_6.grid(column=1, row=8)
-        postion_7.grid(column=1, row=9)
-        postion_8.grid(column=1, row=10)
-        postion_9.grid(column=1, row=11)
-        postion_10.grid(column=1, row=12)
+        # Vaibale list to be past throught to display_preview_list function
+        title = 'Top 10 xp gained in RuneScape 3 currently'
+        poll_postion_1 = search_rs3_player_html_current[0]
+        poll_postion_2 = search_rs3_player_html_current[1]
+        poll_postion_3 = search_rs3_player_html_current[2]
+        poll_postion_4 = search_rs3_player_html_current[3]
+        poll_postion_5 = search_rs3_player_html_current[4]
+        poll_postion_6 = search_rs3_player_html_current[5]
+        poll_postion_7 = search_rs3_player_html_current[6]
+        poll_postion_8 = search_rs3_player_html_current[7]
+        poll_postion_9 = search_rs3_player_html_current[8]
+        poll_postion_10 = search_rs3_player_html_current[9]
+        RS3_image = RS3_logo_image # Image
 
-        player_user_name_1.grid(column=2, row=3, sticky=W)
-        player_user_name_2.grid(column=2, row=4, sticky=W)
-        player_user_name_3.grid(column=2, row=5, sticky=W)
-        player_user_name_4.grid(column=2, row=6, sticky=W)
-        player_user_name_5.grid(column=2, row=7, sticky=W)
-        player_user_name_6.grid(column=2, row=8, sticky=W)
-        player_user_name_7.grid(column=2, row=9, sticky=W)
-        player_user_name_8.grid(column=2, row=10, sticky=W)
-        player_user_name_9.grid(column=2, row=11, sticky=W)
-        player_user_name_10.grid(column=2, row=12, sticky=W)
+        display_preview_list(title, RS3_image, poll_postion_1, poll_postion_2, poll_postion_3, poll_postion_4, poll_postion_5, poll_postion_6, poll_postion_7, poll_postion_8, poll_postion_9, poll_postion_10) # Call display_preview_list with the variable pass through
         #____________________________________________________________________
 
     elif top_10_radio.get() == 3: # Previous clan data
@@ -298,55 +232,21 @@ def preview_list(): # gernerates a tkinter window with data from local files or 
             search_rs3_clan_html_archive.append(placeholder_search_rs3_clan_html_archive[count].replace('</a><br /><i', '')) # Go throught the list of runescape players and removes '</a></td>'
             count = count + 1
 
-        clan_ranking = Toplevel() # Top 10 clans clan for the day.
-        clan_ranking.title('Top 10 Clan for the day')
-        # 2nd Screen Widget ____________________________________________________________________
-        postion_1 = Label(clan_ranking, text="1:", font=font_times_15, justify="left")
-        postion_2 = Label(clan_ranking, text="2:", font=font_times_15, justify="left")
-        postion_3 = Label(clan_ranking, text="3:", font=font_times_15, justify="left")
-        postion_4 = Label(clan_ranking, text="4:", font=font_times_15, justify="left")
-        postion_5 = Label(clan_ranking, text="5:", font=font_times_15, justify="left")
-        postion_6 = Label(clan_ranking, text="6:", font=font_times_15, justify="left")
-        postion_7 = Label(clan_ranking, text="7:", font=font_times_15, justify="left")
-        postion_8 = Label(clan_ranking, text="8:", font=font_times_15, justify="left")
-        postion_9 = Label(clan_ranking, text="9:", font=font_times_15, justify="left")
-        postion_10 = Label(clan_ranking, text="10:", font=font_times_15, justify="left")
+        # Vaibale list to be past throught to display_preview_list function
+        title = 'Previous Top 10 Clan for the day'
+        poll_postion_1 = search_rs3_clan_html_archive[0]
+        poll_postion_2 = search_rs3_clan_html_archive[1]
+        poll_postion_3 = search_rs3_clan_html_archive[2]
+        poll_postion_4 = search_rs3_clan_html_archive[3]
+        poll_postion_5 = search_rs3_clan_html_archive[4]
+        poll_postion_6 = search_rs3_clan_html_archive[5]
+        poll_postion_7 = search_rs3_clan_html_archive[6]
+        poll_postion_8 = search_rs3_clan_html_archive[7]
+        poll_postion_9 = search_rs3_clan_html_archive[8]
+        poll_postion_10 = search_rs3_clan_html_archive[9]
+        clan_banner = Clan_banner_image # Image
 
-        clan_name_1 = Label(clan_ranking, text=search_rs3_clan_html_archive[0], font=font_times_15, justify="left")
-        clan_name_2 = Label(clan_ranking, text=search_rs3_clan_html_archive[1], font=font_times_15, justify="left")
-        clan_name_3 = Label(clan_ranking, text=search_rs3_clan_html_archive[2], font=font_times_15, justify="left")
-        clan_name_4 = Label(clan_ranking, text=search_rs3_clan_html_archive[3], font=font_times_15, justify="left")
-        clan_name_5 = Label(clan_ranking, text=search_rs3_clan_html_archive[4], font=font_times_15, justify="left")
-        clan_name_6 = Label(clan_ranking, text=search_rs3_clan_html_archive[5], font=font_times_15, justify="left")
-        clan_name_7 = Label(clan_ranking, text=search_rs3_clan_html_archive[6], font=font_times_15, justify="left")
-        clan_name_8 = Label(clan_ranking, text=search_rs3_clan_html_archive[7], font=font_times_15, justify="left")
-        clan_name_9 = Label(clan_ranking, text=search_rs3_clan_html_archive[8], font=font_times_15, justify="left")
-        clan_name_10 = Label(clan_ranking, text=search_rs3_clan_html_archive[9], font=font_times_15, justify="left")
-        clan_banner = Label(clan_ranking, image=Clan_banner_image)
-        #____________________________________________________________________
-        # Layout for top 10 players of the day
-        clan_banner.grid(column=0, row=0, columnspan=4, rowspan=2)
-        postion_1.grid(column=1, row=3)
-        postion_2.grid(column=1, row=4)
-        postion_3.grid(column=1, row=5)
-        postion_4.grid(column=1, row=6)
-        postion_5.grid(column=1, row=7)
-        postion_6.grid(column=1, row=8)
-        postion_7.grid(column=1, row=9)
-        postion_8.grid(column=1, row=10)
-        postion_9.grid(column=1, row=11)
-        postion_10.grid(column=1, row=12)
-
-        clan_name_1.grid(column=2, row=3, sticky=W)
-        clan_name_2.grid(column=2, row=4, sticky=W)
-        clan_name_3.grid(column=2, row=5, sticky=W)
-        clan_name_4.grid(column=2, row=6, sticky=W)
-        clan_name_5.grid(column=2, row=7, sticky=W)
-        clan_name_6.grid(column=2, row=8, sticky=W)
-        clan_name_7.grid(column=2, row=9, sticky=W)
-        clan_name_8.grid(column=2, row=10, sticky=W)
-        clan_name_9.grid(column=2, row=11, sticky=W)
-        clan_name_10.grid(column=2, row=12, sticky=W)
+        display_preview_list(title, clan_banner, poll_postion_1, poll_postion_2, poll_postion_3, poll_postion_4, poll_postion_5, poll_postion_6, poll_postion_7, poll_postion_8, poll_postion_9, poll_postion_10) # Call display_preview_list with the variable pass through.
 
     elif top_10_radio.get() == 4: # Current clan data
         search_rs3_clan_html_current = []
@@ -358,55 +258,21 @@ def preview_list(): # gernerates a tkinter window with data from local files or 
         for clan in placeholder_search_rs3_clan_html_current:
             search_rs3_clan_html_current.append(placeholder_search_rs3_clan_html_current[count].replace('</a><br /><i', '')) # Go throught the list of runescape players and removes '</a></td>'
             count = count + 1
-        clan_ranking = Toplevel() # Top 10 clans for the day.
-        clan_ranking.title('Current Top 10 Clan for the day')
-        # 2nd Screen Widget ____________________________________________________________________
-        postion_1 = Label(clan_ranking, text="1:", font=font_times_15, justify="left")
-        postion_2 = Label(clan_ranking, text="2:", font=font_times_15, justify="left")
-        postion_3 = Label(clan_ranking, text="3:", font=font_times_15, justify="left")
-        postion_4 = Label(clan_ranking, text="4:", font=font_times_15, justify="left")
-        postion_5 = Label(clan_ranking, text="5:", font=font_times_15, justify="left")
-        postion_6 = Label(clan_ranking, text="6:", font=font_times_15, justify="left")
-        postion_7 = Label(clan_ranking, text="7:", font=font_times_15, justify="left")
-        postion_8 = Label(clan_ranking, text="8:", font=font_times_15, justify="left")
-        postion_9 = Label(clan_ranking, text="9:", font=font_times_15, justify="left")
-        postion_10 = Label(clan_ranking, text="10:", font=font_times_15, justify="left")
+        # Vaibale list to be past throught to display_preview_list function
+        title = 'Current Top 10 Clan for the day'
+        poll_postion_1 = search_rs3_clan_html_current[0]
+        poll_postion_2 = search_rs3_clan_html_current[1]
+        poll_postion_3 = search_rs3_clan_html_current[2]
+        poll_postion_4 = search_rs3_clan_html_current[3]
+        poll_postion_5 = search_rs3_clan_html_current[4]
+        poll_postion_6 = search_rs3_clan_html_current[5]
+        poll_postion_7 = search_rs3_clan_html_current[6]
+        poll_postion_8 = search_rs3_clan_html_current[7]
+        poll_postion_9 = search_rs3_clan_html_current[8]
+        poll_postion_10 = search_rs3_clan_html_current[9]
+        clan_banner = Clan_banner_image # Image
 
-        clan_name_1 = Label(clan_ranking, text=search_rs3_clan_html_current[0], font=font_times_15, justify="left")
-        clan_name_2 = Label(clan_ranking, text=search_rs3_clan_html_current[1], font=font_times_15, justify="left")
-        clan_name_3 = Label(clan_ranking, text=search_rs3_clan_html_current[2], font=font_times_15, justify="left")
-        clan_name_4 = Label(clan_ranking, text=search_rs3_clan_html_current[3], font=font_times_15, justify="left")
-        clan_name_5 = Label(clan_ranking, text=search_rs3_clan_html_current[4], font=font_times_15, justify="left")
-        clan_name_6 = Label(clan_ranking, text=search_rs3_clan_html_current[5], font=font_times_15, justify="left")
-        clan_name_7 = Label(clan_ranking, text=search_rs3_clan_html_current[6], font=font_times_15, justify="left")
-        clan_name_8 = Label(clan_ranking, text=search_rs3_clan_html_current[7], font=font_times_15, justify="left")
-        clan_name_9 = Label(clan_ranking, text=search_rs3_clan_html_current[8], font=font_times_15, justify="left")
-        clan_name_10 = Label(clan_ranking, text=search_rs3_clan_html_current[9], font=font_times_15, justify="left")
-        clan_banner = Label(clan_ranking, image=Clan_banner_image)
-        #____________________________________________________________________
-        # Layout for top 10 players of the day
-        clan_banner.grid(column=0, row=0, columnspan=4, rowspan=2)
-        postion_1.grid(column=1, row=3)
-        postion_2.grid(column=1, row=4)
-        postion_3.grid(column=1, row=5)
-        postion_4.grid(column=1, row=6)
-        postion_5.grid(column=1, row=7)
-        postion_6.grid(column=1, row=8)
-        postion_7.grid(column=1, row=9)
-        postion_8.grid(column=1, row=10)
-        postion_9.grid(column=1, row=11)
-        postion_10.grid(column=1, row=12)
-
-        clan_name_1.grid(column=2, row=3, sticky=W)
-        clan_name_2.grid(column=2, row=4, sticky=W)
-        clan_name_3.grid(column=2, row=5, sticky=W)
-        clan_name_4.grid(column=2, row=6, sticky=W)
-        clan_name_5.grid(column=2, row=7, sticky=W)
-        clan_name_6.grid(column=2, row=8, sticky=W)
-        clan_name_7.grid(column=2, row=9, sticky=W)
-        clan_name_8.grid(column=2, row=10, sticky=W)
-        clan_name_9.grid(column=2, row=11, sticky=W)
-        clan_name_10.grid(column=2, row=12, sticky=W)
+        display_preview_list(title, clan_banner, poll_postion_1, poll_postion_2, poll_postion_3, poll_postion_4, poll_postion_5, poll_postion_6, poll_postion_7, poll_postion_8, poll_postion_9, poll_postion_10) # Call display_preview_list with the variable pass through.
 
     elif top_10_radio.get() == 5: # Previous player data from old school RuneScape
         search_OSRS_player_html_archive = []
@@ -416,56 +282,22 @@ def preview_list(): # gernerates a tkinter window with data from local files or 
         for player in placeholder_search_OSRS_player_html_archive:
             search_OSRS_player_html_archive.append(placeholder_search_OSRS_player_html_archive[count].replace('</a></td>', '')) # Go throught the list of runescape players and removes '</a></td>'
             count = count + 1
-        oldschool_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
-        oldschool_player_xp_screen.title('Pervious Top 10 xp gained in Old School RuneScape')
-        # 2nd Screen Widget ____________________________________________________________________
-        postion_1 = Label(oldschool_player_xp_screen, text="1:", font=font_times_15, justify="left")
-        postion_2 = Label(oldschool_player_xp_screen, text="2:", font=font_times_15, justify="left")
-        postion_3 = Label(oldschool_player_xp_screen, text="3:", font=font_times_15, justify="left")
-        postion_4 = Label(oldschool_player_xp_screen, text="4:", font=font_times_15, justify="left")
-        postion_5 = Label(oldschool_player_xp_screen, text="5:", font=font_times_15, justify="left")
-        postion_6 = Label(oldschool_player_xp_screen, text="6:", font=font_times_15, justify="left")
-        postion_7 = Label(oldschool_player_xp_screen, text="7:", font=font_times_15, justify="left")
-        postion_8 = Label(oldschool_player_xp_screen, text="8:", font=font_times_15, justify="left")
-        postion_9 = Label(oldschool_player_xp_screen, text="9:", font=font_times_15, justify="left")
-        postion_10 = Label(oldschool_player_xp_screen, text="10:", font=font_times_15, justify="left")
 
-        player_user_name_1 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_archive[0], font=font_times_15, justify="left")
-        player_user_name_2 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_archive[1], font=font_times_15, justify="left")
-        player_user_name_3 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_archive[2], font=font_times_15, justify="left")
-        player_user_name_4 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_archive[3], font=font_times_15, justify="left")
-        player_user_name_5 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_archive[4], font=font_times_15, justify="left")
-        player_user_name_6 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_archive[5], font=font_times_15, justify="left")
-        player_user_name_7 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_archive[6], font=font_times_15, justify="left")
-        player_user_name_8 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_archive[7], font=font_times_15, justify="left")
-        player_user_name_9 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_archive[8], font=font_times_15, justify="left")
-        player_user_name_10 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_archive[9], font=font_times_15, justify="left")
-        OSRS_image = Label(oldschool_player_xp_screen, image=OSRS_logo_image)
-        #____________________________________________________________________
+        # Vaibale list to be past throught to display_preview_list function
+        title = 'Pervious Top 10 xp gained in Old School RuneScape'
+        poll_postion_1 = search_OSRS_player_html_archive[0]
+        poll_postion_2 = search_OSRS_player_html_archive[1]
+        poll_postion_3 = search_OSRS_player_html_archive[2]
+        poll_postion_4 = search_OSRS_player_html_archive[3]
+        poll_postion_5 = search_OSRS_player_html_archive[4]
+        poll_postion_6 = search_OSRS_player_html_archive[5]
+        poll_postion_7 = search_OSRS_player_html_archive[6]
+        poll_postion_8 = search_OSRS_player_html_archive[7]
+        poll_postion_9 = search_OSRS_player_html_archive[8]
+        poll_postion_10 = search_OSRS_player_html_archive[9]
+        OSRS_image = OSRS_logo_image
 
-        # Layout for top 10 players of the day
-        OSRS_image.grid(column=0, row=0, columnspan=4, rowspan=2)
-        postion_1.grid(column=1, row=3)
-        postion_2.grid(column=1, row=4)
-        postion_3.grid(column=1, row=5)
-        postion_4.grid(column=1, row=6)
-        postion_5.grid(column=1, row=7)
-        postion_6.grid(column=1, row=8)
-        postion_7.grid(column=1, row=9)
-        postion_8.grid(column=1, row=10)
-        postion_9.grid(column=1, row=11)
-        postion_10.grid(column=1, row=12)
-
-        player_user_name_1.grid(column=2, row=3, sticky=W)
-        player_user_name_2.grid(column=2, row=4, sticky=W)
-        player_user_name_3.grid(column=2, row=5, sticky=W)
-        player_user_name_4.grid(column=2, row=6, sticky=W)
-        player_user_name_5.grid(column=2, row=7, sticky=W)
-        player_user_name_6.grid(column=2, row=8, sticky=W)
-        player_user_name_7.grid(column=2, row=9, sticky=W)
-        player_user_name_8.grid(column=2, row=10, sticky=W)
-        player_user_name_9.grid(column=2, row=11, sticky=W)
-        player_user_name_10.grid(column=2, row=12, sticky=W)
+        display_preview_list(title, OSRS_image, poll_postion_1, poll_postion_2, poll_postion_3, poll_postion_4, poll_postion_5, poll_postion_6, poll_postion_7, poll_postion_8, poll_postion_9, poll_postion_10) # Call display_preview_list with the variable pass through.
 
     elif top_10_radio.get() == 6: # Current player data from old school RuneScape
         search_OSRS_player_html_current = []
@@ -477,58 +309,72 @@ def preview_list(): # gernerates a tkinter window with data from local files or 
         for player in placeholder_search_OSRS_player_html_current:
             search_OSRS_player_html_current.append(placeholder_search_OSRS_player_html_current[count].replace('</a></td>', '')) # Go throught the list of runescape players and removes '</a></td>'
             count = count + 1
-        oldschool_player_xp_screen = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
-        oldschool_player_xp_screen.title('Current Top 10 xp gained in Old School RuneScape')
-        # 2nd Screen Widget ____________________________________________________________________
-        postion_1 = Label(oldschool_player_xp_screen, text="1:", font=font_times_15, justify="left")
-        postion_2 = Label(oldschool_player_xp_screen, text="2:", font=font_times_15, justify="left")
-        postion_3 = Label(oldschool_player_xp_screen, text="3:", font=font_times_15, justify="left")
-        postion_4 = Label(oldschool_player_xp_screen, text="4:", font=font_times_15, justify="left")
-        postion_5 = Label(oldschool_player_xp_screen, text="5:", font=font_times_15, justify="left")
-        postion_6 = Label(oldschool_player_xp_screen, text="6:", font=font_times_15, justify="left")
-        postion_7 = Label(oldschool_player_xp_screen, text="7:", font=font_times_15, justify="left")
-        postion_8 = Label(oldschool_player_xp_screen, text="8:", font=font_times_15, justify="left")
-        postion_9 = Label(oldschool_player_xp_screen, text="9:", font=font_times_15, justify="left")
-        postion_10 = Label(oldschool_player_xp_screen, text="10:", font=font_times_15, justify="left")
+        title = 'Current Top 10 xp gained in Old School RuneScape'
+        poll_postion_1 = search_OSRS_player_html_current[0]
+        poll_postion_2 = search_OSRS_player_html_current[1]
+        poll_postion_3 = search_OSRS_player_html_current[2]
+        poll_postion_4 = search_OSRS_player_html_current[3]
+        poll_postion_5 = search_OSRS_player_html_current[4]
+        poll_postion_6 = search_OSRS_player_html_current[5]
+        poll_postion_7 = search_OSRS_player_html_current[6]
+        poll_postion_8 = search_OSRS_player_html_current[7]
+        poll_postion_9 = search_OSRS_player_html_current[8]
+        poll_postion_10 = search_OSRS_player_html_current[9]
+        OSRS_image = OSRS_logo_image
 
-        player_user_name_1 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_current[0], font=font_times_15, justify="left")
-        player_user_name_2 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_current[1], font=font_times_15, justify="left")
-        player_user_name_3 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_current[2], font=font_times_15, justify="left")
-        player_user_name_4 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_current[3], font=font_times_15, justify="left")
-        player_user_name_5 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_current[4], font=font_times_15, justify="left")
-        player_user_name_6 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_current[5], font=font_times_15, justify="left")
-        player_user_name_7 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_current[6], font=font_times_15, justify="left")
-        player_user_name_8 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_current[7], font=font_times_15, justify="left")
-        player_user_name_9 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_current[8], font=font_times_15, justify="left")
-        player_user_name_10 = Label(oldschool_player_xp_screen, text=search_OSRS_player_html_current[9], font=font_times_15, justify="left")
-        OSRS_image = Label(oldschool_player_xp_screen, image=OSRS_logo_image)
-        #____________________________________________________________________
-        # Layout for top 10 players of the day
-        OSRS_image.grid(column=0, row=0, columnspan=4, rowspan=2)
-        postion_1.grid(column=1, row=3)
-        postion_2.grid(column=1, row=4)
-        postion_3.grid(column=1, row=5)
-        postion_4.grid(column=1, row=6)
-        postion_5.grid(column=1, row=7)
-        postion_6.grid(column=1, row=8)
-        postion_7.grid(column=1, row=9)
-        postion_8.grid(column=1, row=10)
-        postion_9.grid(column=1, row=11)
-        postion_10.grid(column=1, row=12)
-
-        player_user_name_1.grid(column=2, row=3, sticky=W)
-        player_user_name_2.grid(column=2, row=4, sticky=W)
-        player_user_name_3.grid(column=2, row=5, sticky=W)
-        player_user_name_4.grid(column=2, row=6, sticky=W)
-        player_user_name_5.grid(column=2, row=7, sticky=W)
-        player_user_name_6.grid(column=2, row=8, sticky=W)
-        player_user_name_7.grid(column=2, row=9, sticky=W)
-        player_user_name_8.grid(column=2, row=10, sticky=W)
-        player_user_name_9.grid(column=2, row=11, sticky=W)
-        player_user_name_10.grid(column=2, row=12, sticky=W)
-
+        display_preview_list(title, OSRS_image, poll_postion_1, poll_postion_2, poll_postion_3, poll_postion_4, poll_postion_5, poll_postion_6, poll_postion_7, poll_postion_8, poll_postion_9, poll_postion_10) # Call display_preview_list with the variable pass through.
     else:
         alert("Preview was clicked. To preview a list please click on a button above.")
+
+def display_preview_list(title, top_image, poll_postion_1, poll_postion_2, poll_postion_3, poll_postion_4, poll_postion_5, poll_postion_6, poll_postion_7, poll_postion_8, poll_postion_9, poll_postion_10):
+    display_preview_list_window = Toplevel() # Top 10 xp gained today after 10am to 9:59am the next day
+    display_preview_list_window.title(title)
+    postion_1 = Label(display_preview_list_window, text=poll_postion_1, font=font_times_15, justify="left")
+    postion_2 = Label(display_preview_list_window, text=poll_postion_2, font=font_times_15, justify="left")
+    postion_3 = Label(display_preview_list_window, text=poll_postion_3, font=font_times_15, justify="left")
+    postion_4 = Label(display_preview_list_window, text=poll_postion_4, font=font_times_15, justify="left")
+    postion_5 = Label(display_preview_list_window, text=poll_postion_5, font=font_times_15, justify="left")
+    postion_6 = Label(display_preview_list_window, text=poll_postion_6, font=font_times_15, justify="left")
+    postion_7 = Label(display_preview_list_window, text=poll_postion_7, font=font_times_15, justify="left")
+    postion_8 = Label(display_preview_list_window, text=poll_postion_8, font=font_times_15, justify="left")
+    postion_9 = Label(display_preview_list_window, text=poll_postion_9, font=font_times_15, justify="left")
+    postion_10 = Label(display_preview_list_window, text=poll_postion_10, font=font_times_15, justify="left")
+    # This secton never changes. Displayes what rank number it is.
+    rank_1 = Label(display_preview_list_window, text="1:", font=font_times_15, justify="left")
+    rank_2 = Label(display_preview_list_window, text="2:", font=font_times_15, justify="left")
+    rank_3 = Label(display_preview_list_window, text="3:", font=font_times_15, justify="left")
+    rank_4 = Label(display_preview_list_window, text="4:", font=font_times_15, justify="left")
+    rank_5 = Label(display_preview_list_window, text="5:", font=font_times_15, justify="left")
+    rank_6 = Label(display_preview_list_window, text="6:", font=font_times_15, justify="left")
+    rank_7 = Label(display_preview_list_window, text="7:", font=font_times_15, justify="left")
+    rank_8 = Label(display_preview_list_window, text="8:", font=font_times_15, justify="left")
+    rank_9 = Label(display_preview_list_window, text="9:", font=font_times_15, justify="left")
+    rank_10 = Label(display_preview_list_window, text="10:", font=font_times_15, justify="left")
+
+    preview_image = Label(display_preview_list_window, image=top_image)
+    # Layout for top 10 preview list
+    preview_image.grid(column=0, row=0, columnspan=4, rowspan=2)
+    rank_1.grid(column=1, row=3)
+    rank_2.grid(column=1, row=4)
+    rank_3.grid(column=1, row=5)
+    rank_4.grid(column=1, row=6)
+    rank_5.grid(column=1, row=7)
+    rank_6.grid(column=1, row=8)
+    rank_7.grid(column=1, row=9)
+    rank_8.grid(column=1, row=10)
+    rank_9.grid(column=1, row=11)
+    rank_10.grid(column=1, row=12)
+
+    postion_1.grid(column=2, row=3, sticky=W)
+    postion_2.grid(column=2, row=4, sticky=W)
+    postion_3.grid(column=2, row=5, sticky=W)
+    postion_4.grid(column=2, row=6, sticky=W)
+    postion_5.grid(column=2, row=7, sticky=W)
+    postion_6.grid(column=2, row=8, sticky=W)
+    postion_7.grid(column=2, row=9, sticky=W)
+    postion_8.grid(column=2, row=10, sticky=W)
+    postion_9.grid(column=2, row=11, sticky=W)
+    postion_10.grid(column=2, row=12, sticky=W)
 
 def export_list(): # Searchs for data from local files or from a website and calls another function to write to file with the data.
     if top_10_radio.get() == 1:
